@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "postcss ./input.css -o ./style.css",
-    "build:js": "terser script.js -o script.min.js -c -m",
+    "build:js": "terser script.js -o script.min.temp.js -c -m",
     "build": "npm run build:css && npm run build:js"
   },
   "keywords": [],
