@@ -1,0 +1,26 @@
+{
+  "name": "markdowntoolset",
+  "version": "1.0.0",
+  "description": "",
+  "main": "marked.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "postcss ./input.css -o ./style.css",
+    "build:js": "terser script.js -o script.min.js -c -m",
+    "build": "npm run build:css && npm run build:js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.0",
+    "postcss-cli": "^11.0.1",
+    "terser": "^5.43.1"
+  }
+}
