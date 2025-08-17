@@ -8,7 +8,7 @@ A free, privacy-first, real-time Markdown to HTML converter with advanced custom
 
 - **Real-time Conversion:** Instantly see your Markdown rendered as HTML as you type.
 - **Privacy First:** All processing happens in your browser. No data is ever sent to our servers.
-- **File Upload:** Supports uploading .md files to convert to HTML code.
+- **File Upload:** Drag and drop or upload your `.md` files.
 - **Smart Format Correction:** Automatically fixes non-standard lists from AI tools (e.g., those using `•` or `:`).
 - **Advanced Customization:**
     - **Add Heading IDs:** Automatically generate `id` attributes for all headings (`<h1>`, `<h2>`, etc.) for easy deep-linking.
