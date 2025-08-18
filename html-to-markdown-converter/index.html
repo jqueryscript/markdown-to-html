@@ -61,6 +61,60 @@
             "price": "0",
             "priceCurrency": "USD"
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.markdownhtmlgen.com/html-to-markdown-converter/#faqpage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is my data safe and private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100%. Your privacy is our top priority. All conversion and processing happens directly in your browser. No data, text, or files are ever sent to our servers. Everything stays on your computer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which browsers are supported?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This tool is built with modern web technologies and works best on the latest versions of Google Chrome, Firefox, Safari, and Microsoft Edge. We do not support Internet Explorer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. It's widely used for its simplicity and readability."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why convert HTML to Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To simplify content for easier editing, version control, and use in a wide range of modern publishing platforms and documentation tools."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the converter handle complex HTML?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It focuses on standard semantic HTML tags (headings, lists, tables, links, etc.) and may ignore highly stylized or non-standard elements to produce clean, readable Markdown."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are there any file size limits?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Since all processing is done in your browser, the main limitation is your browser's own memory capacity. For typical HTML files, you should not experience any issues."
+              }
+            }
+          ]
         }
       ]
     }
@@ -187,7 +241,7 @@
                         <h2 class="text-3xl font-bold text-gray-800" id="features">Powerful Features for Full Control</h2>
                         <p class="mt-2 text-lg text-gray-600">Everything you need for clean, customized HTML to Markdown conversion.</p>
                     </div>
-                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
                             <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-6 w-6 text-indigo-600"><polygon points="13 12 13 2 6 12 11 12 11 22 18 12 13 12"/></svg>
@@ -253,7 +307,7 @@
                         <div class="flex flex-col">
                             <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">HTML Input</h3>
                             <div class="bg-gray-900 rounded-lg overflow-hidden flex-1">
-                                <pre class="p-4 text-sm text-gray-300 overflow-auto h-full"><code class="language-html">&lt;h1&gt;Team Meeting&lt;/h1&gt;
+                                <pre class="h-full"><code class="language-html">&lt;h1&gt;Team Meeting&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Goal:&lt;/strong&gt; Finalize Q3 roadmap.&lt;/li&gt;
   &lt;li&gt;See &lt;a href="https://example.com"&gt;proposal&lt;/a&gt;&lt;/li&gt;
@@ -264,7 +318,7 @@
                         <div class="flex flex-col">
                             <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Markdown Output</h3>
                             <div class="bg-gray-900 rounded-lg overflow-hidden flex-1">
-                                <pre class="p-4 text-sm text-gray-300 overflow-auto h-full"><code class="language-markdown"># Team Meeting
+                                <pre class="h-full"><code class="language-markdown"># Team Meeting
 
 *   **Goal:** Finalize Q3 roadmap.
 *   See [proposal](https://example.com)
