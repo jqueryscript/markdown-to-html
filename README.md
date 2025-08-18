@@ -1,65 +1,94 @@
-# Markdown to HTML Converter
+# Markdown Toolset
+**Live Website:** [https://www.markdownhtmlgen.com/](https://www.markdownhtmlgen.com/)
 
-A free, privacy-first, real-time Markdown to HTML converter with advanced customization options. This tool is designed for content creators, developers, and anyone who needs to quickly and easily convert Markdown into clean, semantic HTML.
-
-**Live Demo:** [**markdownhtmlgen.com**](https://www.markdownhtmlgen.com/)
+Welcome to the Markdown Toolset, an online platform offering convenient conversion tools between Markdown and HTML. This project is designed to be visually and structurally consistent across all its pages, providing a seamless user experience.
 
 ## Features
 
-- **Real-time Conversion:** Instantly see your Markdown rendered as HTML as you type.
-- **Privacy First:** All processing happens in your browser. No data is ever sent to our servers.
-- **File Upload:** Drag and drop or upload your `.md` files.
-- **Smart Format Correction:** Automatically fixes non-standard lists from AI tools (e.g., those using `•` or `:`).
-- **Advanced Customization:**
-    - **Add Heading IDs:** Automatically generate `id` attributes for all headings (`<h1>`, `<h2>`, etc.) for easy deep-linking.
-    - **Secure Links:** Automatically add `rel="noopener noreferrer"` to all external links for enhanced security.
-    - **Remove Emojis:** Option to automatically strip all emojis for a clean, professional output.
-- **Syntax Highlighting:** The generated HTML code is highlighted for readability.
-- **Copy & Download:** Easily copy the generated HTML or download it as a complete `.html` file.
-- **Responsive Design:** Fully responsive and works on all devices.
+*   **Markdown to HTML Converter:** Easily convert your Markdown text into HTML. This is the primary tool accessible from the homepage.
+*   **HTML to Markdown Converter:** Convert HTML content back into Markdown format. This tool is located in a dedicated subdirectory.
+*   **Privacy Policy Page:** A dedicated page outlining the privacy policy for the website.
+*   **Terms and Conditions Page:** A dedicated page detailing the terms and conditions of using the website.
 
-## Tech Stack
+## Technologies Used
 
-- **HTML5**
-- **Tailwind CSS v4**
-- **JavaScript (ES6+)**
-- **Marked.js** for Markdown-to-HTML conversion.
-- **Terser** for JavaScript minification.
-- **PostCSS** with **cssnano** and **autoprefixer** for CSS processing and minification.
+*   **HTML:** For structuring the web content.
+*   **JavaScript:** For interactive functionalities and conversion logic.
+*   **Tailwind CSS v4:** For a modern, consistent, and responsive design across all pages.
+*   **PostCSS:** For processing CSS with Tailwind CSS.
 
-## Development
+## Getting Started
 
-To run this project locally for development:
+To set up and run this project locally, follow these steps:
+
+### Prerequisites
+
+Ensure you have Node.js and npm (Node Package Manager) installed on your system.
+
+### Installation
 
 1.  **Clone the repository:**
     ```bash
-    # Replace this with your actual repository URL
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/your-username/markdown-toolset.git
+    cd markdown-toolset
     ```
+    *(Note: Replace `https://github.com/your-username/markdown-toolset.git` with the actual repository URL once it's pushed to GitHub.)*
 
 2.  **Install dependencies:**
-    This project uses `npm` for package management.
     ```bash
     npm install
     ```
 
-3.  **Build assets:**
-    To compile and minify the CSS and JavaScript files, run the build script. I have also added a convenient `build` script that runs both commands.
-    ```bash
-    npm run build
-    ```
-    This will:
-    -   Process `input.css` with Tailwind CSS and create the final `style.css`.
-    -   Minify `script.js` into `script.min.js`.
+### Building CSS
 
-4.  **Open in browser:**
-    Simply open the `index.html` file in your web browser to use the application.
+This project uses Tailwind CSS. You need to build the CSS file after making any changes to the Tailwind configuration or if you're setting up the project for the first time.
+
+```bash
+npm run build:css
+```
+This command will generate the `style.css` file in the root directory, which is used by all pages.
+
+### Running the Project
+
+This is a static website. You can open the `index.html` file directly in your web browser to access the Markdown to HTML converter.
+
+To access the HTML to Markdown converter, navigate to `html-to-markdown-converter/index.html` in your browser.
+
+For local development with a live server (recommended), you can use a tool like `live-server` or any other local web server.
+
+```bash
+# Install live-server globally (if you don't have it)
+npm install -g live-server
+
+# Run live-server from the project root
+live-server
+```
+
+## Project Structure
+
+```
+.
+├── index.html                  # Main Markdown to HTML converter page
+├── script.js                   # JavaScript for Markdown to HTML converter
+├── input.css                   # Tailwind CSS source file
+├── style.css                   # Generated CSS file (after running build:css)
+├── privacy.html                # Privacy Policy page
+├── terms.html                  # Terms and Conditions page
+├── package.json                # Project dependencies and scripts
+├── postcss.config.js           # PostCSS configuration for Tailwind CSS
+├── html-to-markdown-converter/
+│   ├── index.html              # HTML to Markdown converter page
+│   └── script.js               # JavaScript for HTML to Markdown converter
+└── ... (other project files like .gitignore, CNAME, etc.)
+```
 
 ## Contributing
 
-Contributions are welcome! If you have a feature request, bug report, or want to contribute to the code, please feel free to open an issue or submit a pull request.
+If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
 ## License
 
-This project is open source and licensed under the [ISC License](https://opensource.org/licenses/ISC).
+This project is open source and available under the [MIT License](LICENSE).
+*(Note: You might need to create a LICENSE file if you don't have one.)*
+
+---

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free HTML to Markdown Converter - Real Time</title>
-    <meta name="description" content="Free, privacy-first HTML to Markdown converter with real-time preview. Convert clean HTML into well-formatted Markdown.">
+    <meta name="description" content="Free, privacy-first, AI content friendly HTML to Markdown converter with real-time preview. Convert clean HTML into well-formatted Markdown.">
     <link rel="canonical" href="https://www.markdownhtmlgen.com/html-to-markdown-converter/">
 
     <!-- Open Graph / Facebook -->
@@ -61,10 +61,65 @@
             "price": "0",
             "priceCurrency": "USD"
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.markdownhtmlgen.com/html-to-markdown-converter/#faqpage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is my data safe and private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100%. Your privacy is our top priority. All conversion and processing happens directly in your browser. No data, text, or files are ever sent to our servers. Everything stays on your computer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which browsers are supported?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This tool is built with modern web technologies and works best on the latest versions of Google Chrome, Firefox, Safari, and Microsoft Edge. We do not support Internet Explorer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. It's widely used for its simplicity and readability."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why convert HTML to Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To simplify content for easier editing, version control, and use in a wide range of modern publishing platforms and documentation tools."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the converter handle complex HTML?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It focuses on standard semantic HTML tags (headings, lists, tables, links, etc.) and may ignore highly stylized or non-standard elements to produce clean, readable Markdown."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are there any file size limits?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Since all processing is done in your browser, the main limitation is your browser's own memory capacity. For typical HTML files, you should not experience any issues."
+              }
+            }
+          ]
         }
       ]
     }
     </script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-file-text'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4'/><path d='M10 9H8'/><path d='M16 13H8'/><path d='M16 17H8'/></svg>" type="image/svg+xml">
 </head>
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-white border-b border-gray-200">
@@ -73,6 +128,7 @@
                 <a href="/" class="text-2xl font-bold text-gray-800"><span>HTML to Markdown Converter</span></a>
                 <nav class="ml-10 space-x-4 hidden lg:flex">
                     <a href="/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat mr-2 h-5 w-5"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>Markdown to HTML</a>
+                    <a href="#markdown" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code mr-2 h-5 w-5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Markdown Cheatsheet</a>
                 </nav>
             </div>
         </div>
@@ -83,7 +139,7 @@
                 <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">HTML to Markdown Converter</h1>
                 <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">A free, privacy-first HTML to Markdown converter with real-time preview and clean output.</p>
             </section>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" style="height: 50vh;">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" style="height: 40vh;">
                 <div class="flex flex-col h-full">
                     <div class="border-b border-gray-200"><nav class="-mb-px flex space-x-4" id="input-tabs">
                         <button data-tab="html" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">HTML Input</button>
@@ -184,10 +240,10 @@
             <div class="mt-16 space-y-12">
                 <section>
                     <div class="text-center">
-                        <h2 class="text-3xl font-bold text-gray-800" id="features">Powerful Features for Full Control</h2>
+                        <h2 class="text-3xl font-bold text-gray-800" id="features">Features</h2>
                         <p class="mt-2 text-lg text-gray-600">Everything you need for clean, customized HTML to Markdown conversion.</p>
                     </div>
-                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
                             <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-6 w-6 text-indigo-600"><polygon points="13 12 13 2 6 12 11 12 11 22 18 12 13 12"/></svg>
@@ -244,6 +300,35 @@
                         </div>
                     </div>
                 </section>
+                                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800" id="how-it-works">How It Works</h2>
+                        <p class="mt-2 text-lg text-gray-600">A simple and intuitive workflow.</p>
+                    </div>
+                    <div class="mt-8 grid gap-8 md:grid-cols-3">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
+                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-edit-3 h-8 w-8 text-indigo-600"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            </div>
+                            <h3 class="mt-5 text-xl font-bold">1. Paste & Upload</h3>
+                            <p class="mt-2 text-base text-gray-600">Paste HTML code in the left panel or upload an `.html` file.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
+                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-8 w-8 text-indigo-600"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <h3 class="mt-5 text-xl font-bold">2. Preview</h3>
+                            <p class="mt-2 text-base text-gray-600">See the generated Markdown in the right panel instantly.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
+                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-8 w-8 text-indigo-600"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2"/></svg>
+                            </div>
+                            <h3 class="mt-5 text-xl font-bold">3. Copy or Download</h3>
+                            <p class="mt-2 text-base text-gray-600">Copy the result or download it as a `.md` file.</p>
+                        </div>
+                    </div>
+                </section>
                 <section>
                     <div class="text-center">
                         <h2 class="text-3xl font-bold text-gray-800">Conversion Example</h2>
@@ -273,36 +358,6 @@
                         </div>
                     </div>
                 </section>
-                <section>
-                    <div class="text-center">
-                        <h2 class="text-3xl font-bold text-gray-800" id="how-it-works">How It Works</h2>
-                        <p class="mt-2 text-lg text-gray-600">A simple and intuitive workflow.</p>
-                    </div>
-                    <div class="mt-8 grid gap-8 md:grid-cols-3">
-                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
-                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-edit-3 h-8 w-8 text-indigo-600"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                            </div>
-                            <h3 class="mt-5 text-xl font-bold">1. Paste & Upload</h3>
-                            <p class="mt-2 text-base text-gray-600">Paste HTML code in the left panel or upload an `.html` file.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
-                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-8 w-8 text-indigo-600"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                            </div>
-                            <h3 class="mt-5 text-xl font-bold">2. Preview</h3>
-                            <p class="mt-2 text-base text-gray-600">See the generated Markdown in the right panel instantly.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
-                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-8 w-8 text-indigo-600"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2"/></svg>
-                            </div>
-                            <h3 class="mt-5 text-xl font-bold">3. Copy or Download</h3>
-                            <p class="mt-2 text-base text-gray-600">Copy the result or download it as a `.md` file.</p>
-                        </div>
-                    </div>
-                </section>
-
                 <section>
                     <div class="text-center">
                         <h2 class="text-3xl font-bold text-gray-800">Use Cases</h2>
@@ -426,6 +481,30 @@
                         </div>
                     </div>
                 </section>
+                 <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm"><h2 class="text-2xl font-bold text-gray-800 mb-6" id="markdown">Markdown Cheatsheet</h2><div class="prose max-w-none">
+                    <h3>Headers</h3><p>Use hashtags to create headers. More hashtags mean a smaller header.</p><pre><code># Header 1
+## Header 2
+### Header 3</code></pre>
+                    <h3>Text Styles</h3><p>Create bold, italic, or strikethrough text.</p><pre><code>**Bold Text**
+*Italic Text*
+~~Strikethrough~~</code></pre>
+                    <h3>Lists</h3><p>Create ordered or unordered lists.</p><pre><code>1. First item
+2. Second item
+
+- Unordered item
+- Another item</code></pre>
+                    <h3>Links and Images</h3><p>Create links and embed images.</p><pre><code>[Visit Google](https://google.com)
+![alt text](path/to/image.jpg)</code></pre>
+                    <h3>Quotes and Code</h3><p>Highlight quotes and code snippets.</p><pre><code>> This is a blockquote.
+
+`inline code`<h3>Tables</h3><p>Organize data with tables.</p><pre><code>| Header 1 | Header 2 |
+| :--- | :--- |
+| Cell 1 | Cell 2 |
+| Cell 3 | Cell 4 |</code></pre>
+                    <h3>Task Lists</h3><p>Create checklists.</p><pre><code>- [x] Completed task
+- [ ] Incomplete task</code></pre>
+                    <h3>Horizontal Rule</h3><p>Create a horizontal line.</p><pre><code>---</code></pre>
+                </div></section>
             </div>
         </main>
     </div>
