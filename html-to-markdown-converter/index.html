@@ -122,6 +122,65 @@
                     </div>
                 </div>
             </div>
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm mt-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-6 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal h-6 w-6 text-indigo-600 mr-3"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><circle cx="14" cy="20" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="17" cy="4" r="2"/></svg>
+                    Settings
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                    <div class="relative">
+                        <label for="heading-style" class="block text-sm font-semibold text-gray-800 mb-2">Heading Style</label>
+                        <select id="heading-style" class="appearance-none block w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-shadow">
+                            <option value="atx" selected>ATX (#)</option>
+                            <option value="setext">Setext (= or -)</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 top-8 flex items-center px-2 text-gray-700">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label for="bullet-style" class="block text-sm font-semibold text-gray-800 mb-2">Bullet List Marker</label>
+                        <select id="bullet-style" class="appearance-none block w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-shadow">
+                            <option value="-" selected>-</option>
+                            <option value="*">*</option>
+                            <option value="+">+</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 top-8 flex items-center px-2 text-gray-700">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label for="link-style" class="block text-sm font-semibold text-gray-800 mb-2">Link Style</label>
+                        <select id="link-style" class="appearance-none block w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-shadow">
+                            <option value="inlined" selected>Inlined</option>
+                            <option value="referenced">Referenced</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 top-8 flex items-center px-2 text-gray-700">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label for="bold-style" class="block text-sm font-semibold text-gray-800 mb-2">Bold Style</label>
+                        <select id="bold-style" class="appearance-none block w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-shadow">
+                            <option value="**" selected>** (asterisks)</option>
+                            <option value="__">__ (underscores)</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 top-8 flex items-center px-2 text-gray-700">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label for="italic-style" class="block text-sm font-semibold text-gray-800 mb-2">Italic Style</label>
+                        <select id="italic-style" class="appearance-none block w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-shadow">
+                            <option value="*" selected>* (asterisk)</option>
+                            <option value="_">_ (underscore)</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 top-8 flex items-center px-2 text-gray-700">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="mt-16 space-y-12">
                 <section>
                     <div class="text-center">

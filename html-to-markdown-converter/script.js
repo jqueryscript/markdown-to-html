@@ -7,11 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropArea = document.getElementById('drop-area');
   const fileUpload = document.getElementById('file-upload');
 
+  // Settings elements
+  const headingStyleSelect = document.getElementById('heading-style');
+  const bulletStyleSelect = document.getElementById('bullet-style');
+  const linkStyleSelect = document.getElementById('link-style');
+  const boldStyleSelect = document.getElementById('bold-style');
+  const italicStyleSelect = document.getElementById('italic-style');
+
   // --- Turndown Service Initialization ---
-  const turndownService = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced' });
 
   // --- Core Functions ---
+  const getTurndownOptions = () => {
+    return {
+      headingStyle: headingStyleSelect.value,
+      bulletListMarker: bulletStyleSelect.value,
+      linkStyle: linkStyleSelect.value,
+      em: italicStyleSelect.value,
+      strong: boldStyleSelect.value,
+      codeBlockStyle: 'fenced'
+    };
+  };
+
   const convertHtmlToMarkdown = () => {
+    const options = getTurndownOptions();
+    const turndownService = new TurndownService(options);
     const html = htmlInput.value || '';
     const markdown = turndownService.turndown(html);
     markdownCode.textContent = markdown;
@@ -52,6 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Event Listeners ---
   htmlInput.addEventListener('input', convertHtmlToMarkdown);
   downloadMarkdownButton.addEventListener('click', downloadFile);
+
+  // Settings listeners
+  headingStyleSelect.addEventListener('change', convertHtmlToMarkdown);
+  bulletStyleSelect.addEventListener('change', convertHtmlToMarkdown);
+  linkStyleSelect.addEventListener('change', convertHtmlToMarkdown);
+  boldStyleSelect.addEventListener('change', convertHtmlToMarkdown);
+  italicStyleSelect.addEventListener('change', convertHtmlToMarkdown);
 
   copyMarkdownButton.addEventListener('click', () => {
     navigator.clipboard.writeText(markdownCode.textContent).then(() => {
