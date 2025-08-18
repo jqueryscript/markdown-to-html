@@ -114,8 +114,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupTabs('input-tabs');
 
+  // --- UI Logic: FAQ Accordion ---
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const isOpen = button.parentElement.classList.contains('open');
+      const allItems = document.querySelectorAll('.faq-item');
+
+      // Close all other items
+      allItems.forEach(item => {
+        if (item !== button.parentElement) {
+          item.classList.remove('open');
+          item.querySelector('.faq-answer').style.maxHeight = null;
+          item.querySelector('.faq-icon-plus').classList.remove('hidden');
+          item.querySelector('.faq-icon-minus').classList.add('hidden');
+        }
+      });
+
+      // Toggle current item
+      if (isOpen) {
+        button.parentElement.classList.remove('open');
+        answer.style.maxHeight = null;
+        button.querySelector('.faq-icon-plus').classList.remove('hidden');
+        button.querySelector('.faq-icon-minus').classList.add('hidden');
+      } else {
+        button.parentElement.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        button.querySelector('.faq-icon-plus').classList.add('hidden');
+        button.querySelector('.faq-icon-minus').classList.remove('hidden');
+      }
+    });
+  });
+
   // --- Initial State ---
-  const placeholderHtml = `<h1>Hello World</h1>\n\n<p>This is an example of <strong>HTML input</strong> that will be converted to <em>Markdown</em>.</p>\n\n<ul>\n  <li>Item 1</li>\n  <li>Item 2</li>\n</ul>`;
+  const placeholderHtml = `<h1>Hello World</h1>\n\n<p>This is an example of <strong>HTML input</strong> that will be converted to <em>Markdown</em>.</p>\n\n<ul>\n  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>`;
   htmlInput.value = placeholderHtml;
   convertHtmlToMarkdown();
 });
