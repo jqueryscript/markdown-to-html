@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online WYSIWYG Markdown Editor</title>
+    <meta name="description" content="Free online WYSIWYG Markdown editor with perfect character alignment, real-time preview, syntax highlighting, and advanced formatting tools. Perfect for writing documentation, blog posts, and notes.">
+    <link rel="canonical" href="https://www.markdownhtmlgen.com/markdown-editor/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.markdownhtmlgen.com/markdown-editor/">
+    <meta property="og:title" content="Markdown Editor - Free Online Markdown Editor with Live Preview">
+    <meta property="og:description" content="Free online Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.">
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.markdownhtmlgen.com/markdown-editor/">
+    <meta property="twitter:title" content="Markdown Editor - Free Online Markdown Editor with Live Preview">
+    <meta property="twitter:description" content="Free online Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.">
+    <meta property="twitter:site" content="@jqueryscript">
+    <meta property="twitter:image" content="">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../style.css?v5">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F265C83TM1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F265C83TM1');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Free Markdown Editor",
+      "description": "A free online Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.markdownhtmlgen.com/markdown-editor/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-file-text'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4'/><path d='M10 9H8'/><path d='M16 13H8'/><path d='M16 17H8'/></svg>" type="image/svg+xml">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden hidden"></div>
+    <aside id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col flex-shrink-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-30 fixed h-full lg:hidden">
+        <div class="h-16 flex items-center justify-center text-2xl font-bold"><span>Markdown Editor</span></div>
+        <nav class="flex-1 px-2 space-y-1">
+            <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home mr-3 h-5 w-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Markdown to HTML</a>
+            <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat mr-3 h-5 w-5"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>HTML to Markdown</a>
+            <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-gray-900"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text mr-3 h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>WYSIWYG Markdown Editor</a>
+        </nav>
+    </aside>
+
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
+            <div class="flex items-center">
+                <a href="../" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>Markdown Editor</span></a>
+                <nav class="ml-10 space-x-4 hidden lg:flex">
+                    <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home mr-2 h-5 w-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Markdown to HTML</a>
+                    <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat mr-2 h-5 w-5"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>HTML to Markdown</a>
+                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-indigo-100"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text mr-2 h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>WYSIWYG Markdown Editor</a>
+                </nav>
+            </div>
+            <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+        </div>
+    </header>
+
+    <div class="max-w-screen-xl mx-auto">
+        <main class="p-4 sm:p-6">
+            <section class="text-center mb-8">
+                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">Free WYSIWYG Markdown Editor</h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">Free online Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.</p>
+            </section>
+
+            <!-- Main Editor Container -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <div id="markdown-editor-container" class="h-96">
+                    <!-- OverType editor will be initialized here -->
+                </div>
+                
+                <div class="mt-6 flex flex-wrap gap-4 justify-center">
+                    <button id="new-document" class="flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-plus mr-2 h-4 w-4"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>
+                        New Document
+                    </button>
+                    <button id="save-markdown" class="flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download mr-2 h-4 w-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                        Download Markdown
+                    </button>
+                    <button id="export-html" class="flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code mr-2 h-4 w-4"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        Export HTML
+                    </button>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts Section -->
+            <section class="mt-8">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-keyboard mr-3 h-6 w-6 text-indigo-600">
+                            <path d="M10 8h.01"/>
+                            <path d="M12 12h.01"/>
+                            <path d="M14 8h.01"/>
+                            <path d="M16 12h.01"/>
+                            <path d="M18 8h.01"/>
+                            <path d="M6 8h.01"/>
+                            <path d="M7 16h10"/>
+                            <path d="M8 12h.01"/>
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        </svg>
+                        Keyboard Shortcuts
+                    </h2>
+                    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Bold</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Ctrl+B</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Italic</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Ctrl+I</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Insert Link</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Ctrl+K</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Numbered List</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Ctrl+Shift+7</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Bullet List</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Ctrl+Shift+8</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Indent List</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Tab</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Outdent List</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Shift+Tab</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">New Line in List</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Enter</kbd>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <span class="font-medium text-gray-700">Toggle Theme</span>
+                            <kbd class="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-200 border border-gray-300 rounded">Click Button</kbd>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md">
+                        <p class="text-sm text-blue-800">
+                            <strong>Pro Tip:</strong> All keyboard shortcuts preserve your text selection, making it easy to apply multiple formats quickly. The editor also features smart list continuation - just press Enter at the end of a list item to create a new one automatically!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Features</h2>
+                    <p class="mt-2 text-lg text-gray-600">Everything you need for productive WYSIWYG Markdown editing.</p>
+                </div>
+                <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-6 w-6 text-indigo-600"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Perfect WYSIWYG Alignment</h3>
+                            <p class="mt-1 text-base text-gray-600">Invisible textarea overlay for seamless character-perfect editing.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette h-6 w-6 text-indigo-600"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Dual Theme Support</h3>
+                            <p class="mt-1 text-base text-gray-600">Solar (light) and Cave (dark) themes with global theming.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-keyboard h-6 w-6 text-indigo-600"><path d="M10 8h.01"/><path d="M12 12h.01"/><path d="M14 8h.01"/><path d="M16 12h.01"/><path d="M18 8h.01"/><path d="M6 8h.01"/><path d="M7 16h10"/><path d="M8 12h.01"/><rect width="20" height="16" x="2" y="4" rx="2"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Smart Keyboard Shortcuts</h3>
+                            <p class="mt-1 text-base text-gray-600">Intuitive shortcuts with selection preservation.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-checks h-6 w-6 text-indigo-600"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Smart List Continuation</h3>
+                            <p class="mt-1 text-base text-gray-600">GitHub-style automatic list continuation on Enter.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone h-6 w-6 text-indigo-600"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Mobile Optimized</h3>
+                            <p class="mt-1 text-base text-gray-600">Perfect native mobile support with visible syntax.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-3 h-6 w-6 text-indigo-600"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Live Stats Bar</h3>
+                            <p class="mt-1 text-base text-gray-600">Character, word, and line counts with position tracking.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Use Cases Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Use Cases</h2>
+                    <p class="mt-2 text-lg text-gray-600">Perfect for various writing and documentation scenarios.</p>
+                </div>
+                <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text text-indigo-600"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Technical Documentation</h3>
+                        </div>
+                        <p class="text-gray-600">Write API docs, README files, and technical guides with perfect code formatting and structure.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-newspaper text-indigo-600"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Blog Posts & Articles</h3>
+                        </div>
+                        <p class="text-gray-600">Create engaging content with proper headings, lists, and emphasis for better readability.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap text-indigo-600"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Educational Content</h3>
+                        </div>
+                        <p class="text-gray-600">Perfect for creating tutorials, course materials, and educational resources with clear structure.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-checks text-indigo-600"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Project Planning</h3>
+                        </div>
+                        <p class="text-gray-600">Organize tasks, create to-do lists, and plan projects with structured markdown formatting.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-text text-indigo-600"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Personal Notes</h3>
+                        </div>
+                        <p class="text-gray-600">Keep organized personal notes, journals, and ideas with the convenience of markdown formatting.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code text-indigo-600"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Code Documentation</h3>
+                        </div>
+                        <p class="text-gray-600">Document your code with inline examples, API references, and technical specifications.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQs Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Frequently Asked Questions</h2>
+                    <p class="mt-2 text-lg text-gray-600">Get answers to common questions about our WYSIWYG Markdown Editor.</p>
+                </div>
+                <div class="mt-8 space-y-6 max-w-3xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">What makes this a "WYSIWYG" Markdown editor?</h3>
+                        <p class="text-gray-600">Our editor uses an invisible textarea overlay technique that provides perfect character alignment between your typing and the styled preview. You see exactly how your formatted text will appear while maintaining the simplicity of markdown syntax.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Do I need to install anything to use this editor?</h3>
+                        <p class="text-gray-600">No installation required! This is a completely web-based editor that works directly in your browser. All processing happens client-side, ensuring your content remains private and secure.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Can I use this editor on mobile devices?</h3>
+                        <p class="text-gray-600">Absolutely! The editor is fully responsive and optimized for mobile use. It provides excellent native mobile support with visible markdown syntax and proper keyboard behavior.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">What markdown features are supported?</h3>
+                        <p class="text-gray-600">We support headers, bold/italic text, inline code, code blocks, links, lists (bulleted and numbered), blockquotes, and horizontal rules. The editor maintains visible markdown syntax for perfect alignment.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">How do I export my content?</h3>
+                        <p class="text-gray-600">You can download your content as raw markdown (.md file) or export it as HTML. The download buttons in the editor toolbar provide both options with a single click.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Is there a character or file size limit?</h3>
+                        <p class="text-gray-600">There are no artificial limits imposed by our editor. The actual limits depend on your browser's capabilities, but you can typically work with documents containing thousands of lines of text without issues.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-gray-300 py-12 mt-16">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Markdown Editor</h3>
+                    <p class="text-sm">Your free online WYSIWYG Markdown Editor. Real-time preview, syntax highlighting, and advanced formatting tools.</p>
+                    <p class="text-sm mt-4">&copy; 2025 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
+                        <li><a href="../html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
+                        <li><a href="#faq" class="text-sm hover:text-white transition-colors duration-200">FAQ</a></li>
+                        <li><a href="#markdown" class="text-sm hover:text-white transition-colors duration-200">Markdown Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Support -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Legal & Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../privacy.html" class="text-sm hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="text-sm hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Facebook" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="https://x.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="X" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-6 w-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+                        <a href="https://www.youtube.com/@jQueryScriptCSS" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="YouTube" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube h-6 w-6"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2h15a2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+                    </div>
+                    <p class="text-sm mt-4">Stay updated with our latest tools and features!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="overtype.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize OverType editor
+            const OT = window.OverType.default || window.OverType;
+            
+            // Set initial theme
+            OT.setTheme('cave');
+            
+            const [editor] = new OT('#markdown-editor-container', {
+                value: `# Welcome to WYSIWYG Markdown Editor
+
+## Getting Started
+
+This is a **powerful** WYSIWYG Markdown editor with perfect character alignment. Try these features:
+
+- **Bold text** with **double asterisks** (Ctrl+B)
+- *Italic text* with *single asterisks* (Ctrl+I)
+- [Links](https://example.com) with [text](url) (Ctrl+K)
+- \`inline code\` with backticks
+- Smart lists with automatic continuation
+- Real-time preview with perfect WYSIWYG alignment
+
+### Lists
+
+1. Numbered lists (Ctrl+Shift+7)
+2. With automatic continuation
+
+- Bullet lists (Ctrl+Shift+8)
+- Easy to create and manage
+
+### Code Blocks
+
+\`\`\`javascript
+function hello() {
+  console.log("Hello, WYSIWYG Markdown!");
+}
+\`\`\`
+
+> Blockquotes for important notes
+
+---
+
+Happy writing with perfect WYSIWYG alignment!`,
+                toolbar: true,
+                showStats: true,
+                autoResize: false,
+                fontSize: '16px',
+                lineHeight: 1.6,
+                padding: '20px',
+                smartLists: true,
+                onChange: function(value, instance) {
+                    console.log('Content changed:', value.length, 'characters');
+                }
+            });
+
+            // Theme toggle functionality
+            const themeToggle = document.createElement('button');
+            themeToggle.className = 'flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 ml-auto';
+            themeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon mr-2 h-4 w-4"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>Toggle Theme';
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = OT.currentTheme?.name || 'solar';
+                const newTheme = currentTheme === 'solar' ? 'cave' : 'solar';
+                OT.setTheme(newTheme);
+                Toastify({
+                    text: "Theme changed to " + newTheme,
+                    duration: 2000,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: newTheme === 'solar' ? "#4f46e5" : "#1f2937",
+                }).showToast();
+            });
+
+            // Add theme toggle to button container
+            const buttonContainer = document.querySelector('.flex.flex-wrap.gap-4.justify-center');
+            buttonContainer.appendChild(themeToggle);
+
+            // Button event handlers
+            document.getElementById('new-document').addEventListener('click', function() {
+                if (confirm('Create a new document? Current content will be lost.')) {
+                    editor.setValue('# New Document\n\nStart writing your WYSIWYG Markdown here...');
+                    Toastify({
+                        text: "New document created",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "#4f46e5",
+                    }).showToast();
+                }
+            });
+
+            document.getElementById('save-markdown').addEventListener('click', function() {
+                const content = editor.getValue();
+                const blob = new Blob([content], { type: 'text/markdown' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'document.md';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                Toastify({
+                    text: "Markdown downloaded",
+                    duration: 3000,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#10b981",
+                }).showToast();
+            });
+
+            document.getElementById('export-html').addEventListener('click', function() {
+                const htmlContent = editor.getRenderedHTML(true);
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'document.html';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                Toastify({
+                    text: "HTML exported",
+                    duration: 3000,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#f59e0b",
+                }).showToast();
+            });
+
+            // Mobile menu toggle
+            const menuButton = document.getElementById('menu-button');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('-translate-x-full');
+                sidebarOverlay.classList.toggle('hidden');
+            }
+
+            menuButton.addEventListener('click', toggleSidebar);
+            sidebarOverlay.addEventListener('click', toggleSidebar);
+
+            // Keyboard shortcuts info
+            const keyboardShortcuts = {
+                'Ctrl+B': 'Toggle bold',
+                'Ctrl+I': 'Toggle italic',
+                'Ctrl+K': 'Insert link',
+                'Ctrl+Shift+7': 'Toggle numbered list',
+                'Ctrl+Shift+8': 'Toggle bullet list',
+                'Tab': 'Indent list items',
+                'Shift+Tab': 'Outdent list items'
+            };
+
+            console.log('Keyboard shortcuts available:', keyboardShortcuts);
+        });
+    </script>
+</body>
+</html>
