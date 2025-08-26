@@ -1,94 +1,177 @@
-# Markdown Toolset
+# Markdown Tools
+
 **Live Website:** [https://www.markdownhtmlgen.com/](https://www.markdownhtmlgen.com/)
 
-Welcome to the Markdown Toolset, an online platform offering convenient conversion tools between Markdown and HTML. This project is designed to be visually and structurally consistent across all its pages, providing a seamless user experience.
+A comprehensive suite of privacy-first Markdown utilities with unified branding and seamless navigation. Convert between Markdown and HTML, edit with WYSIWYG features, and process all content client-side for maximum privacy.
 
-## Features
+## 🚀 Features
 
-*   **Markdown to HTML Converter:** Easily convert your Markdown text into HTML. This is the primary tool accessible from the homepage.
-*   **HTML to Markdown Converter:** Convert HTML content back into Markdown format. This tool is located in a dedicated subdirectory.
-*   **Privacy Policy Page:** A dedicated page outlining the privacy policy for the website.
-*   **Terms and Conditions Page:** A dedicated page detailing the terms and conditions of using the website.
+### Core Tools
+- **[Markdown to HTML Converter](https://www.markdownhtmlgen.com/)** - Convert Markdown to clean, semantic HTML with real-time preview
+- **[HTML to Markdown Converter](https://www.markdownhtmlgen.com/html-to-markdown-converter/)** - Reverse conversion from HTML back to Markdown format
+- **[WYSIWYG Markdown Editor](https://www.markdownhtmlgen.com/markdown-editor/)** - Real-time WYSIWYG editor using OverType library for perfect character alignment
 
-## Technologies Used
+### Key Features
+- ✅ **Privacy-First**: All processing done client-side, no server uploads
+- ✅ **Real-time Preview**: Live conversion and preview for all tools
+- ✅ **File Upload Support**: Drag & drop .md and .html files
+- ✅ **Mobile Responsive**: Complete mobile navigation with sidebar menu
+- ✅ **Unified Navigation**: Seamless switching between all tools
+- ✅ **AI Content Friendly**: Optimized output for AI content workflows
+- ✅ **Theme Support**: Light/dark themes for WYSIWYG editor
+- ✅ **Export Functions**: Download results as files
 
-*   **HTML:** For structuring the web content.
-*   **JavaScript:** For interactive functionalities and conversion logic.
-*   **Tailwind CSS v4:** For a modern, consistent, and responsive design across all pages.
-*   **PostCSS:** For processing CSS with Tailwind CSS.
+## 🛠️ Technologies Used
 
-## Getting Started
+- **Frontend**: Vanilla JavaScript with ES6+ features
+- **Styling**: Tailwind CSS v4 with PostCSS processing  
+- **Markdown Processing**: Marked.js library
+- **HTML to Markdown**: Turndown.js library
+- **WYSIWYG Editor**: OverType.js library (invisible textarea overlay)
+- **Build Tools**: PostCSS, Terser for minification
 
-To set up and run this project locally, follow these steps:
+## 📁 Project Structure
+
+```
+├── index.html                     # Main Markdown to HTML converter
+├── script.js                      # Main converter logic with mobile menu
+├── input.css                      # Tailwind CSS source
+├── style.css                      # Generated CSS (built from input.css)
+├── package.json                   # Dependencies and build scripts
+├── postcss.config.js              # PostCSS configuration
+├── html-to-markdown-converter/
+│   ├── index.html                 # HTML to Markdown converter
+│   └── script.js                  # Conversion logic using Turndown
+├── markdown-editor/
+│   ├── index.html                 # WYSIWYG Markdown Editor
+│   └── overtype-main/             # OverType library files
+│       ├── dist/overtype.min.js
+│       ├── README.md
+│       └── demo.html
+└── markdown-to-pdf-converter/     # [DISABLED - has bugs]
+    ├── index.html                 
+    └── script.js                  
+```
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-Ensure you have Node.js and npm (Node Package Manager) installed on your system.
+Ensure you have Node.js and npm installed on your system.
 
 ### Installation
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/markdown-toolset.git
-    cd markdown-toolset
-    ```
-    *(Note: Replace `https://github.com/your-username/markdown-toolset.git` with the actual repository URL once it's pushed to GitHub.)*
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/jqueryscript/markdown-to-html.git
+   cd markdown-to-html
+   ```
 
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-### Building CSS
-
-This project uses Tailwind CSS. You need to build the CSS file after making any changes to the Tailwind configuration or if you're setting up the project for the first time.
+### Development Commands
 
 ```bash
+# Build CSS from Tailwind source
 npm run build:css
+
+# Build JavaScript (minify)
+npm run build:js
+
+# Build both CSS and JavaScript
+npm run build
 ```
-This command will generate the `style.css` file in the root directory, which is used by all pages.
 
 ### Running the Project
 
-This is a static website. You can open the `index.html` file directly in your web browser to access the Markdown to HTML converter.
+This is a static website. You can:
 
-To access the HTML to Markdown converter, navigate to `html-to-markdown-converter/index.html` in your browser.
+1. **Open directly in browser**: Open `index.html` to access the main converter
+2. **Use a local server** (recommended for development):
+   ```bash
+   # Install live-server globally
+   npm install -g live-server
+   
+   # Run from project root
+   live-server
+   ```
 
-For local development with a live server (recommended), you can use a tool like `live-server` or any other local web server.
-
-```bash
-# Install live-server globally (if you don't have it)
-npm install -g live-server
-
-# Run live-server from the project root
-live-server
-```
-
-## Project Structure
+### Navigation Structure
 
 ```
-.
-├── index.html                  # Main Markdown to HTML converter page
-├── script.js                   # JavaScript for Markdown to HTML converter
-├── input.css                   # Tailwind CSS source file
-├── style.css                   # Generated CSS file (after running build:css)
-├── privacy.html                # Privacy Policy page
-├── terms.html                  # Terms and Conditions page
-├── package.json                # Project dependencies and scripts
-├── postcss.config.js           # PostCSS configuration for Tailwind CSS
-├── html-to-markdown-converter/
-│   ├── index.html              # HTML to Markdown converter page
-│   └── script.js               # JavaScript for HTML to Markdown converter
-└── ... (other project files like .gitignore, CNAME, etc.)
+Markdown Tools (Brand)
+├── Markdown to HTML (/)
+├── HTML to Markdown (/html-to-markdown-converter/)
+├── WYSIWYG Editor (/markdown-editor/)
+└── Markdown Guide (#markdown anchor)
 ```
 
-## Contributing
+## 🎨 Architecture & Design
 
-If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+### Unified Branding
+- **Brand Name**: "Markdown Tools" across all pages
+- **Consistent Navigation**: Cross-page links and mobile sidebar
+- **Mobile-First**: Responsive design with hamburger menu
+- **SEO Optimized**: Structured data and proper internal linking
 
-## License
+### WYSIWYG Editor Implementation
+```javascript
+// OverType library integration pattern
+const OT = window.OverType.default || window.OverType;
+const [editor] = new OT('#editor-container', {
+    value: 'initial content',
+    toolbar: true,
+    showStats: true,
+    theme: 'solar' // or 'cave'
+});
+```
+
+### Key Features
+- **Perfect WYSIWYG Alignment**: Invisible textarea overlay technique
+- **Smart Lists**: Automatic list continuation and numbering
+- **Keyboard Shortcuts**: Ctrl+B (bold), Ctrl+I (italic), etc.
+- **Export Functions**: Download as Markdown or HTML
+
+## 🔧 Development Notes
+
+- **CSS Processing**: Always run `npm run build:css` after modifying `input.css`
+- **JavaScript**: Modular structure with respective `script.js` files
+- **OverType Library**: Located in `/markdown-editor/overtype-main/dist/`
+- **Mobile Menu**: JavaScript functionality for sidebar toggle
+- **Cross-Page Links**: Use relative paths for proper navigation
+- **Browser Support**: Modern browsers only (ES6+, no IE support)
+
+## 🚀 Deployment
+
+Static site deployment - upload all files to any web server. Ensure:
+
+- ✅ `style.css` is built and up-to-date
+- ✅ All converter pages maintain directory structure  
+- ✅ OverType library files are included
+- ✅ External CDN dependencies are accessible
+- ✅ Cross-page navigation links work properly
+
+## 🐛 Known Issues
+
+- **Markdown to PDF**: Tool has bugs and is currently disabled/excluded from navigation
+- **OverType Constructor**: Must use `window.OverType.default || window.OverType` pattern  
+- **Mobile Menu**: Requires JavaScript for sidebar toggle functionality
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-*(Note: You might need to create a LICENSE file if you don't have one.)*
 
 ---
+
+**Created by [jQueryScript](https://www.jqueryscript.net)** | **© 2025 markdownhtmlgen.com**

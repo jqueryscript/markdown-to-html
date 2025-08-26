@@ -19,6 +19,7 @@ toto.md
 
 # Claude Code files
 CLAUDE.md
+.claude/
 
 # Disabled features
 markdown-to-pdf-converter/
