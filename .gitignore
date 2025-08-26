@@ -16,3 +16,9 @@ Thumbs.db
 # Local files
 prd.md
 toto.md
+
+# Claude Code files
+CLAUDE.md
+
+# Disabled features
+markdown-to-pdf-converter/
