@@ -303,7 +303,7 @@
             <!-- FAQs Section -->
             <section class="mt-16">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-gray-800">Frequently Asked Questions</h2>
+                    <h2 class="text-3xl font-bold text-gray-800" id="faq">Frequently Asked Questions</h2>
                     <p class="mt-2 text-lg text-gray-600">Get answers to common questions about our WYSIWYG Markdown Editor.</p>
                 </div>
                 <div class="mt-8 space-y-6 max-w-3xl mx-auto">
@@ -338,7 +338,30 @@
                     </div>
                 </div>
             </section>
+<section class="bg-white p-6 sm:p-8 mt-16 rounded-lg border border-gray-200 shadow-sm"><h2 class="text-2xl font-bold text-gray-800 mb-6" id="markdown">Markdown Cheatsheet</h2><div class="prose max-w-none">
+                    <h3>Headers</h3><p>Use hashtags to create headers. More hashtags mean a smaller header.</p><pre><code># Header 1
+## Header 2
+### Header 3</code></pre>
+                    <h3>Text Styles</h3><p>Create bold, italic, or strikethrough text.</p><pre><code>**Bold Text**
+*Italic Text*
+~~Strikethrough~~</code></pre>
+                    <h3>Lists</h3><p>Create ordered or unordered lists.</p><pre><code>1. First item
+2. Second item
 
+- Unordered item
+- Another item</code></pre>
+                    <h3>Links and Images</h3><p>Create links and embed images.</p><pre><code>[Visit Google](https://google.com)
+![alt text](path/to/image.jpg)</code></pre>
+                    <h3>Quotes and Code</h3><p>Highlight quotes and code snippets.</p><pre><code>> This is a blockquote.
+
+`inline code`<h3>Tables</h3><p>Organize data with tables.</p><pre><code>| Header 1 | Header 2 |
+| :--- | :--- |
+| Cell 1 | Cell 2 |
+| Cell 3 | Cell 4 |</code></pre>
+                    <h3>Task Lists</h3><p>Create checklists.</p><pre><code>- [x] Completed task
+- [ ] Incomplete task</code></pre>
+                    <h3>Horizontal Rule</h3><p>Create a horizontal line.</p><pre><code>---</code></pre>
+                </div></section>
         </main>
     </div>
 
@@ -398,40 +421,6 @@
             OT.setTheme('cave');
             
             const [editor] = new OT('#markdown-editor-container', {
-                value: `# Welcome to WYSIWYG Markdown Editor
-
-## Getting Started
-
-This is a **powerful** WYSIWYG Markdown editor with perfect character alignment. Try these features:
-
-- **Bold text** with **double asterisks** (Ctrl+B)
-- *Italic text* with *single asterisks* (Ctrl+I)
-- [Links](https://example.com) with [text](url) (Ctrl+K)
-- \`inline code\` with backticks
-- Smart lists with automatic continuation
-- Real-time preview with perfect WYSIWYG alignment
-
-### Lists
-
-1. Numbered lists (Ctrl+Shift+7)
-2. With automatic continuation
-
-- Bullet lists (Ctrl+Shift+8)
-- Easy to create and manage
-
-### Code Blocks
-
-\`\`\`javascript
-function hello() {
-  console.log("Hello, WYSIWYG Markdown!");
-}
-\`\`\`
-
-> Blockquotes for important notes
-
----
-
-Happy writing with perfect WYSIWYG alignment!`,
                 toolbar: true,
                 showStats: true,
                 autoResize: false,
