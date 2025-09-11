@@ -35,17 +35,72 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Free Markdown Editor",
-      "description": "A free online Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Web",
-      "url": "https://www.markdownhtmlgen.com/markdown-editor/",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.markdownhtmlgen.com/markdown-editor/#webpage",
+          "url": "https://www.markdownhtmlgen.com/markdown-editor/",
+          "name": "Free Online WYSIWYG Markdown Editor",
+          "description": "Free online WYSIWYG Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "url": "https://www.markdownhtmlgen.com/",
+            "name": "MarkdownHTMLGen"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.markdownhtmlgen.com/markdown-editor/#softwareapplication",
+          "name": "Free WYSIWYG Markdown Editor",
+          "description": "A free online WYSIWYG Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Web",
+          "url": "https://www.markdownhtmlgen.com/markdown-editor/",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.markdownhtmlgen.com/markdown-editor/#faqpage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What makes this a 'WYSIWYG' Markdown editor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our editor uses an invisible textarea overlay technique that provides perfect character alignment between your typing and the styled preview. You see exactly how your formatted text will appear while maintaining the simplicity of markdown syntax."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to install anything to use this editor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No installation required! This is a completely web-based editor that works directly in your browser. All processing happens client-side, ensuring your content remains private and secure."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use this editor on mobile devices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely! The editor is fully responsive and optimized for mobile use. It provides excellent native mobile support with visible markdown syntax and proper keyboard behavior."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I export my content?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can download your content as raw markdown (.md file) or export it as HTML. The download buttons in the editor toolbar provide both options with a single click."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-file-text'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4'/><path d='M10 9H8'/><path d='M16 13H8'/><path d='M16 17H8'/></svg>" type="image/svg+xml">
@@ -53,22 +108,24 @@
 <body class="bg-gray-100 text-gray-800">
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden hidden"></div>
     <aside id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col flex-shrink-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-30 fixed h-full lg:hidden">
-        <div class="h-16 flex items-center justify-center text-2xl font-bold"><span>Markdown Editor</span></div>
+        <div class="h-16 flex items-center justify-center text-2xl font-bold"><span>MarkdownHTMLGen</span></div>
         <nav class="flex-1 px-2 space-y-1">
-            <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home mr-3 h-5 w-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Markdown to HTML</a>
-            <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat mr-3 h-5 w-5"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>HTML to Markdown</a>
-            <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-gray-900"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text mr-3 h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>WYSIWYG Markdown Editor</a>
+            <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to HTML</a>
+            <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">HTML to Markdown</a>
+            <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
+            <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-400 bg-gray-900">WYSIWYG Markdown Editor</a>
         </nav>
     </aside>
 
     <header class="bg-white border-b border-gray-200">
         <div class="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
             <div class="flex items-center">
-                <a href="https://www.markdownhtmlgen.com/markdown-editor/" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>Markdown Editor</span></a>
+                <a href="../" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>MarkdownHTMLGen</span></a>
                 <nav class="ml-10 space-x-4 hidden lg:flex">
-                    <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home mr-2 h-5 w-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Markdown to HTML</a>
-                    <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat mr-2 h-5 w-5"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>HTML to Markdown</a>
-                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-indigo-100"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text mr-2 h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>WYSIWYG Markdown Editor</a>
+                    <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to HTML</a>
+                    <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">HTML to Markdown</a>
+                    <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to EPUB</a>
+                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-indigo-100">WYSIWYG Markdown Editor</a>
                 </nav>
             </div>
             <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
@@ -370,7 +427,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Column 1: About -->
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-4">Markdown Editor</h3>
+                    <h3 class="text-lg font-bold text-white mb-4">MarkdownHTMLGen</h3>
                     <p class="text-sm">Your free online WYSIWYG Markdown Editor. Real-time preview, syntax highlighting, and advanced formatting tools.</p>
                     <p class="text-sm mt-4">&copy; 2025 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
                 </div>
@@ -381,6 +438,7 @@
                     <ul class="space-y-2">
                         <li><a href="../" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
                         <li><a href="../html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
+                        <li><a href="../markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
                         <li><a href="#" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
                         <li><a href="#faq" class="text-sm hover:text-white transition-colors duration-200">FAQ</a></li>
                         <li><a href="#markdown" class="text-sm hover:text-white transition-colors duration-200">Markdown Guide</a></li>
