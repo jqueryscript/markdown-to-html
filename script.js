@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const removeEmojisCheckbox = document.getElementById('remove-emojis');
   const addHeadingIdsCheckbox = document.getElementById('add-heading-ids');
   const addRelToLinksCheckbox = document.getElementById('add-rel-to-links');
+  const sanitizeHtmlCheckbox = document.getElementById('sanitize-html');
   const dropArea = document.getElementById('drop-area');
   const fileUpload = document.getElementById('file-upload');
   const copyHtmlButton = document.getElementById('copy-html');
@@ -94,7 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
       markdownText = markdownText.replace(/\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff]/g, '');
     }
 
-    const html = markedInstance.parse(markdownText);
+    let html = markedInstance.parse(markdownText);
+
+    // Sanitize HTML if the option is checked
+    if (sanitizeHtmlCheckbox.checked) {
+      html = DOMPurify.sanitize(html);
+    }
 
     htmlPreview.innerHTML = html;
     htmlCode.textContent = html;
@@ -132,6 +138,7 @@ ${htmlPreview.innerHTML}
   removeEmojisCheckbox.addEventListener('change', convertMarkdown);
   addHeadingIdsCheckbox.addEventListener('change', convertMarkdown);
   addRelToLinksCheckbox.addEventListener('change', convertMarkdown);
+  sanitizeHtmlCheckbox.addEventListener('change', convertMarkdown);
   downloadHtmlButton.addEventListener('click', downloadFile);
 
   // --- File Upload Logic ---

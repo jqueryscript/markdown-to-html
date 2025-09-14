@@ -253,6 +253,10 @@
                         <input id="add-rel-to-links" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
                         <label for="add-rel-to-links" class="ml-2 block text-sm text-gray-900">Add rel="noopener noreferrer" to Links</label>
                     </div>
+                    <div class="flex items-center">
+                        <input id="sanitize-html" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                        <label for="sanitize-html" class="ml-2 block text-sm text-gray-900">Clean HTML (Prevent XSS)</label>
+                    </div>
                 </div>
             </div>
             <div class="mt-16 space-y-12">
@@ -261,7 +265,16 @@
                         <h2 class="text-3xl font-bold text-gray-800" id="features">Features</h2>
                         <p class="mt-2 text-lg text-gray-600">Everything you need for Markdown.</p>
                     </div>
-                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check h-6 w-6 text-indigo-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Secure HTML Output</h3>
+                                <p class="mt-1 text-base text-gray-600">Automatically sanitizes the output HTML to prevent XSS attacks, ensuring your code is safe to use.</p>
+                            </div>
+                        </div>
                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
                             <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-6 w-6 text-indigo-600"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
@@ -416,7 +429,7 @@
                     <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                             <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-circuit h-6 w-6 text-indigo-600"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M9 13a4.5 4.5 0 0 0 3-4h0"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a1 1 0 0 1 .585-.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M12 13h4h0"/><path d="M12 18h6a2 2 0 0 1 2 2v1"/><path d="M12 8h8h0"/><path d="M16 8U5c2 0 0 0 2-2"/><circle cx="16" cy="13" r=".5"/><circle cx="18" cy="3" r=".5"/><circle cx="20" cy="21" r=".5"/><circle cx="20" cy="8" r=".5"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-circuit h-6 w-6 text-indigo-600"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M9 13a4.5 4.5 0 0 0 3-4"/><path d="M14.5 10.5A4.5 4.5 0 0 1 18 7"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a1 1 0 0 1 .585-.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M12 13h4"/><path d="M12 18h6a2 2 0 0 1 2 2v1"/><path d="M12 8h8"/><path d="M16 8.5A4.5 4.5 0 0 0 7.5 13"/><circle cx="16" cy="13" r=".5"/><circle cx="18" cy="7" r=".5"/><circle cx="20" cy="21" r=".5"/><circle cx="20" cy="8" r=".5"/></svg>
                             </div>
                             <h3 class="mt-4 text-lg font-bold">AI-Generated Content</h3>
                             <p class="mt-1 text-base text-gray-600">Format content from AI tools like ChatGPT for your blog or website.</p>
@@ -571,6 +584,41 @@
                     </div>
                 </section>
 
+                <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-800" id="changelog">Changelog</h2>
+                        <p class="mt-2 text-lg text-gray-600">Recent updates and improvements.</p>
+                    </div>
+                    <div class="max-w-3xl mx-auto">
+                        <ul class="space-y-6 border-l-2 border-gray-200 pl-6">
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 14, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added "Clean HTML" feature to prevent XSS attacks.</li>
+                                    <li>Redesigned the Features section to a 2-column layout for a cleaner look.</li>
+                                    <li>Added a Changelog section to track updates.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 11, 2025</div>
+                                <p class="text-gray-600 mt-1">Introduced a new "Markdown to EPUB" converter and unified branding across all tools.</p>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">August 27, 2025</div>
+                                <p class="text-gray-600 mt-1">Implemented various bug fixes and content updates, including switching to absolute URLs for better site consistency.</p>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">August 26, 2025</div>
+                                <p class="text-gray-600 mt-1">Added a new WYSIWYG Markdown Editor and fixed several styling issues.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
                 <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm"><h2 class="text-2xl font-bold text-gray-800 mb-6" id="markdown">Markdown Cheatsheet</h2><div class="prose max-w-none">
                     <h3>Headers</h3><p>Use hashtags to create headers. More hashtags mean a smaller header.</p><pre><code># Header 1
 ## Header 2
@@ -600,6 +648,7 @@
     </div>
 
     <script src="marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@latest/dist/purify.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="script.min.js?v5"></script>
 
