@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const addHeadingIdsCheckbox = document.getElementById('add-heading-ids');
   const addRelToLinksCheckbox = document.getElementById('add-rel-to-links');
   const sanitizeHtmlCheckbox = document.getElementById('sanitize-html');
+  const escapeHtmlCharsCheckbox = document.getElementById('escape-html-chars');
   const dropArea = document.getElementById('drop-area');
   const fileUpload = document.getElementById('file-upload');
   const copyHtmlButton = document.getElementById('copy-html');
@@ -14,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
   const menuButton = document.getElementById('menu-button');
   const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const cssInput = document.getElementById('css-input');
+  const toolsDropdown = document.getElementById("tools-dropdown");
+  const toolsDropdownMenu = document.getElementById("tools-dropdown-menu");
+  const mobileToolsButton = document.getElementById("mobile-tools-button");
+  const mobileToolsMenu = document.getElementById("mobile-tools-menu");
+  const mobileToolsArrow = document.getElementById("mobile-tools-arrow");
 
   // --- UI Logic: Mobile Sidebar ---
   const toggleSidebar = () => {
@@ -26,6 +33,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (sidebarOverlay) {
     sidebarOverlay.addEventListener('click', toggleSidebar);
+  }
+
+  // Desktop Dropdown Logic (Hover with timeout)
+  let hideTimeout;
+  if (toolsDropdown && toolsDropdownMenu) {
+      const showMenu = () => {
+          clearTimeout(hideTimeout);
+          toolsDropdownMenu.classList.remove("hidden");
+      };
+
+      const startHideTimer = () => {
+          hideTimeout = setTimeout(() => {
+              toolsDropdownMenu.classList.add("hidden");
+          }, 200);
+      };
+
+      toolsDropdown.addEventListener("mouseenter", showMenu);
+      toolsDropdown.addEventListener("mouseleave", startHideTimer);
+  }
+
+  // Mobile Accordion Logic
+  if (mobileToolsButton && mobileToolsMenu && mobileToolsArrow) {
+      mobileToolsButton.addEventListener("click", () => {
+          mobileToolsMenu.classList.toggle("hidden");
+          mobileToolsArrow.classList.toggle("rotate-180");
+      });
   }
 
   // --- Marked.js Configuration ---
@@ -81,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Core Functions ---
+  let fullHtmlContent = ''; // Variable to hold the content for the download
+
   const convertMarkdown = () => {
     let markdownText = markdownInput.value || '';
 
@@ -90,9 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Remove Emojis logic
     if (removeEmojisCheckbox.checked) {
-      // This regex targets common emojis and emoji presentation sequences.
-      // It aims to be less aggressive and avoid interfering with Markdown syntax.
       markdownText = markdownText.replace(/\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff]/g, '');
+    }
+
+    // Escape HTML special chars if the option is checked
+    if (escapeHtmlCharsCheckbox.checked) {
+      markdownText = markdownText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
     let html = markedInstance.parse(markdownText);
@@ -102,29 +140,39 @@ document.addEventListener('DOMContentLoaded', () => {
       html = DOMPurify.sanitize(html);
     }
 
-    htmlPreview.innerHTML = html;
+    // Update the code view
     htmlCode.textContent = html;
-  };
 
-  const applyCustomCss = () => {
-    customStyle.textContent = cssInput.value;
-  };
+    // Prepare the full HTML for the iframe and download
+    const customCss = cssInput.value;
+    // Use the correct stylesheet version
+    const proseCssLink = '<link rel="stylesheet" href="style.css?v5">'; 
 
-  const downloadFile = () => {
-    const fullHtml = `<!DOCTYPE html>
+    fullHtmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Exported Content</title>
+  <title>HTML Preview</title>
+  ${proseCssLink}
   <style>
-body { font-family: sans-serif; }
-   </style>
+    body { padding: 1.5rem; } /* Add some padding to the iframe body */
+    ${customCss}
+  </style>
 </head>
-<body>
-${htmlPreview.innerHTML}
+<body class="prose max-w-none">
+  ${html}
 </body>
 </html>`;
-    const blob = new Blob([fullHtml], { type: 'text/html' });
+
+    // Write to the iframe
+    const iframeDoc = htmlPreview.contentDocument || htmlPreview.contentWindow.document;
+    iframeDoc.open();
+    iframeDoc.write(fullHtmlContent);
+    iframeDoc.close();
+  };
+
+  const downloadFile = () => {
+    const blob = new Blob([fullHtmlContent], { type: 'text/html' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'markdown-export.html';
@@ -139,7 +187,9 @@ ${htmlPreview.innerHTML}
   addHeadingIdsCheckbox.addEventListener('change', convertMarkdown);
   addRelToLinksCheckbox.addEventListener('change', convertMarkdown);
   sanitizeHtmlCheckbox.addEventListener('change', convertMarkdown);
+  escapeHtmlCharsCheckbox.addEventListener('change', convertMarkdown);
   downloadHtmlButton.addEventListener('click', downloadFile);
+  cssInput.addEventListener('input', convertMarkdown);
 
   // --- File Upload Logic ---
   const handleFiles = (files) => {

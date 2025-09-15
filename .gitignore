@@ -2,7 +2,6 @@
 /node_modules
 
 # Build files
-*.min.js
 
 # OS generated files
 .DS_Store
@@ -22,4 +21,7 @@ CLAUDE.md
 .claude/
 
 # Disabled features
-markdown-to-pdf-converter/
+markdown-to-pdf-converter/ 
+
+# Zip files
+*.zip

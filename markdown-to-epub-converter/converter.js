@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Sidebar JavaScript ---
+    // --- Sidebar & Dropdown JavaScript ---
     const sidebar = document.getElementById('sidebar');
     const menuButton = document.getElementById('menu-button');
     const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const toolsDropdown = document.getElementById("tools-dropdown");
+    const toolsDropdownMenu = document.getElementById("tools-dropdown-menu");
+    const mobileToolsButton = document.getElementById("mobile-tools-button");
+    const mobileToolsMenu = document.getElementById("mobile-tools-menu");
+    const mobileToolsArrow = document.getElementById("mobile-tools-arrow");
 
     const toggleSidebar = () => {
         if (sidebar) sidebar.classList.toggle('-translate-x-full');
@@ -15,7 +20,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', toggleSidebar);
     }
-    // --- End Sidebar JavaScript ---
+
+    // Desktop Dropdown Logic (Hover with timeout)
+    let hideTimeout;
+    if (toolsDropdown && toolsDropdownMenu) {
+        const showMenu = () => {
+            clearTimeout(hideTimeout);
+            toolsDropdownMenu.classList.remove("hidden");
+        };
+
+        const startHideTimer = () => {
+            hideTimeout = setTimeout(() => {
+                toolsDropdownMenu.classList.add("hidden");
+            }, 200);
+        };
+
+        toolsDropdown.addEventListener("mouseenter", showMenu);
+        toolsDropdown.addEventListener("mouseleave", startHideTimer);
+    }
+
+    // Mobile Accordion Logic
+    if (mobileToolsButton && mobileToolsMenu && mobileToolsArrow) {
+        mobileToolsButton.addEventListener("click", () => {
+            mobileToolsMenu.classList.toggle("hidden");
+            mobileToolsArrow.classList.toggle("rotate-180");
+        });
+    }
 
     // --- Original converter.js content starts here ---
     document.getElementById('convert-btn').addEventListener('click', () => {

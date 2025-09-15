@@ -12,7 +12,7 @@
     <meta property="og:url" content="https://www.markdownhtmlgen.com/markdown-editor/">
     <meta property="og:title" content="Markdown Editor - Free Online Markdown Editor with Live Preview">
     <meta property="og:description" content="Free online Markdown editor with real-time preview, syntax highlighting, and advanced formatting tools.">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="https://www.markdownhtmlgen.com/images/android-chrome-512x512.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -103,7 +103,11 @@
       ]
     }
     </script>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-file-text'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4'/><path d='M10 9H8'/><path d='M16 13H8'/><path d='M16 17H8'/></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico">
 </head>
 <body class="bg-gray-100 text-gray-800">
     <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden hidden"></div>
@@ -112,8 +116,22 @@
         <nav class="flex-1 px-2 space-y-1">
             <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to HTML</a>
             <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">HTML to Markdown</a>
-            <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
-            <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-400 bg-gray-900">WYSIWYG Markdown Editor</a>
+            
+            <div>
+                <button type="button" class="w-full flex items-center justify-between px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white" id="mobile-tools-button">
+                    <span>More Tools</span>
+                    <svg class="h-5 w-5 transform transition-transform duration-200" id="mobile-tools-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="mobile-tools-menu" class="pl-4 space-y-1 hidden">
+                    <a href="../merge-markdown/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Merge Markdown</a>
+                    <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
+                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-400 bg-gray-900">WYSIWYG Editor</a>
+                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 cursor-not-allowed">PDF Converter (soon)</a>
+                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 cursor-not-allowed">Word Converter (soon)</a>
+                </div>
+            </div>
         </nav>
     </aside>
 
@@ -121,11 +139,29 @@
         <div class="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
             <div class="flex items-center">
                 <a href="../" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>MarkdownHTMLGen</span></a>
-                <nav class="ml-10 space-x-4 hidden lg:flex">
+                <nav class="ml-10 space-x-4 hidden lg:flex items-center">
                     <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to HTML</a>
                     <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">HTML to Markdown</a>
-                    <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to EPUB</a>
-                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-indigo-100">WYSIWYG Markdown Editor</a>
+                    
+                    <!-- Dropdown -->
+                    <div class="relative" id="tools-dropdown">
+                        <button type="button" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-indigo-100" id="tools-dropdown-button">
+                            <span>More Free Markdown Tools</span>
+                            <svg class="ml-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        
+                        <div id="tools-dropdown-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="tools-dropdown-button">
+                                <a href="../merge-markdown/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Merge Markdown</a>
+                                <a href="../markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-semibold" role="menuitem">WYSIWYG Markdown Editor</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-400 cursor-not-allowed" role="menuitem">Markdown to PDF (soon)</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-400 cursor-not-allowed" role="menuitem">Markdown to Word (soon)</a>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
             </div>
             <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
@@ -428,7 +464,7 @@
                 <!-- Column 1: About -->
                 <div>
                     <h3 class="text-lg font-bold text-white mb-4">MarkdownHTMLGen</h3>
-                    <p class="text-sm">Your free online WYSIWYG Markdown Editor. Real-time preview, syntax highlighting, and advanced formatting tools.</p>
+                    <p class="text-sm">A free online WYSIWYG Markdown Editor.</p>
                     <p class="text-sm mt-4">&copy; 2025 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
                 </div>
 
@@ -438,10 +474,10 @@
                     <ul class="space-y-2">
                         <li><a href="../" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
                         <li><a href="../html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
+                        <li><a href="../merge-markdown/" class="text-sm hover:text-white transition-colors duration-200">Merge Markdown</a></li>
                         <li><a href="../markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
-                        <li><a href="#" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
+                        <li><a href="#" class="text-sm text-white font-semibold">WYSIWYG Markdown Editor</a></li>
                         <li><a href="#faq" class="text-sm hover:text-white transition-colors duration-200">FAQ</a></li>
-                        <li><a href="#markdown" class="text-sm hover:text-white transition-colors duration-200">Markdown Guide</a></li>
                     </ul>
                 </div>
 
@@ -572,6 +608,11 @@
             const menuButton = document.getElementById('menu-button');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const toolsDropdown = document.getElementById("tools-dropdown");
+            const toolsDropdownMenu = document.getElementById("tools-dropdown-menu");
+            const mobileToolsButton = document.getElementById("mobile-tools-button");
+            const mobileToolsMenu = document.getElementById("mobile-tools-menu");
+            const mobileToolsArrow = document.getElementById("mobile-tools-arrow");
 
             function toggleSidebar() {
                 sidebar.classList.toggle('-translate-x-full');
@@ -580,6 +621,32 @@
 
             menuButton.addEventListener('click', toggleSidebar);
             sidebarOverlay.addEventListener('click', toggleSidebar);
+
+            // Desktop Dropdown Logic (Hover with timeout)
+            let hideTimeout;
+            if (toolsDropdown && toolsDropdownMenu) {
+                const showMenu = () => {
+                    clearTimeout(hideTimeout);
+                    toolsDropdownMenu.classList.remove("hidden");
+                };
+
+                const startHideTimer = () => {
+                    hideTimeout = setTimeout(() => {
+                        toolsDropdownMenu.classList.add("hidden");
+                    }, 200);
+                };
+
+                toolsDropdown.addEventListener("mouseenter", showMenu);
+                toolsDropdown.addEventListener("mouseleave", startHideTimer);
+            }
+
+            // Mobile Accordion Logic
+            if (mobileToolsButton && mobileToolsMenu && mobileToolsArrow) {
+                mobileToolsButton.addEventListener("click", () => {
+                    mobileToolsMenu.classList.toggle("hidden");
+                    mobileToolsArrow.classList.toggle("rotate-180");
+                });
+            }
 
             // Keyboard shortcuts info
             const keyboardShortcuts = {
