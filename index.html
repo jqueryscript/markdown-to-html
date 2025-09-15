@@ -25,7 +25,8 @@
     <meta property="twitter:image" content="">
     
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="style.css?v5">
+    <link rel="stylesheet" href="style.css?v8">
+    <style id="custom-style"></style>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F265C83TM1"></script>
 <script>
@@ -201,19 +202,24 @@
                 <div class="flex flex-col h-full">
                     <div class="border-b border-gray-200"><nav class="-mb-px flex space-x-4" id="input-tabs">
                         <button data-tab="markdown" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">Markdown</button>
-                        <button data-tab="css" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-inactive">Upload File</button>
+                        <button data-tab="upload" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-inactive">Upload File</button>
+                        <button data-tab="css" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-inactive">Custom CSS</button>
                     </nav></div>
                     <div class="flex-1 mt-4 relative"><div id="input-content-markdown" class="tab-content absolute inset-0"><textarea id="markdown-input" class="w-full h-full p-4 text-base border border-gray-300
-        rounded-lg shadow-sm resize-none" placeholder="Paste your Markdown here..."></textarea></div><div id="input-content-css" class="tab-content absolute inset-0 hidden">
+        rounded-lg shadow-sm resize-none" placeholder="Paste your Markdown here..."></textarea></div><div id="input-content-upload" class="tab-content absolute inset-0 hidden">
                         <div id="drop-area" class="flex items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload-cloud w-10 h-10 mb-3 text-gray-400"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload-cloud w-10 h-10 mb-3 text-gray-400"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m16 16-4-4-4 4"></path></svg>
                                 <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                                 <p class="text-xs text-gray-500">a .md file</p>
                             </div>
                             <input id="file-upload" type="file" class="hidden" accept="" />
                         </div>
-                    </div></div>
+                    </div><div id="input-content-css" class="tab-content absolute inset-0 hidden"><textarea id="css-input" class="w-full h-full p-4 text-base border border-gray-300 rounded-lg shadow-sm resize-none" placeholder="/* Your custom CSS here */
+
+#html-preview h1 {
+  color: blue;
+}"></textarea></div></div>
                 </div>
                 <div class="flex flex-col h-full">
                     <div class="border-b border-gray-200"><nav class="-mb-px flex space-x-4" id="output-tabs">
@@ -230,8 +236,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="output-content-preview" class="tab-content absolute inset-0 hidden"><div id="html-preview" class="w-full h-full p-6 border border-gray-300
-        rounded-lg bg-white prose max-w-none overflow-auto"></div></div>
+                        <div id="output-content-preview" class="tab-content absolute inset-0 hidden"><iframe id="html-preview" class="w-full h-full border border-gray-300 rounded-lg bg-white"></iframe></div>
                     </div>
                 </div>
             </div>
@@ -344,11 +349,11 @@
                         </div>
                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
                             <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download h-6 w-6 text-indigo-600"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paintbrush-2 h-6 w-6 text-indigo-600"><path d="M14 19.9V16h3"/><path d="M15 16v-4a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v8.5a1.5 1.5 0 0 0 3 0v-6.5h1a1 1 0 0 1 1 1V16"/><path d="M18 16h.5a1.5 1.5 0 0 0 0-3h-11a1.5 1.5 0 0 0 0 3H7"/><path d="M12 10V4a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v6"/></svg>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-bold">Export Options</h3>
-                                <p class="mt-1 text-base text-gray-600">Download your work as a complete HTML file.</p>
+                                <h3 class="text-lg font-bold">Custom Styling (CSS)</h3>
+                                <p class="mt-1 text-base text-gray-600">Apply your own CSS styles to the HTML preview for complete visual control.</p>
                             </div>
                         </div>
                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
@@ -617,6 +622,8 @@
                                 <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
                                 <div class="font-semibold text-gray-800">September 15, 2025</div>
                                 <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added "Custom CSS" input feature for live preview and download.</li>
+                                    <li>Refactored preview panel to use an `iframe` to isolate styles.</li>
                                     <li>Added "Escape HTML Special Chars" feature to display HTML tags as plain text.</li>
                                 </ul>
                             </li>
@@ -679,7 +686,7 @@
     <script src="marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@latest/dist/purify.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="script.min.js?v6"></script>
+    <script src="script.min.js?v8"></script>
 
     <footer class="bg-gray-800 text-gray-300 py-12 mt-16">
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
