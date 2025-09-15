@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const addHeadingIdsCheckbox = document.getElementById('add-heading-ids');
   const addRelToLinksCheckbox = document.getElementById('add-rel-to-links');
   const sanitizeHtmlCheckbox = document.getElementById('sanitize-html');
+  const escapeHtmlCharsCheckbox = document.getElementById('escape-html-chars');
   const dropArea = document.getElementById('drop-area');
   const fileUpload = document.getElementById('file-upload');
   const copyHtmlButton = document.getElementById('copy-html');
@@ -95,6 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
       markdownText = markdownText.replace(/\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff]/g, '');
     }
 
+    // Escape HTML special chars if the option is checked
+    if (escapeHtmlCharsCheckbox.checked) {
+      markdownText = markdownText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
     let html = markedInstance.parse(markdownText);
 
     // Sanitize HTML if the option is checked
@@ -139,6 +145,7 @@ ${htmlPreview.innerHTML}
   addHeadingIdsCheckbox.addEventListener('change', convertMarkdown);
   addRelToLinksCheckbox.addEventListener('change', convertMarkdown);
   sanitizeHtmlCheckbox.addEventListener('change', convertMarkdown);
+  escapeHtmlCharsCheckbox.addEventListener('change', convertMarkdown);
   downloadHtmlButton.addEventListener('click', downloadFile);
 
   // --- File Upload Logic ---
