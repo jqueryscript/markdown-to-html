@@ -25,3 +25,6 @@ markdown-to-pdf-converter/
 
 # Zip files
 *.zip
+
+# Untracked tools
+markdown-to-word-converter/

@@ -23,9 +23,6 @@ A free, privacy-first suite of online tools for all your Markdown needs. All too
 *   **[WYSIWYG Markdown Editor](https://www.markdownhtmlgen.com/markdown-editor/)**
     *   An intuitive "What You See Is What You Get" editor for writing and formatting Markdown in real-time.
 
-*   **[Markdown to Word Converter](https://www.markdownhtmlgen.com/markdown-to-word-converter/)**
-    *   Convert your Markdown text into a downloadable `.docx` file for use in Microsoft Word.
-
 ---
 
 © 2025 [markdownhtmlgen.com](https://www.markdownhtmlgen.com/)
