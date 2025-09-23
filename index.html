@@ -173,7 +173,7 @@
                     <a href="markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
                     <a href="markdown-editor/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">WYSIWYG Editor</a>
                     <a href="markdown-to-word-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Word</a>
-                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 cursor-not-allowed">PDF Converter (soon)</a>
+                    <a href="epub-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">EPUB to Markdown</a>
                 </div>
             </div>
         </nav>
@@ -198,11 +198,11 @@
                         
                         <div id="tools-dropdown-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
                             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="tools-dropdown-button">
-                                <a href="merge-markdown/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Merge Markdown</a>
-                                <a href="markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
                                 <a href="markdown-editor/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">WYSIWYG Markdown Editor</a>
+                                <a href="merge-markdown/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Merge Markdown</a>
                                 <a href="markdown-to-word-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Word</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-400 cursor-not-allowed" role="menuitem">Markdown to PDF (soon)</a>
+                                <a href="markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
+                                <a href="epub-to-markdown-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">EPUB to Markdown</a>
                             </div>
                         </div>
                     </div>
@@ -639,6 +639,17 @@
                         <ul class="space-y-6 border-l-2 border-gray-200 pl-6">
                             <li class="relative">
                                 <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 23, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added comprehensive EPUB to Markdown converter with full eBook extraction capabilities.</li>
+                                    <li>Implemented FAQ schema structured data across all tool pages for better SEO.</li>
+                                    <li>Standardized navigation ordering across all tools: WYSIWYG Editor → Merge Markdown → Markdown to Word → Markdown to EPUB → EPUB to Markdown.</li>
+                                    <li>Fixed HTML validation issues and ensured all pages pass W3C standards.</li>
+                                    <li>Unified meta tags and social media optimization across all converter pages.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
                                 <div class="font-semibold text-gray-800">September 22, 2025</div>
                                 <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
                                     <li>Added new "Markdown to Word" converter tool with full DOCX file generation support.</li>
@@ -739,10 +750,11 @@
                     <ul class="space-y-2">
                         <li><a href="/" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
                         <li><a href="html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
-                        <li><a href="merge-markdown/" class="text-sm hover:text-white transition-colors duration-200">Merge Markdown</a></li>
-                        <li><a href="markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
                         <li><a href="markdown-editor/" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
+                        <li><a href="merge-markdown/" class="text-sm hover:text-white transition-colors duration-200">Merge Markdown</a></li>
                         <li><a href="markdown-to-word-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Word</a></li>
+                        <li><a href="markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
+                        <li><a href="epub-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">EPUB to Markdown</a></li>
                         <li><a href="#faq" class="text-sm hover:text-white transition-colors duration-200">FAQ</a></li>
                         <li><a href="#markdown" class="text-sm hover:text-white transition-colors duration-200">Markdown Guide</a></li>
                     </ul>

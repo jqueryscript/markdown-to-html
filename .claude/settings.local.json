@@ -7,7 +7,14 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npx htmlhint:*)",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:ahrefs.com)",
+      "WebFetch(domain:moz.com)",
+      "WebFetch(domain:searchengineland.com)",
+      "WebFetch(domain:www.semrush.com)",
+      "WebFetch(domain:www.searchenginejournal.com)"
     ],
     "deny": [],
     "ask": []

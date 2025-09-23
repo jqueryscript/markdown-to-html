@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free EPUB to Markdown Converter - Privacy-First, Instant Conversion</title>
+    <meta name="description" content="100% free, privacy-first EPUB to Markdown converter. Instant conversion, no registration, files processed locally in your browser. Convert eBooks to Markdown safely and quickly.">
+    <link rel="canonical" href="https://www.markdownhtmlgen.com/epub-to-markdown-converter/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.markdownhtmlgen.com/epub-to-markdown-converter/">
+    <meta property="og:title" content="Free EPUB to Markdown Converter - Privacy-First, Instant Conversion">
+    <meta property="og:description" content="100% free, privacy-first EPUB to Markdown converter. Instant conversion, no registration, files processed locally in your browser. Convert eBooks to Markdown safely and quickly.">
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.markdownhtmlgen.com/epub-to-markdown-converter/">
+    <meta property="twitter:title" content="Free EPUB to Markdown Converter - Privacy-First, Instant Conversion">
+    <meta property="twitter:description" content="100% free, privacy-first EPUB to Markdown converter. Instant conversion, no registration, files processed locally in your browser. Convert eBooks to Markdown safely and quickly.">
+    <meta property="twitter:site" content="@jqueryscript">
+    <meta property="twitter:image" content="https://www.markdownhtmlgen.com/images/android-chrome-512x512.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F265C83TM1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F265C83TM1');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.markdownhtmlgen.com/epub-to-markdown-converter/#webpage",
+          "url": "https://www.markdownhtmlgen.com/epub-to-markdown-converter/",
+          "name": "Free EPUB to Markdown Converter - Extract & Convert eBooks",
+          "description": "Free online EPUB to Markdown converter. Extract eBook content and convert to well-formatted Markdown with chapter preservation.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "url": "https://www.markdownhtmlgen.com/",
+            "name": "MarkdownHTMLGen"
+          },
+          "mainEntity": {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What types of EPUB files are supported?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our tool supports standard EPUB 2 and EPUB 3 files. This includes most e-books purchased from online stores, public domain books, and self-published content. DRM-protected EPUB files cannot be converted."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is my data safe and private?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, 100%. Your privacy is our top priority. All EPUB processing and conversion happens directly in your browser. No files or data are ever sent to our servers. Everything stays on your computer."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I convert DRM-protected EPUB files?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No, DRM-protected EPUB files cannot be converted due to technical and legal restrictions. You'll need to remove DRM protection first (if legally permitted in your jurisdiction) before converting."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are there any file size limits?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Since all processing is done in your browser, the main limitation is your browser's memory capacity. Most EPUB files should convert without issues, but very large files with many images might affect performance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens to images in the EPUB?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Images are converted to proper Markdown image syntax. The tool extracts image files from the EPUB and creates relative image references in the Markdown output. You'll need to ensure the image files are in the correct locations relative to your Markdown file."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I convert multiple EPUB files at once?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Currently, the tool processes one EPUB file at a time. This ensures the best performance and accuracy for each conversion. For batch processing, you would need to convert files individually."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.markdownhtmlgen.com/#website",
+          "url": "https://www.markdownhtmlgen.com/",
+          "name": "MarkdownHTMLGen",
+          "description": "Free online Markdown conversion tools",
+          "publisher": {
+            "@type": "Organization",
+            "name": "MarkdownHTMLGen"
+          }
+        }
+      ]
+    }
+    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden hidden"></div>
+    <aside id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col flex-shrink-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-30 fixed h-full lg:hidden">
+        <div class="h-16 flex items-center justify-center text-2xl font-bold"><span>MarkdownHTMLGen</span></div>
+        <nav class="flex-1 px-2 space-y-1">
+            <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to HTML</a>
+            <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">HTML to Markdown</a>
+
+            <div>
+                <button type="button" class="w-full flex items-center justify-between px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white" id="mobile-tools-button">
+                    <span>More Free Markdown Tools</span>
+                    <svg class="h-5 w-5 transform transition-transform duration-200" id="mobile-tools-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="mobile-tools-menu" class="pl-4 space-y-1 hidden">
+                    <a href="../merge-markdown/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Merge Markdown</a>
+                    <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
+                    <a href="../markdown-editor/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">WYSIWYG Editor</a>
+                    <a href="../markdown-to-word-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Word</a>
+                    <a href="#" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-400 bg-gray-900">EPUB to Markdown</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
+            <div class="flex items-center">
+                <a href="../" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>MarkdownHTMLGen</span></a>
+                <nav class="ml-10 space-x-4 hidden lg:flex items-center">
+                    <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to HTML</a>
+                    <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">HTML to Markdown</a>
+
+                    <!-- Dropdown -->
+                    <div class="relative" id="tools-dropdown">
+                        <button type="button" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600" id="tools-dropdown-button">
+                            <span>More Free Markdown Tools</span>
+                            <svg class="ml-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+
+                        <div id="tools-dropdown-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="tools-dropdown-button">
+                                <a href="../markdown-editor/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">WYSIWYG Markdown Editor</a>
+                                <a href="../merge-markdown/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Merge Markdown</a>
+                                <a href="../markdown-to-word-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Word</a>
+                                <a href="../markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-semibold" role="menuitem">EPUB to Markdown</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+        </div>
+    </header>
+    <div class="max-w-screen-lg mx-auto">
+        <main class="p-4 sm:p-6">
+            <section class="text-center mb-12">
+                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl" id="converter">Free EPUB to Markdown Converter</h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">Privacy-first, instant EPUB to Markdown conversion. Free forever, no registration, files never leave your browser.</p>
+            </section>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" style="height: 40vh;">
+                <div class="flex flex-col h-full">
+                    <div class="border-b border-gray-200"><nav class="-mb-px flex space-x-4" id="input-tabs">
+                        <button type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">EPUB Upload</button>
+                    </nav></div>
+                    <div class="flex-1 mt-4 relative">
+                        <div class="tab-content absolute inset-0">
+                            <div id="drop-area" class="flex items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-10 h-10 mb-3 text-gray-400"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                    <p class="text-xs text-gray-500">an .epub file (max 50MB)</p>
+                                </div>
+                                <input id="epub-input" type="file" class="hidden" accept=".epub" />
+                            </div>
+                        </div>
+                        <div id="file-info" class="tab-content absolute inset-0 hidden">
+                            <div class="flex flex-col h-full p-4 border border-gray-300 rounded-lg bg-gray-50">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text mr-2 text-indigo-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                                        <span id="file-name" class="text-sm font-medium text-gray-700"></span>
+                                    </div>
+                                    <button id="clear-file" class="text-red-600 hover:text-red-800">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                    </button>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle w-16 h-16 mx-auto mb-4 text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        <p class="text-sm font-medium text-gray-700">EPUB file loaded successfully</p>
+                                        <p class="text-xs text-gray-500 mt-1">Converting to Markdown...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col h-full">
+                    <div class="border-b border-gray-200"><nav class="-mb-px flex space-x-4" id="output-tabs">
+                        <button data-tab="markdown" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">Markdown Output</button>
+                    </nav></div>
+                    <div class="flex-1 mt-4 relative">
+                        <div id="output-content-markdown" class="tab-content absolute inset-0 flex flex-col">
+                            <div class="code-container relative flex-1 w-full rounded-lg overflow-hidden">
+                                <pre class="h-full"><code id="markdown-output" tabindex="0" class="h-full text-sm bg-gray-900 text-gray-300 p-4 block overflow-auto whitespace-pre-wrap break-words">Upload an EPUB file to see the converted Markdown output here...</code></pre>
+                                <div class="code-actions absolute top-6 right-6 flex items-center space-x-2">
+                                    <button id="copy-markdown" class="flex items-center px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4 mr-1.5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2"/></svg>Copy
+                                    </button>
+                                    <button id="download-markdown" class="flex items-center px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download h-4 w-4 mr-1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Download
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mt-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal h-6 w-6 text-indigo-600 mr-2"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><circle cx="14" cy="20" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="17" cy="4" r="2"/></svg>
+                    Conversion Settings
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="preserve-images" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                        <label for="preserve-images" class="ml-2 block text-sm text-gray-700">Preserve Images</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="extract-metadata" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                        <label for="extract-metadata" class="ml-2 block text-sm text-gray-700">Extract Metadata</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="preserve-structure" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                        <label for="preserve-structure" class="ml-2 block text-sm text-gray-700">Preserve Chapter Structure</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="convert-tables" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" checked>
+                        <label for="convert-tables" class="ml-2 block text-sm text-gray-700">Convert Tables to Markdown</label>
+                    </div>
+                </div>
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="filename" class="block text-sm font-medium text-gray-700 mb-1">Output Filename:</label>
+                        <input type="text" id="filename" value="converted-book" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                  </div>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div id="progress-section" class="hidden">
+                <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mt-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-gray-700">Converting...</span>
+                        <span id="progress-text" class="text-sm text-gray-500">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="progress-bar" class="bg-indigo-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                    <div id="progress-status" class="mt-2 text-sm text-gray-600">Reading EPUB file...</div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <section class="mt-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-8">Why Use Our EPUB to Markdown Converter?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-8 w-8 text-green-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <h3 class="ml-3 text-lg font-semibold text-gray-900">Privacy First</h3>
+                        </div>
+                        <p class="text-gray-600">All conversion happens in your browser. Your EPUB files never leave your device, ensuring complete privacy and security.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-8 w-8 text-yellow-600"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            <h3 class="ml-3 text-lg font-semibold text-gray-900">Fast Processing</h3>
+                        </div>
+                        <p class="text-gray-600">Client-side processing means instant conversion without server delays. Convert large EPUB files quickly and efficiently.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-8 w-8 text-blue-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            <h3 class="ml-3 text-lg font-semibold text-gray-900">Structure Preservation</h3>
+                        </div>
+                        <p class="text-gray-600">Maintains chapter structure, headings, lists, and formatting. Creates clean, readable Markdown with proper hierarchy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="mt-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-8">How It Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mx-auto mb-4">
+                            <span class="text-2xl font-bold text-indigo-600">1</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Upload EPUB</h3>
+                        <p class="text-gray-600">Select or drag and drop your EPUB file. All processing happens locally in your browser.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mx-auto mb-4">
+                            <span class="text-2xl font-bold text-indigo-600">2</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Extract & Convert</h3>
+                        <p class="text-gray-600">Our tool parses the EPUB structure and converts content to well-formatted Markdown.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mx-auto mb-4">
+                            <span class="text-2xl font-bold text-indigo-600">3</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Download Markdown</h3>
+                        <p class="text-gray-600">Copy or download your converted Markdown file with preserved structure and formatting.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Features</h2>
+                    <p class="mt-2 text-lg text-gray-600">Powerful EPUB to Markdown conversion capabilities.</p>
+                </div>
+                <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-6 w-6 text-indigo-600"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">EPUB File Support</h3>
+                            <p class="mt-1 text-base text-gray-600">Convert standard EPUB files to clean, readable Markdown format.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-6 w-6 text-indigo-600"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Client-Side Processing</h3>
+                            <p class="mt-1 text-base text-gray-600">All processing happens in your browser - your files never leave your computer.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-6 w-6 text-indigo-600"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14H4z"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Fast Conversion</h3>
+                            <p class="mt-1 text-base text-gray-600">Lightning-fast conversion with immediate results as soon as you upload.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-6 w-6 text-indigo-600"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Clean Output</h3>
+                            <p class="mt-1 text-base text-gray-600">Properly formatted Markdown that maintains the structure and formatting of your EPUB.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info h-6 w-6 text-indigo-600"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Metadata Extraction</h3>
+                            <p class="mt-1 text-base text-gray-600">Automatically extracts and preserves book metadata like title, author, and description.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image h-6 w-6 text-indigo-600"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Image Support</h3>
+                            <p class="mt-1 text-base text-gray-600">Converts EPUB images to proper Markdown image syntax with correct paths.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Use Cases Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Use Cases</h2>
+                    <p class="mt-2 text-lg text-gray-600">How you can use our EPUB to Markdown converter.</p>
+                </div>
+                <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book h-6 w-6 text-indigo-600"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M10 2v4a2 2 0 0 1 2 2v0a2 2 0 0 1 2-2v-4"/></svg>
+                        </div>
+                        <h3 class="mt-4 text-lg font-bold">E-book Content Extraction</h3>
+                        <p class="mt-1 text-base text-gray-600">Extract content from e-books for use in blog posts, articles, or documentation.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-6 w-6 text-indigo-600"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                        </div>
+                        <h3 class="mt-4 text-lg font-bold">Technical Documentation</h3>
+                        <p class="mt-1 text-base text-gray-600">Convert technical manuals and guides from EPUB to Markdown for easier editing and version control.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap h-6 w-6 text-indigo-600"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="mt-4 text-lg font-bold">Academic Research</h3>
+                            <p class="mt-1 text-base text-gray-600">Convert academic texts and research papers to Markdown for easier citation and reference management.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive h-6 w-6 text-indigo-600"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="mt-4 text-lg font-bold">Content Archive</h3>
+                            <p class="mt-1 text-base text-gray-600">Convert your EPUB library to Markdown for better searchability and long-term preservation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="mt-16 bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800" id="faq">Frequently Asked Questions</h2>
+                    <p class="mt-2 text-lg text-gray-600">Have questions? We've got answers.</p>
+                </div>
+                <div id="faq-accordion" class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                            <span>What types of EPUB files are supported?</span>
+                            <span class="faq-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-base text-gray-600">Our tool supports standard EPUB 2 and EPUB 3 files. This includes most e-books purchased from online stores, public domain books, and self-published content. DRM-protected EPUB files cannot be converted.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                            <span>Is my data safe and private?</span>
+                            <span class="faq-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-base text-gray-600">Yes, 100%. Your privacy is our top priority. All EPUB processing and conversion happens directly in your browser. No files or data are ever sent to our servers. Everything stays on your computer.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                            <span>Can I convert DRM-protected EPUB files?</span>
+                            <span class="faq-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-base text-gray-600">No, DRM-protected EPUB files cannot be converted due to technical and legal restrictions. You'll need to remove DRM protection first (if legally permitted in your jurisdiction) before converting.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                            <span>Are there any file size limits?</span>
+                            <span class="faq-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-base text-gray-600">Since all processing is done in your browser, the main limitation is your browser's memory capacity. Most EPUB files should convert without issues, but very large files with many images might affect performance.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                            <span>What happens to images in the EPUB?</span>
+                            <span class="faq-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-base text-gray-600">Images are converted to proper Markdown image syntax. The tool extracts image files from the EPUB and creates relative image references in the Markdown output. You'll need to ensure the image files are in the correct locations relative to your Markdown file.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                            <span>Can I convert multiple EPUB files at once?</span>
+                            <span class="faq-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-base text-gray-600">Currently, the tool processes one EPUB file at a time. This ensures the best performance and accuracy for each conversion. For batch processing, you would need to convert files individually.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
+    <script src="script.js"></script>
+
+    <footer class="bg-gray-800 text-gray-300 py-12 mt-16">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">MarkdownHTMLGen</h3>
+                    <p class="text-sm">Your free Markdown to HTML converter. Instant, privacy-first, and AI content friendly.</p>
+                    <p class="text-sm mt-4">&copy; 2025 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
+                        <li><a href="../html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
+                        <li><a href="../markdown-editor/" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
+                        <li><a href="../merge-markdown/" class="text-sm hover:text-white transition-colors duration-200">Merge Markdown</a></li>
+                        <li><a href="../markdown-to-word-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Word</a></li>
+                        <li><a href="../markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
+                        <li><a href="#" class="text-sm text-white font-semibold">EPUB to Markdown</a></li>
+                        <li><a href="#faq" class="text-sm hover:text-white transition-colors duration-200">FAQ</a></li>
+                        <li><a href="#markdown" class="text-sm hover:text-white transition-colors duration-200">Markdown Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Support -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Legal & Support</h3>
+                    <ul class="space-y-2">
+                                                <li><a href="../privacy.html" class="text-sm hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="text-sm hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Facebook" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="https://x.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="X" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-6 w-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+                        <a href="https://www.youtube.com/@jQueryScriptCSS" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="YouTube" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube h-6 w-6"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2h15a2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+                    </div>
+                    <p class="text-sm mt-4">Stay updated with our latest tools and features!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
