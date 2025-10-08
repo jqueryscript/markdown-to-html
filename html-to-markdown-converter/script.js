@@ -31,8 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const convertHtmlToMarkdown = () => {
     const options = getTurndownOptions();
     const turndownService = new TurndownService(options);
+    turndownService.use(turndownPluginGfm.gfm);
+
     const html = htmlInput.value || '';
-    const markdown = turndownService.turndown(html);
+
+    // --- HTML Cleaning Logic ---
+    const cleanHtml = (htmlString) => {
+        const allowedAttributes = ['href', 'src', 'alt', 'title', 'colspan', 'rowspan', 'class', 'id', 'target', 'start', 'align'];
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlString;
+
+        const allElements = tempDiv.getElementsByTagName('*');
+        for (let i = 0; i < allElements.length; i++) {
+            const element = allElements[i];
+            const attributes = Array.from(element.attributes);
+            for (const attribute of attributes) {
+                if (!allowedAttributes.includes(attribute.name.toLowerCase())) {
+                    element.removeAttribute(attribute.name);
+                }
+            }
+        }
+        return tempDiv.innerHTML;
+    };
+
+    const cleanedHtml = cleanHtml(html);
+    const markdown = turndownService.turndown(cleanedHtml);
     markdownCode.textContent = markdown;
   };
 
