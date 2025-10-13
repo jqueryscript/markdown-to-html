@@ -14,7 +14,8 @@
       "WebFetch(domain:moz.com)",
       "WebFetch(domain:searchengineland.com)",
       "WebFetch(domain:www.semrush.com)",
-      "WebFetch(domain:www.searchenginejournal.com)"
+      "WebFetch(domain:www.searchenginejournal.com)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Markdown to Plain Text Converter - Clean Text Extraction</title>
+        <meta name="description" content="Free, privacy-first Markdown to Plain Text converter that removes all formatting and extracts clean text content from Markdown documents.">
+    <link rel="canonical" href="https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/">
+    <meta property="og:title" content="Free Markdown to Plain Text Converter - Clean Text Extraction">
+    <meta property="og:description" content="Free, privacy-first Markdown to Plain Text converter that removes all formatting and extracts clean text content from Markdown documents.">
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/">
+    <meta property="twitter:title" content="Free Markdown to Plain Text Converter - Clean Text Extraction">
+    <meta property="twitter:description" content="Free, privacy-first Markdown to Plain Text converter that removes all formatting and extracts clean text content from Markdown documents.">
+    <meta property="twitter:site" content="@jqueryscript">
+    <meta property="twitter:image" content="https://www.markdownhtmlgen.com/images/android-chrome-512x512.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../style.css?v8">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F265C83TM1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F265C83TM1');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/#webpage",
+      "url": "https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/",
+      "name": "Free Markdown to Plain Text Converter - Clean Text Extraction",
+      "description": "Free online Markdown to Plain Text converter. Extract clean text content from Markdown documents by removing all formatting.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://www.markdownhtmlgen.com/",
+        "name": "Markdown Tools"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/#softwareapplication",
+      "name": "Free Markdown to Plain Text Converter",
+      "description": "A free, privacy-first Markdown to Plain Text converter that removes all formatting and extracts clean text content from Markdown documents.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is my data safe and private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, 100%. Your privacy is our top priority. All Markdown conversion and processing happens directly in your browser. No data, text, or files are ever sent to our servers. Everything stays on your computer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which browsers are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This tool is built with modern web technologies and works best on the latest versions of Google Chrome, Firefox, Safari, and Microsoft Edge. We do not support Internet Explorer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What gets removed during conversion?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The converter removes all Markdown formatting syntax including asterisks, hashtags, brackets, backticks, underscores, and other special characters. It preserves only the actual text content."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for AI-generated content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! This tool is perfect for cleaning up content generated by AI tools like ChatGPT, Gemini, and others. Just paste the Markdown from the AI, and you'll get clean plain text ready for any use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there any file size limits for uploads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Since all processing is done in your browser, the main limitation is your browser's own memory capacity. For typical Markdown files, even very large ones, you should not experience any issues. However, extremely large files (hundreds of megabytes) might affect performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Plain Text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plain text is text that contains no formatting information such as bold, italics, headers, links, or other styling. It consists only of characters, spaces, and basic punctuation, making it universally compatible and readable by any text editor or application."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why convert Markdown to Plain Text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Converting Markdown to plain text is useful when you need to extract just the content without any formatting for tasks like creating summaries, analyzing text, copying to applications that don't support Markdown, or ensuring maximum compatibility across different systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this preserve line breaks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the converter preserves paragraph structure and line breaks to maintain readability. You can choose whether to keep single line breaks or merge them into single paragraphs."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden hidden"></div>
+    <aside id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col flex-shrink-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-30 fixed h-full lg:hidden">
+        <div class="h-16 flex items-center justify-center text-2xl font-bold"><span>Markdown Tools</span></div>
+        <nav class="flex-1 px-2 space-y-1">
+            <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to HTML</a>
+            <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">HTML to Markdown</a>
+
+            <div>
+                <button type="button" class="w-full flex items-center justify-between px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white" id="mobile-tools-button">
+                    <span>More Tools</span>
+                    <svg class="h-5 w-5 transform transition-transform duration-200" id="mobile-tools-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="mobile-tools-menu" class="pl-4 space-y-1 hidden">
+                    <a href="../markdown-editor/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">WYSIWYG Editor</a>
+                    <a href="../merge-markdown/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Merge Markdown</a>
+                    <a href="../markdown-to-word-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Word</a>
+                    <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
+                    <a href="../epub-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">EPUB to Markdown</a>
+                    <a href="./" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-400 bg-gray-900">Markdown to Plain Text</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
+            <div class="flex items-center">
+                <a href="../" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>Markdown Tools</span></a>
+                <nav class="ml-10 space-x-4 hidden lg:flex items-center">
+                    <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to HTML</a>
+                    <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">HTML to Markdown</a>
+
+                    <!-- Dropdown -->
+                    <div class="relative" id="tools-dropdown">
+                        <button type="button" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600" id="tools-dropdown-button">
+                            <span>More Free Markdown Tools</span>
+                            <svg class="ml-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+
+                        <div id="tools-dropdown-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="tools-dropdown-button">
+                                <a href="../markdown-editor/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">WYSIWYG Markdown Editor</a>
+                                <a href="../merge-markdown/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Merge Markdown</a>
+                                <a href="../markdown-to-word-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Word</a>
+                                <a href="../markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
+                                <a href="../epub-to-markdown-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">EPUB to Markdown</a>
+                                <a href="./" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Plain Text</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+        </div>
+    </header>
+    <div class="max-w-screen-lg mx-auto">
+        <main class="p-4 sm:p-6">
+            <section class="text-center mb-12">
+                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl" id="converter">Free Markdown to Plain Text Converter</h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">Free, privacy-first Markdown to Plain Text converter that removes all formatting and extracts clean text content from Markdown documents.</p>
+            </section>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" style="height: 40vh;">
+                <div class="flex flex-col h-full">
+                    <div class="border-b border-gray-200"><nav class="-mb-px flex space-x-4" id="input-tabs">
+                        <button data-tab="markdown" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">Markdown</button>
+                        <button data-tab="upload" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-inactive">Upload File</button>
+                    </nav></div>
+                    <div class="flex-1 mt-4 relative"><div id="input-content-markdown" class="tab-content absolute inset-0"><textarea id="markdown-input" class="w-full h-full p-4 text-base border border-gray-300
+        rounded-lg shadow-sm resize-none" placeholder="Paste your Markdown here..."></textarea></div><div id="input-content-upload" class="tab-content absolute inset-0 hidden">
+                        <div id="drop-area" class="flex items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload-cloud w-10 h-10 mb-3 text-gray-400"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m16 16-4-4-4 4"></path></svg>
+                                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                <p class="text-xs text-gray-500">a .md file</p>
+                            </div>
+                            <input id="file-upload" type="file" class="hidden" accept="" />
+                        </div>
+                    </div></div>
+                </div>
+                <div class="flex flex-col h-full">
+                    <div class="border-b border-gray-200"><nav class="-mb-px flex space-x-4" id="output-tabs">
+                        <button data-tab="plain" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">Plain Text</button>
+                    </nav></div>
+                    <div class="flex-1 mt-4 relative">
+                        <div id="output-content-plain" class="tab-content absolute inset-0 flex flex-col">
+                            <div class="code-container relative flex-1 w-full rounded-lg overflow-hidden">
+                                <pre class="h-full"><code id="plain-code" tabindex="0" class="h-full text-sm bg-gray-900 text-gray-300 p-4 block overflow-auto"></code></pre>
+                                <div class="code-actions absolute top-6 right-6 flex items-center space-x-2">
+                                    <button id="copy-plain" class="flex items-center px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4 mr-1.5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2"/></svg>Copy</button>
+                                    <button id="download-plain" class="flex items-center px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download h-4 w-4 mr-1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Download</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mt-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal h-6 w-6 text-indigo-600 mr-2"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><circle cx="14" cy="20" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="17" cy="4" r="2"/></svg>
+                    Settings
+                </h3>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center">
+                        <input id="preserve-line-breaks" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked>
+                        <label for="preserve-line-breaks" class="ml-2 block text-sm text-gray-900">Preserve Line Breaks</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="remove-urls" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked>
+                        <label for="remove-urls" class="ml-2 block text-sm text-gray-900">Remove URLs</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="remove-emojis" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                        <label for="remove-emojis" class="ml-2 block text-sm text-gray-900">Remove Emojis</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="normalize-whitespace" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked>
+                        <label for="normalize-whitespace" class="ml-2 block text-sm text-gray-900">Normalize Whitespace</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 space-y-12">
+                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800" id="features">Features</h2>
+                        <p class="mt-2 text-lg text-gray-600">Everything you need for clean text extraction.</p>
+                    </div>
+                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-6 w-6 text-indigo-600"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Privacy First</h3>
+                                <p class="mt-1 text-base text-gray-600">No data is ever sent to our servers. All processing happens in your browser.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-6 w-6 text-indigo-600"><polygon points="13 12 13 2 6 12 11 12 11 22 18 12 13 12"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Real-time Conversion</h3>
+                                <p class="mt-1 text-base text-gray-600">Instantly see your Markdown converted to plain text as you type.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-6 w-6 text-indigo-600"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">AI Content Friendly</h3>
+                                <p class="mt-1 text-base text-gray-600">Perfect for cleaning up content generated by AI tools like ChatGPT and others.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload-cloud h-6 w-6 text-indigo-600"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">MD File Upload</h3>
+                                <p class="mt-1 text-base text-gray-600">Supports uploading .md files to convert to plain text.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-6 w-6 text-indigo-600"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Clean Formatting</h3>
+                                <p class="mt-1 text-base text-gray-600">Removes all Markdown syntax including bold, italics, headers, links, and more.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hash h-6 w-6 text-indigo-600"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="10" y1="3" y2="21"/><line x1="14" x2="14" y1="3" y2="21"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">URL Removal</h3>
+                                <p class="mt-1 text-base text-gray-600">Optionally remove URLs from links while preserving link text.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800" id="how-it-works">How It Works</h2>
+                        <p class="mt-2 text-lg text-gray-600">A simple and intuitive workflow.</p>
+                    </div>
+                    <div class="mt-8 grid gap-8 md:grid-cols-3">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
+                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-edit-3 h-8 w-8 text-indigo-600"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            </div>
+                            <h3 class="mt-5 text-xl font-bold">1. Input Markdown</h3>
+                            <p class="mt-2 text-base text-gray-600">Paste or upload your Markdown content and configure settings like line break preservation and URL removal.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
+                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-8 w-8 text-indigo-600"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <h3 class="mt-5 text-xl font-bold">2. Convert</h3>
+                            <p class="mt-2 text-base text-gray-600">See your Markdown instantly converted to clean plain text with all formatting removed.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
+                            <div class="flex justify-center items-center mx-auto bg-indigo-100 rounded-full h-16 w-16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-8 w-8 text-indigo-600"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2"/></svg>
+                            </div>
+                            <h3 class="mt-5 text-xl font-bold">3. Copy or Download</h3>
+                            <p class="mt-2 text-base text-gray-600">Copy the clean plain text or download it as a .txt file for use anywhere.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800">Conversion Example</h2>
+                        <p class="mt-2 text-lg text-gray-600">See how your Markdown becomes clean plain text.</p>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Markdown Input</h3>
+                            <div class="bg-gray-900 rounded-lg overflow-hidden flex-1">
+                                <pre class="p-4 text-sm text-gray-300 overflow-auto h-full"><code class="language-markdown">## Meeting Notes 🚀
+
+- **Goal:** Finalize Q3 roadmap.
+- **Action Item:** [Submit proposal](https://example.com) by Friday.
+- **Reminder:** Don't forget the team lunch! 🍕
+
+### Next Steps
+
+1. Review the documentation
+2. Send feedback to team
+3. Schedule follow-up meeting</code></pre>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Plain Text Output</h3>
+                            <div class="bg-gray-900 rounded-lg overflow-hidden flex-1">
+                                <pre class="p-4 text-sm text-gray-300 overflow-auto h-full"><code class="language-plaintext">Meeting Notes
+
+Goal: Finalize Q3 roadmap.
+Action Item: Submit proposal by Friday.
+Reminder: Don't forget the team lunch!
+
+Next Steps
+
+1. Review the documentation
+2. Send feedback to team
+3. Schedule follow-up meeting</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800">Use Cases</h2>
+                        <p class="mt-2 text-lg text-gray-600">How you can use our tool.</p>
+                    </div>
+                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-circuit h-6 w-6 text-indigo-600"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M9 13a4.5 4.5 0 0 0 3-4"/><path d="M14.5 10.5A4.5 4.5 0 0 1 18 7"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a1 1 0 0 1 .585-.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M12 13h4"/><path d="M12 18h6a2 2 0 0 1 2 2v1"/><path d="M12 8h8"/><path d="M16 8.5A4.5 4.5 0 0 0 7.5 13"/><circle cx="16" cy="13" r=".5"/><circle cx="18" cy="7" r=".5"/><circle cx="20" cy="21" r=".5"/><circle cx="20" cy="8" r=".5"/></svg>
+                            </div>
+                            <h3 class="mt-4 text-lg font-bold">AI-Generated Content</h3>
+                            <p class="mt-1 text-base text-gray-600">Clean up content from AI tools like ChatGPT for use in plain text applications.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search h-6 w-6 text-indigo-600"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                            </div>
+                            <h3 class="mt-4 text-lg font-bold">Text Analysis</h3>
+                            <p class="mt-1 text-base text-gray-600">Extract clean text for content analysis, keyword extraction, and natural language processing.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-6 w-6 text-indigo-600"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                            </div>
+                            <h3 class="mt-4 text-lg font-bold">Document Processing</h3>
+                            <p class="mt-1 text-base text-gray-600">Convert formatted documents to plain text for use in legacy systems or email clients.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square h-6 w-6 text-indigo-600"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <h3 class="mt-4 text-lg font-bold">Email & Messaging</h3>
+                            <p class="mt-1 text-base text-gray-600">Extract clean text content from formatted Markdown for emails and messaging platforms.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-800" id="faq">Frequently Asked Questions</h2>
+                        <p class="mt-2 text-lg text-gray-600">Have questions? We've got answers.</p>
+                    </div>
+                    <div id="faq-accordion" class="max-w-3xl mx-auto space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Is my data safe and private?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Yes, 100%. Your privacy is our top priority. All Markdown conversion and processing happens directly in your browser. No data, text, or files are ever sent to our servers. Everything stays on your computer.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Which browsers are supported?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">This tool is built with modern web technologies and works best on the latest versions of Google Chrome, Firefox, Safari, and Microsoft Edge. We do not support Internet Explorer.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>What gets removed during conversion?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">The converter removes all Markdown formatting syntax including asterisks, hashtags, brackets, backticks, underscores, and other special characters. It preserves only the actual text content.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Can I use this for AI-generated content?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Absolutely! This tool is perfect for cleaning up content generated by AI tools like ChatGPT, Gemini, and others. Just paste the Markdown from the AI, and you'll get clean plain text ready for any use.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Are there any file size limits for uploads?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Since all processing is done in your browser, the main limitation is your browser's own memory capacity. For typical Markdown files, even very large ones, you should not experience any issues. However, extremely large files (hundreds of megabytes) might affect performance.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 6 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>What is Plain Text?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Plain text is text that contains no formatting information such as bold, italics, headers, links, or other styling. It consists only of characters, spaces, and basic punctuation, making it universally compatible and readable by any text editor or application.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 7 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Why convert Markdown to Plain Text?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Converting Markdown to plain text is useful when you need to extract just the content without any formatting for tasks like creating summaries, analyzing text, copying to applications that don't support Markdown, or ensuring maximum compatibility across different systems.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 8 -->
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Does this preserve line breaks?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Yes, the converter preserves paragraph structure and line breaks to maintain readability. You can choose whether to keep single line breaks or merge them into single paragraphs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+
+    <footer class="bg-gray-800 text-gray-300 py-12 mt-16">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Markdown Tools</h3>
+                    <p class="text-sm">Your complete suite of free Markdown tools. Instant, privacy-first, and AI content friendly.</p>
+                    <p class="text-sm mt-4">&copy; 2025 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
+                        <li><a href="../html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
+                        <li><a href="../markdown-editor/" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
+                        <li><a href="../merge-markdown/" class="text-sm hover:text-white transition-colors duration-200">Merge Markdown</a></li>
+                        <li><a href="../markdown-to-word-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Word</a></li>
+                        <li><a href="../markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
+                        <li><a href="../epub-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">EPUB to Markdown</a></li>
+                        <li><a href="./" class="text-sm hover:text-white transition-colors duration-200">Markdown to Plain Text</a></li>
+                        <li><a href="#faq" class="text-sm hover:text-white transition-colors duration-200">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Support -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Legal & Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../privacy.html" class="text-sm hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="text-sm hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Facebook" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="https://x.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="X" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-6 w-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+                        <a href="https://www.youtube.com/@jQueryScriptCSS" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="YouTube" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube h-6 w-6"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2h15a2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+                    </div>
+                    <p class="text-sm mt-4">Stay updated with our latest tools and features!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

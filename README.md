@@ -29,6 +29,9 @@ A free, privacy-first suite of online tools for all your Markdown needs. All too
 *   **[HTML to Markdown Converter](https://www.markdownhtmlgen.com/html-to-markdown-converter/)**
     *   Easily convert HTML content back into well-formatted Markdown.
 
+*   **[Markdown to Plain Text Converter](https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/)**
+    *   Remove Markdown formatting while preserving text structure. Perfect for extracting clean text from Markdown documents.
+
 ---
 
 ## Features
@@ -40,7 +43,15 @@ A free, privacy-first suite of online tools for all your Markdown needs. All too
 - **SEO Optimized**: Structured data and proper meta tags for better search visibility
 - **Unified Navigation**: Consistent cross-tool navigation for seamless user experience
 
-## Recent Updates (September 2025)
+## Recent Updates (October 2025)
+
+- ✨ Added **Markdown to Plain Text Converter** for extracting clean text from Markdown
+- 🔧 Enhanced cross-tool navigation with unified linking between all converters
+- 📱 Updated legacy pages to replace "coming soon" placeholders with actual tools
+- 🎯 Improved site-wide navigation consistency and user discovery
+- ✅ Updated sitemap and changelog to reflect new tool additions
+
+## Previous Updates (September 2025)
 
 - ✨ Added comprehensive EPUB to Markdown converter
 - 🔧 Standardized navigation and meta tags across all tools
