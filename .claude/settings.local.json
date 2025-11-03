@@ -15,7 +15,17 @@
       "WebFetch(domain:searchengineland.com)",
       "WebFetch(domain:www.semrush.com)",
       "WebFetch(domain:www.searchenginejournal.com)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git config:*)",
+      "Bash(python:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:blog.hootsuite.com)",
+      "WebFetch(domain:www.buffer.com)",
+      "WebFetch(domain:sproutsocial.com)",
+      "WebFetch(domain:www.canva.com)",
+      "WebFetch(domain:www.tailwindapp.com)",
+      "WebFetch(domain:blog.bufferapp.com)",
+      "WebFetch(domain:buffer.com)"
     ],
     "deny": [],
     "ask": []

@@ -1,0 +1,141 @@
+.template-github-style {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #24292e;
+    background: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 3rem;
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.template-github-style h1,
+.template-github-style h2,
+.template-github-style h3,
+.template-github-style h4,
+.template-github-style h5,
+.template-github-style h6 {
+    color: #1f2328;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.template-github-style h1 {
+    font-size: 2.5em;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.3em;
+}
+
+.template-github-style h2 {
+    font-size: 2em;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.3em;
+}
+
+.template-github-style h3 {
+    font-size: 1.5em;
+}
+
+.template-github-style p {
+    margin-bottom: 1.2em;
+    font-size: 1em;
+}
+
+.template-github-style a {
+    color: #0969da;
+    text-decoration: none;
+}
+
+.template-github-style a:hover {
+    text-decoration: underline;
+}
+
+.template-github-style code {
+    background: rgba(175, 184, 193, 0.2);
+    color: #cf222e;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+    font-size: 0.9em;
+}
+
+.template-github-style pre {
+    background: #f6f8fa;
+    color: #24292e;
+    padding: 1.5rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #d0d7de;
+}
+
+.template-github-style pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.template-github-style blockquote {
+    border-left: 4px solid #d0d7de;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: #656d76;
+    font-style: italic;
+}
+
+.template-github-style ul,
+.template-github-style ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.template-github-style li {
+    margin: 0.5rem 0;
+}
+
+.template-github-style li::marker {
+    color: #656d76;
+}
+
+.template-github-style table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem 0;
+    border: 1px solid #d0d7de;
+}
+
+.template-github-style th,
+.template-github-style td {
+    border: 1px solid #d0d7de;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.template-github-style th {
+    background: #f6f8fa;
+    font-weight: 600;
+}
+
+.template-github-style tr:nth-child(even) {
+    background: #f6f8fa;
+}
+
+.template-github-style img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.template-github-style strong {
+    color: #1f2328;
+    font-weight: 600;
+}
+
+.template-github-style em {
+    color: #953800;
+    font-style: italic;
+}

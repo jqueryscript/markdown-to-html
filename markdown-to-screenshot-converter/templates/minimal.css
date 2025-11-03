@@ -1,0 +1,137 @@
+.template-minimal {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.8;
+    color: #000000;
+    background: #fafafa;
+    padding: 3rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.template-minimal h1,
+.template-minimal h2,
+.template-minimal h3,
+.template-minimal h4,
+.template-minimal h5,
+.template-minimal h6 {
+    color: #000000;
+    font-weight: 300;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    letter-spacing: -0.02em;
+}
+
+.template-minimal h1 {
+    font-size: 2.5em;
+    font-weight: 200;
+    margin-top: 0;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.5em;
+}
+
+.template-minimal h2 {
+    font-size: 2em;
+}
+
+.template-minimal h3 {
+    font-size: 1.5em;
+}
+
+.template-minimal p {
+    margin-bottom: 1.5em;
+    font-size: 1.05em;
+    font-weight: 300;
+}
+
+.template-minimal a {
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.template-minimal a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.template-minimal code {
+    background: #f0f0f0;
+    color: #000000;
+    padding: 0.2em 0.4em;
+    border-radius: 2px;
+    font-family: 'SFMono-Regular', 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+.template-minimal pre {
+    background: #f0f0f0;
+    color: #000000;
+    padding: 1.5rem;
+    border-radius: 2px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.template-minimal pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.template-minimal blockquote {
+    border-left: 2px solid #d0d0d0;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: #666666;
+    font-style: italic;
+}
+
+.template-minimal ul,
+.template-minimal ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.template-minimal li {
+    margin: 0.7rem 0;
+    font-weight: 300;
+}
+
+.template-minimal table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.template-minimal th,
+.template-minimal td {
+    border: 1px solid #d0d0d0;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.template-minimal th {
+    background: #f0f0f0;
+    font-weight: 500;
+}
+
+.template-minimal tr:nth-child(even) {
+    background: #f7f7f7;
+}
+
+.template-minimal img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.template-minimal strong {
+    color: #000000;
+    font-weight: 500;
+}
+
+.template-minimal em {
+    color: #000000;
+    font-style: italic;
+}

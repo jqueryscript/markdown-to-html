@@ -1,0 +1,141 @@
+.template-modern-light {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.template-modern-light h1,
+.template-modern-light h2,
+.template-modern-light h3,
+.template-modern-light h4,
+.template-modern-light h5,
+.template-modern-light h6 {
+    color: #111827;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.template-modern-light h1 {
+    font-size: 2.5em;
+    border-bottom: 3px solid #4f46e5;
+    padding-bottom: 0.3em;
+}
+
+.template-modern-light h2 {
+    font-size: 2em;
+    color: #4f46e5;
+}
+
+.template-modern-light h3 {
+    font-size: 1.5em;
+    color: #6366f1;
+}
+
+.template-modern-light p {
+    margin-bottom: 1.2em;
+    font-size: 1.1em;
+}
+
+.template-modern-light a {
+    color: #4f46e5;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.template-modern-light a:hover {
+    border-bottom-color: #4f46e5;
+}
+
+.template-modern-light code {
+    background-color: #f3f4f6;
+    color: #ef4444;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Fira Code', 'Consolas', Monaco, monospace;
+    font-size: 0.9em;
+}
+
+.template-modern-light pre {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.template-modern-light pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.template-modern-light blockquote {
+    border-left: 4px solid #4f46e5;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: #6b7280;
+    font-style: italic;
+    background-color: #f9fafb;
+    padding: 1rem 1.5rem;
+    border-radius: 0 6px 6px 0;
+}
+
+.template-modern-light ul,
+.template-modern-light ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.template-modern-light li {
+    margin: 0.5rem 0;
+}
+
+.template-modern-light table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.template-modern-light th,
+.template-modern-light td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.template-modern-light th {
+    background-color: #4f46e5;
+    color: white;
+    font-weight: 600;
+}
+
+.template-modern-light tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.template-modern-light img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.template-modern-light strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+.template-modern-light em {
+    color: #4f46e5;
+    font-style: italic;
+}

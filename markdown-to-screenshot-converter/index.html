@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AI Prompt & Code Screenshot Generator - Create Beautiful Screenshots</title>
+    <meta name="description" content="Create beautiful screenshots of AI prompts, code snippets, and Markdown content. Perfect for sharing on Twitter, LinkedIn, and social media. Export as PNG, SVG, or WEBP.">
+    <link rel="canonical" href="https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/">
+    <meta property="og:title" content="Free AI Prompt & Code Screenshot Generator">
+    <meta property="og:description" content="Create beautiful screenshots of AI prompts, code snippets, and Markdown content. Perfect for sharing on social media.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/">
+    <meta property="twitter:title" content="Free AI Prompt & Code Screenshot Generator">
+    <meta property="twitter:description" content="Create beautiful screenshots of AI prompts, code snippets, and Markdown content. Perfect for sharing on social media.">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../style.css?v8">
+
+    <!-- Google Fonts - JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Main screenshot container with external background */
+        .screenshot-container {
+            width: 100%;
+            min-height: 400px;
+            background: #f0f2f5;
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+            transition: width 0.3s ease, height 0.3s ease; /* Smooth transitions for preset changes */
+        }
+
+        /* Floating markdown card */
+        .screenshot-workspace {
+            width: 100%;
+            max-width: 1000px;
+            min-height: 280px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* macOS-style traffic lights on card */
+        .traffic-lights {
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .traffic-light.red {
+            background: #ff5f57;
+        }
+
+        .traffic-light.yellow {
+            background: #ffbd2e;
+        }
+
+        .traffic-light.green {
+            background: #28ca42;
+        }
+
+        /* Code editor area (div not textarea) */
+        .code-editor {
+            width: 100%;
+            min-height: 500px;
+            padding: 3rem 2rem 2rem 2rem;
+            font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            background: transparent;
+            border: none;
+            outline: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word; /* Modern version of word-wrap */
+            color: #2d3748;
+            tab-size: 4;
+            overflow: auto;
+            /* Enhanced word breaking for long URLs/code */
+            hyphens: auto;
+            word-break: break-word; /* Force breaking of long words */
+        }
+
+        /* Control line spacing */
+        .code-editor br {
+            display: block;
+            margin: 0;
+            content: "";
+        }
+
+        .code-editor:empty:before {
+            content: attr(data-placeholder);
+            color: #a0aec0;
+            font-style: italic;
+        }
+
+        .code-editor:focus {
+            outline: none;
+        }
+
+        /* External background templates - updated to modern gradients */
+        .bg-modern-light {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Purple gradient */
+        }
+
+        .bg-dark-code {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%); /* Dark gradient */
+        }
+
+        .bg-github-style {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%); /* Warm sunset gradient */
+        }
+
+        .bg-gradient {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); /* Peach gradient */
+        }
+
+        .bg-minimal {
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 50%, #e0e0e0 100%); /* Light gray gradient */
+        }
+
+        /* Card template styles - updated to black theme */
+        .template-modern-light {
+            background: #ffffff; /* 真正的白色背景 */
+            color: #1a1a1a;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .template-dark-code {
+            background: #0d1117; /* 经典暗色代码风格 */
+            color: #e6edf3;
+            border: 1px solid #30363d;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .template-github-style {
+            background: #ffffff; /* GitHub浅色主题 */
+            color: #24292f;
+            border: 1px solid #d0d7de;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .template-gradient {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); /* 粉色渐变 */
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(240, 147, 251, 0.3);
+        }
+
+        .template-minimal {
+            background: #fafbfc; /* 极简浅色 */
+            color: #24292f;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Template-specific code editor styling */
+        .template-dark-code .code-editor {
+            color: #e2e8f0;
+        }
+
+        .template-github-style .code-editor {
+            color: #24292e;
+        }
+
+        .template-minimal .code-editor {
+            color: #1a202c;
+            font-weight: 300;
+        }
+
+        /* 预览区域简化语法高亮样式 - 只处理基本Markdown元素 */
+        .code-editor {
+            color: inherit; /* 使用模板的默认文字颜色 */
+            font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 基本Markdown语法高亮 - 预览区域 */
+        .code-editor .heading {
+            color: #79c0ff; /* 标题蓝色 */
+            font-weight: 600;
+        }
+
+        .code-editor .heading-1 {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #79c0ff; /* H1亮蓝色 */
+        }
+
+        .code-editor .heading-2 {
+            font-size: 1.3em;
+            color: #58a6ff; /* H2标准蓝色 */
+        }
+
+        .code-editor .heading-3 {
+            font-size: 1.1em;
+            color: #8b949e; /* H3灰色 */
+        }
+
+        .code-editor .bold {
+            font-weight: 600;
+            color: #f0f6fc; /* 粗体白色 */
+        }
+
+        .code-editor .italic {
+            font-style: italic;
+            color: #c9d1d9; /* 斜体灰色 */
+        }
+
+        /* 移除了 .code-inline 样式 - 行内代码保持原始显示 */
+
+        /* 模板特定的默认文字颜色 */
+        .template-modern-light .code-editor {
+            color: #1a1a1a; /* 深色文字 */
+        }
+
+        .template-dark-code .code-editor {
+            color: #e6edf3; /* 浅色文字 */
+        }
+
+        .template-github-style .code-editor {
+            color: #24292f; /* 深色文字 */
+        }
+
+        .template-gradient .code-editor {
+            color: #ffffff; /* 白色文字 */
+        }
+
+        .template-minimal .code-editor {
+            color: #24292f; /* 深色文字 */
+        }
+
+        /* 为淡色模板添加专门的样式以提高可读性 */
+        .template-modern-light .code-editor .bold {
+            color: #0d1117;
+            font-weight: 700;
+        }
+
+        .template-modern-light .code-editor .italic {
+            color: #24292f;
+            font-style: italic;
+        }
+
+        .template-modern-light .code-editor .inline-code {
+            background: rgba(175, 184, 193, 0.3);
+            color: #0d1117;
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .template-modern-light .code-editor .quote {
+            color: #656d76;
+            border-left: 4px solid #d0d7de;
+            padding-left: 1rem;
+            font-style: italic;
+        }
+
+        .template-github-style .code-editor .bold {
+            color: #0d1117;
+            font-weight: 700;
+        }
+
+        .template-github-style .code-editor .italic {
+            color: #24292f;
+            font-style: italic;
+        }
+
+        .template-github-style .code-editor .inline-code {
+            background: rgba(175, 184, 193, 0.3);
+            color: #0d1117;
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .template-github-style .code-editor .quote {
+            color: #656d76;
+            border-left: 4px solid #d0d7de;
+            padding-left: 1rem;
+            font-style: italic;
+        }
+
+        .template-minimal .code-editor .bold {
+            color: #0d1117;
+            font-weight: 700;
+        }
+
+        .template-minimal .code-editor .italic {
+            color: #24292f;
+            font-style: italic;
+        }
+
+        .template-minimal .code-editor .inline-code {
+            background: rgba(175, 184, 193, 0.2);
+            color: #0d1117;
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .template-minimal .code-editor .quote {
+            color: #656d76;
+            border-left: 4px solid #d0d7de;
+            padding-left: 1rem;
+            font-style: italic;
+        }
+
+        .template-dark-code .code-editor .code-inline {
+            background: rgba(110, 118, 129, 0.4);
+            color: #f7ba3e;
+        }
+
+        .template-dark-code .code-editor .code-block {
+            background: #2d2d2d;
+            color: #e2e8f0;
+            border-color: #444;
+        }
+
+        .code-editor .blockquote {
+            border-left: 4px solid #dfe2e5;
+            padding-left: 1rem;
+            margin: 1em 0;
+            color: #6a737d;
+            font-style: italic;
+        }
+
+        .template-dark-code .code-editor .blockquote {
+            border-left-color: #58a6ff;
+            color: #8b949e;
+        }
+
+        .code-editor .table-separator {
+            color: #58a6ff;
+        }
+
+        .code-editor .link {
+            color: #0366d6;
+            text-decoration: underline;
+        }
+
+        /* Settings panel styling */
+        .settings-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .settings-grid {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .setting-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .setting-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Color picker styling */
+        .color-picker-wrapper {
+            position: relative;
+        }
+
+        .color-preview {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-preview:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .color-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .color-hex {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .color-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        /* Export button styling */
+        .export-button {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .export-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+        }
+
+        .export-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .settings-grid {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .setting-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .setting-control {
+                justify-content: space-between;
+            }
+
+            .code-editor {
+                font-size: 13px;
+                padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .traffic-lights {
+                top: 0.75rem;
+                left: 1rem;
+            }
+
+            /* Features grid responsive */
+            .grid.md\\:grid-cols-2.lg\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            /* How it works responsive */
+            .grid.md\\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Use cases responsive */
+            .grid.md\\:grid-cols-2.lg\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading spinner - removed animation */
+        .spinner {
+            /* No animation - spinner removed */
+        }
+
+        /* Width Resize Handle Styles - Always Visible and Prominent */
+        .resize-handle {
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8); /* Prominent blue gradient */
+            border: 2px solid #1e40af;
+            border-radius: 8px;
+            cursor: ew-resize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9; /* Always visible */
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); /* Prominent shadow */
+        }
+
+        .resize-handle:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e3a8a); /* Darker on hover */
+            border-color: #1e3a8a;
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1); /* Slight scale on hover */
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); /* Enhanced shadow on hover */
+        }
+
+        .resize-handle svg {
+            color: rgba(255, 255, 255, 1); /* Full white for contrast */
+            width: 10px;
+            height: 24px;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)); /* Add shadow to svg */
+        }
+
+        /* Resizing state - more dramatic feedback */
+        .screenshot-container.resizing {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .screenshot-container.resizing .resize-handle {
+            opacity: 1;
+            background: linear-gradient(135deg, #1e3a8a, #1e293b); /* Dark when active */
+            border-color: #1e293b;
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.8);
+        }
+
+        .screenshot-container.resizing .resize-handle svg {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        /* Screen reader only content */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F265C83TM1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F265C83TM1');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/#webpage",
+          "url": "https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/",
+          "name": "Free AI Prompt & Code Screenshot Generator",
+          "description": "Create beautiful screenshots of AI prompts, code snippets, and Markdown content. Perfect for sharing on social media.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "url": "https://www.markdownhtmlgen.com/",
+            "name": "MarkdownHTMLGen"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/#softwareapplication",
+          "name": "AI Prompt & Code Screenshot Generator",
+          "description": "Create beautiful screenshots of AI prompts, code snippets, and Markdown content. Perfect for sharing on Twitter, LinkedIn, and social media.",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Web",
+          "url": "https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden hidden"></div>
+    <aside id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col flex-shrink-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-30 fixed h-full lg:hidden">
+        <div class="h-16 flex items-center justify-center text-2xl font-bold"><span>MarkdownHTMLGen</span></div>
+        <nav class="flex-1 px-2 space-y-1">
+            <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to HTML</a>
+            <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">HTML to Markdown</a>
+
+            <div>
+                <button type="button" class="w-full flex items-center justify-between px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white" id="mobile-tools-button">
+                    <span>More Tools</span>
+                    <svg class="h-5 w-5 transform transition-transform duration-200" id="mobile-tools-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="mobile-tools-menu" class="pl-4 space-y-1 hidden">
+                    <a href="../markdown-editor/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">WYSIWYG Editor</a>
+                    <a href="." class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-400 bg-gray-900">Markdown to Screenshot</a>
+                    <a href="../merge-markdown/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Merge Markdown</a>
+                    <a href="../markdown-to-word-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Word</a>
+                    <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
+                    <a href="../epub-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">EPUB to Markdown</a>
+                    <a href="../markdown-to-plain-text-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Plain Text</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
+            <div class="flex items-center">
+                <a href="../" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>MarkdownHTMLGen</span></a>
+                <nav class="ml-10 space-x-4 hidden lg:flex items-center">
+                    <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to HTML</a>
+                    <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">HTML to Markdown</a>
+
+                    <!-- Dropdown -->
+                    <div class="relative" id="tools-dropdown">
+                        <button type="button" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600" id="tools-dropdown-button">
+                            <span>More Free Markdown Tools</span>
+                            <svg class="ml-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+
+                        <div id="tools-dropdown-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="tools-dropdown-button">
+                                <a href="../markdown-editor/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">WYSIWYG Markdown Editor</a>
+                                <a href="." class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-semibold bg-indigo-50" role="menuitem">Markdown to Screenshot</a>
+                                <a href="../merge-markdown/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Merge Markdown</a>
+                                <a href="../markdown-to-word-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Word</a>
+                                <a href="../markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
+                                <a href="../epub-to-markdown-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">EPUB to Markdown</a>
+                                <a href="../markdown-to-plain-text-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Plain Text</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6">
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="max-w-screen-xl mx-auto">
+        <main class="p-4 sm:p-6">
+            <section class="text-center mb-8">
+                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">Free AI Prompt & Code Screenshot Generator</h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">Create beautiful screenshots of AI prompts, code snippets, and Markdown content with syntax highlighting. Perfect for social media sharing!</p>
+            </section>
+
+            <!-- Settings Panel - Simplified -->
+            <div class="settings-panel">
+                <div class="settings-grid">
+                    <!-- Background Template -->
+                    <div class="setting-group">
+                        <div class="setting-control">
+                            <select id="bg-template-select"
+                                        class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                        aria-label="Select background template">
+                                <option value="">Background Color</option>
+                                <option value="modern-light" selected>Modern Light</option>
+                                <option value="dark-code">Dark Code</option>
+                                <option value="github-style">GitHub Style</option>
+                                <option value="gradient">Gradient</option>
+                                <option value="minimal">Minimal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Card Template -->
+                    <div class="setting-group">
+                        <div class="setting-control">
+                            <select id="template-select" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">Card Style</option>
+                                <option value="modern-light">Modern Light</option>
+                                <option value="dark-code" selected>Dark Code</option>
+                                <option value="github-style">GitHub Style</option>
+                                <option value="gradient">Gradient</option>
+                                <option value="minimal">Minimal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Presets -->
+                    <div class="setting-group">
+                        <div class="setting-control">
+                            <select id="social-preset" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">Social Media Size</option>
+                                <option value="twitter-x">Twitter/X (1280×720)</option>
+                                <option value="facebook">Facebook (1200×630)</option>
+                                <option value="instagram">Instagram Post (1080×1080)</option>
+                                <option value="instagram-story">Instagram Story (1080×1920)</option>
+                                <option value="linkedin">LinkedIn (1200×627)</option>
+                                <option value="reddit">Reddit (1200×628)</option>
+                                <option value="pinterest">Pinterest (1000×1500)</option>
+                                <option value="tiktok">TikTok (1080×1920)</option>
+                                <option value="youtube">YouTube (1280×720)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Export Format -->
+                    <div class="setting-group">
+                        <div class="setting-control">
+                            <select id="export-format" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">Export Format</option>
+                                <option value="png" selected>PNG</option>
+                                <option value="svg">SVG</option>
+                                <option value="webp">WEBP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Export Scale -->
+                    <div class="setting-group">
+                        <div class="setting-control">
+                            <select id="export-scale" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">Scale</option>
+                                <option value="1">1x</option>
+                                <option value="2" selected>2x</option>
+                                <option value="3">3x</option>
+                            </select>
+                        </div>
+                    </div>
+
+      
+                    <!-- Font Size -->
+                    <div class="setting-group">
+                        <div class="setting-control">
+                            <select id="font-size" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">Font Size</option>
+                                <option value="14">14px</option>
+                                <option value="16" selected>16px</option>
+                                <option value="18">18px</option>
+                                <option value="20">20px</option>
+                                <option value="22">22px</option>
+                                <option value="24">24px</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Line Height -->
+                    <div class="setting-group">
+                        <div class="setting-control">
+                            <select id="line-height" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">Line Height</option>
+                                <option value="1.4">Normal (1.4)</option>
+                                <option value="1.6" selected>Comfortable (1.6)</option>
+                                <option value="1.8">Relaxed (1.8)</option>
+                                <option value="2.0">Spacious (2.0)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshot Container with External Background -->
+            <div id="screenshot-container" class="screenshot-container bg-modern-light">
+                <!-- Floating Markdown Card with Resize Handle -->
+                <div id="screenshot-workspace" class="screenshot-workspace template-dark-code">
+                    <!-- macOS Traffic Lights -->
+                    <div class="traffic-lights">
+                        <div class="traffic-light red"></div>
+                        <div class="traffic-light yellow"></div>
+                        <div class="traffic-light green"></div>
+                    </div>
+
+                    <!-- Code Editor -->
+                    <div id="code-editor"
+                     class="code-editor"
+                     contenteditable="true"
+                     role="textbox"
+                     aria-label="Markdown editor for screenshot generation"
+                     aria-describedby="editor-help"
+                     aria-multiline="true"
+                     tabindex="0"
+                     data-placeholder="# Markdown Screenshot Generator
+
+Type or paste your Markdown content here...
+
+## Examples
+- **Bold text** and *italic text*
+- `inline code` and code blocks
+- Lists, quotes, and tables
+
+```javascript
+console.log('Hello, screenshot!');
+```"></div>
+                <div id="editor-help" class="sr-only">
+                    Type or paste your Markdown content here. Use real-time syntax highlighting for AI prompts and code snippets. Your content is processed locally in your browser for privacy.
+                </div>
+                </div>
+
+                <!-- Width Resize Handle - Outside the background container -->
+                <div id="resize-handle"
+                     class="resize-handle"
+                     role="slider"
+                     aria-label="Drag to resize screenshot width"
+                     aria-valuemin="600"
+                     aria-valuemax="2000"
+                     aria-valuenow="1200"
+                     title="Drag to resize or use arrow keys">
+                    <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
+                        <path d="M3 3L3 21M6 3L6 21M9 3L9 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Download Button - Moved below input area -->
+            <div class="text-center mt-8">
+                <button id="download-btn" class="export-button inline-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" x2="12" y1="15" y2="3"/>
+                    </svg>
+                    Download Screenshot
+                </button>
+            </div>
+
+            <!-- Features Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Features</h2>
+                    <p class="mt-2 text-lg text-gray-600">Perfect for creating AI prompt screenshots and code snippets for social media.</p>
+                </div>
+                <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square h-6 w-6 text-indigo-600">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">AI Prompt Optimized</h3>
+                            <p class="mt-1 text-base text-gray-600">Perfectly sized and styled for sharing AI prompts on Twitter, LinkedIn, and social media.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-6 w-6 text-indigo-600">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Snapdom Technology</h3>
+                            <p class="mt-1 text-base text-gray-600">Powered by Snapdom library for reliable, high-quality DOM-to-image rendering.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette h-6 w-6 text-indigo-600">
+                                <circle cx="13.5" cy="6.5" r=".5"/>
+                                <circle cx="17.5" cy="10.5" r=".5"/>
+                                <circle cx="8.5" cy="7.5" r=".5"/>
+                                <circle cx="6.5" cy="12.5" r=".5"/>
+                                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Professional Templates</h3>
+                            <p class="mt-1 text-base text-gray-600">5 distinct gradient backgrounds and card styles designed for social media.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type h-6 w-6 text-indigo-600">
+                                <polyline points="4 7 4 4 20 4 20 7"/>
+                                <line x1="9" x2="15" y1="20" y2="20"/>
+                                <line x1="12" x2="12" y1="4" y2="20"/>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Typography Controls</h3>
+                            <p class="mt-1 text-base text-gray-600">Adjustable font size (14px-24px) and line height for optimal readability.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-6 w-6 text-indigo-600">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Syntax Highlighting</h3>
+                            <p class="mt-1 text-base text-gray-600">Real-time Markdown syntax highlighting with proper formatting.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                        <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share-2 h-6 w-6 text-indigo-600">
+                                <circle cx="18" cy="5" r="3"/>
+                                <circle cx="6" cy="12" r="3"/>
+                                <circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+                                <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold">Social Media Presets</h3>
+                            <p class="mt-1 text-base text-gray-600">One-click sizing for Twitter/X, Facebook, Instagram, LinkedIn, and more platforms.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">How It Works</h2>
+                    <p class="mt-2 text-lg text-gray-600">Create beautiful Markdown screenshots in just a few simple steps.</p>
+                </div>
+                <div class="mt-8">
+                    <div class="grid gap-8 md:grid-cols-4">
+                        <div class="text-center">
+                            <div class="flex justify-center items-center bg-indigo-100 rounded-full h-16 w-16 mx-auto mb-4">
+                                <span class="text-2xl font-bold text-indigo-600">1</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Choose Your Style</h3>
+                            <p class="text-gray-600">Select background and card templates from the settings panel.</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="flex justify-center items-center bg-indigo-100 rounded-full h-16 w-16 mx-auto mb-4">
+                                <span class="text-2xl font-bold text-indigo-600">2</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Write Markdown</h3>
+                            <p class="text-gray-600">Type or paste your Markdown content with real-time syntax highlighting.</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="flex justify-center items-center bg-indigo-100 rounded-full h-16 w-16 mx-auto mb-4">
+                                <span class="text-2xl font-bold text-indigo-600">3</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Set Size</h3>
+                            <p class="text-gray-600">Choose social media presets or drag the resize handle to customize dimensions.</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="flex justify-center items-center bg-indigo-100 rounded-full h-16 w-16 mx-auto mb-4">
+                                <span class="text-2xl font-bold text-indigo-600">4</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Export</h3>
+                            <p class="text-gray-600">Choose format (PNG/SVG/WEBP) and scale, then download your screenshot.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Use Cases Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800">Use Cases</h2>
+                    <p class="mt-2 text-lg text-gray-600">Perfect for sharing AI prompts, code snippets, and technical content on social media.</p>
+                </div>
+                <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm border-2 border-indigo-200">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles text-indigo-600">
+                                    <path d="M12 2L15.09 8.26L22 9L17 14L18.45 21L12 17.77L5.55 21L7 14L2 9L8.91 8.26L12 2Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">AI Prompt Showcase</h3>
+                        </div>
+                        <p class="text-gray-600">Share your best AI prompts on Twitter, LinkedIn, and other platforms with beautiful, professional screenshots that stand out in crowded feeds.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap text-indigo-600">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Educational Content</h3>
+                        </div>
+                        <p class="text-gray-600">Create engaging teaching materials with highlighted code and structured examples.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text text-indigo-600">
+                                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                                    <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                                    <path d="M10 9H8"/>
+                                    <path d="M16 13H8"/>
+                                    <path d="M16 17H8"/>
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Blog Posts</h3>
+                        </div>
+                        <p class="text-gray-600">Enhance your technical blog posts with professional-looking code examples.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-presentation text-indigo-600">
+                                    <path d="M2 3h20"/>
+                                    <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/>
+                                    <path d="M7 21h10"/>
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Presentations</h3>
+                        </div>
+                        <p class="text-gray-600">Create slide-friendly code snippets for technical presentations and demos.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share-2 text-indigo-600">
+                                    <circle cx="18" cy="5" r="3"/>
+                                    <circle cx="6" cy="12" r="3"/>
+                                    <circle cx="18" cy="19" r="3"/>
+                                    <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+                                    <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Social Sharing</h3>
+                        </div>
+                        <p class="text-gray-600">Create eye-catching screenshots of your prompts and code for Twitter, LinkedIn, Reddit, and other social platforms to increase engagement.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book text-indigo-600">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-lg font-bold">Documentation</h3>
+                        </div>
+                        <p class="text-gray-600">Create professional code examples for API documentation and guides.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQs Section -->
+            <section class="mt-16">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-800" id="faq">Frequently Asked Questions</h2>
+                    <p class="mt-2 text-lg text-gray-600">Get answers to common questions about our AI Prompt & Code Screenshot Generator.</p>
+                </div>
+                <div class="mt-8 space-y-6 max-w-3xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">What's the best size for social media sharing?</h3>
+                        <p class="text-gray-600">For Twitter/X, aim for 1200px width with optimal height. For LinkedIn, 1200-1600px width works well. Use the drag-to-resize handle to adjust dimensions that fit your platform's aspect ratio requirements.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">How do the typography controls work?</h3>
+                        <p class="text-gray-600">Font size (14px-24px) controls text readability, while line height (1.4-2.0) adjusts spacing between lines. Larger font sizes work well for mobile sharing, while smaller sizes fit more content in the same space.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">What makes this tool good for AI prompts?</h3>
+                        <p class="text-gray-600">The tool preserves original Markdown formatting while adding syntax highlighting, making complex prompts easy to read. Templates are optimized for social media, and the drag-to-resize feature ensures perfect dimensions for each platform.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">What technology powers this tool?</h3>
+                        <p class="text-gray-600">We use Snapdom library for reliable DOM-to-image rendering, replacing complex Canvas-based systems. This ensures consistent quality across all browsers and eliminates previous rendering bugs.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Which template should I use?</h3>
+                        <p class="text-gray-600">Dark Code is our default (great for code), Modern Light for clean prompts, and Gradient for eye-catching social media posts. Each template is optimized for different content types and platforms.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">How do social media presets work?</h3>
+                        <p class="text-gray-600">Select a platform from the Social Media Size dropdown to automatically set optimal width and height based on 2024-2025 official guidelines. Twitter/X uses 1280×720px (HD 16:9), Instagram Post is 1080×1080px (1:1 square), Instagram Story is 1080×1920px (9:16 vertical), and YouTube uses 1280×720px (HD thumbnail) for best results.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">Is my data uploaded to any servers?</h3>
+                        <p class="text-gray-600">No, all processing happens entirely in your browser using Snapdom. Your AI prompts, code snippets, and generated screenshots never leave your device, ensuring complete privacy and security.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-gray-300 py-12 mt-16">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                    <div class="text-lg font-bold text-white mb-4">MarkdownHTMLGen</div>
+                    <p class="text-sm">Your free Markdown to HTML converter. Instant, privacy-first, and AI content friendly.</p>
+                    <p class="text-sm mt-4">&copy; 2025 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <div class="text-lg font-bold text-white mb-4">Quick Links</div>
+                    <ul class="space-y-2">
+                        <li><a href="../" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
+                        <li><a href="../html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
+                        <li><a href="../markdown-editor/" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
+                        <li><a href="." class="text-sm hover:text-white transition-colors duration-200 font-semibold">Markdown to Screenshot</a></li>
+                        <li><a href="../merge-markdown/" class="text-sm hover:text-white transition-colors duration-200">Merge Markdown</a></li>
+                        <li><a href="../markdown-to-word-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Word</a></li>
+                        <li><a href="../markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
+                        <li><a href="../epub-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">EPUB to Markdown</a></li>
+                        <li><a href="../markdown-to-plain-text-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Plain Text</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Support -->
+                <div>
+                    <div class="text-lg font-bold text-white mb-4">Legal & Support</div>
+                    <ul class="space-y-2">
+                        <li><a href="../privacy.html" class="text-sm hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="text-sm hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Connect -->
+                <div>
+                    <div class="text-lg font-bold text-white mb-4">Connect</div>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Facebook" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook h-6 w-6">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="X" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-6 w-6">
+                                <path d="M18 6 6 18"/>
+                                <path d="m6 6 12 12"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@jQueryScriptCSS" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="YouTube" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube h-6 w-6">
+                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2h15a2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10z"/>
+                                <path d="m10 15 5-3-5-3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-sm mt-4">Stay updated with our latest tools and features!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://unpkg.com/@zumer/snapdom/dist/snapdom.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
