@@ -33,7 +33,7 @@
             width: 100%;
             min-height: 400px;
             background: #f0f2f5;
-            border-radius: 16px;
+            /* border-radius: 16px; */ /* Removed as per user request */
             position: relative;
             display: flex;
             align-items: center;
@@ -47,7 +47,7 @@
         .screenshot-workspace {
             width: 100%;
             max-width: 1000px;
-            min-height: 280px;
+            min-height: auto;
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -88,7 +88,7 @@
         /* Code editor area (div not textarea) */
         .code-editor {
             width: 100%;
-            min-height: 500px;
+            min-height: 100px;
             padding: 3rem 2rem 2rem 2rem;
             font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
             font-size: 14px;
@@ -195,168 +195,55 @@
             font-weight: 300;
         }
 
-        /* 预览区域简化语法高亮样式 - 只处理基本Markdown元素 */
-        .code-editor {
-            color: inherit; /* 使用模板的默认文字颜色 */
-            font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.6;
-        }
+        /* 预览区域简化语法高亮样式 - 使用token系统 */
+        .code-editor .token.heading { color: #79c0ff; font-weight: 600; }
+        .code-editor .token.heading-1 { font-size: 1.5em; }
+        .code-editor .token.heading-2 { font-size: 1.3em; }
+        .code-editor .token.heading-3 { font-size: 1.1em; }
+        .code-editor .token.blockquote { border-left: 4px solid #58a6ff; color: #8b949e; padding-left: 1rem; display: inline-block; width: 100%; }
 
-        /* 基本Markdown语法高亮 - 预览区域 */
-        .code-editor .heading {
-            color: #79c0ff; /* 标题蓝色 */
-            font-weight: 600;
-        }
+        /* --- Light Theme Tokens --- */
+        .template-modern-light .code-editor .token.bold,
+        .template-github-style .code-editor .token.bold,
+        .template-minimal .code-editor .token.bold { color: #05264c; font-weight: 700; }
 
-        .code-editor .heading-1 {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #79c0ff; /* H1亮蓝色 */
-        }
+        .template-modern-light .code-editor .token.italic,
+        .template-github-style .code-editor .token.italic,
+        .template-minimal .code-editor .token.italic { color: #b31d28; font-style: italic; }
 
-        .code-editor .heading-2 {
-            font-size: 1.3em;
-            color: #58a6ff; /* H2标准蓝色 */
-        }
+        .template-modern-light .code-editor .token.list-marker,
+        .template-github-style .code-editor .token.list-marker,
+        .template-minimal .code-editor .token.list-marker { color: #e36209; }
 
-        .code-editor .heading-3 {
-            font-size: 1.1em;
-            color: #8b949e; /* H3灰色 */
-        }
+        .template-modern-light .code-editor .token.html-tag,
+        .template-github-style .code-editor .token.html-tag,
+        .template-minimal .code-editor .token.html-tag { color: #22863a; }
 
-        .code-editor .bold {
-            font-weight: 600;
-            color: #f0f6fc; /* 粗体白色 */
-        }
+        .template-modern-light .code-editor .token.heading,
+        .template-github-style .code-editor .token.heading,
+        .template-minimal .code-editor .token.heading { color: #005cc5; }
 
-        .code-editor .italic {
-            font-style: italic;
-            color: #c9d1d9; /* 斜体灰色 */
-        }
+        .template-modern-light .code-editor .token.blockquote,
+        .template-github-style .code-editor .token.blockquote,
+        .template-minimal .code-editor .token.blockquote { color: #57606a; border-left-color: #d0d7de; }
 
-        /* 移除了 .code-inline 样式 - 行内代码保持原始显示 */
 
-        /* 模板特定的默认文字颜色 */
-        .template-modern-light .code-editor {
-            color: #1a1a1a; /* 深色文字 */
-        }
+        /* --- Dark Theme Tokens (Dark Code) --- */
+        .template-dark-code .code-editor .token.bold { color: #a5d6ff; font-weight: 700; }
+        .template-dark-code .code-editor .token.italic { color: #f0883e; font-style: italic; }
+        .template-dark-code .code-editor .token.list-marker { color: #ff7b72; }
+        .template-dark-code .code-editor .token.html-tag { color: #7ee787; }
+        .template-dark-code .code-editor .token.heading { color: #79c0ff; }
+        .template-dark-code .code-editor .token.blockquote { color: #8b949e; border-left-color: #58a6ff; }
 
-        .template-dark-code .code-editor {
-            color: #e6edf3; /* 浅色文字 */
-        }
+        /* --- Gradient Theme Tokens --- */
+        .template-gradient .code-editor .token.bold { font-weight: 700; }
+        .template-gradient .code-editor .token.italic { font-style: italic; }
+        .template-gradient .code-editor .token.list-marker { color: #fff2a8; }
+        .template-gradient .code-editor .token.html-tag { color: #a8ffb9; }
+        .template-gradient .code-editor .token.heading { color: #a8dffc; }
+        .template-gradient .code-editor .token.blockquote { border-left-color: #a8dffc; }
 
-        .template-github-style .code-editor {
-            color: #24292f; /* 深色文字 */
-        }
-
-        .template-gradient .code-editor {
-            color: #ffffff; /* 白色文字 */
-        }
-
-        .template-minimal .code-editor {
-            color: #24292f; /* 深色文字 */
-        }
-
-        /* 为淡色模板添加专门的样式以提高可读性 */
-        .template-modern-light .code-editor .bold {
-            color: #0d1117;
-            font-weight: 700;
-        }
-
-        .template-modern-light .code-editor .italic {
-            color: #24292f;
-            font-style: italic;
-        }
-
-        .template-modern-light .code-editor .inline-code {
-            background: rgba(175, 184, 193, 0.3);
-            color: #0d1117;
-            padding: 0.1em 0.3em;
-            border-radius: 3px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .template-modern-light .code-editor .quote {
-            color: #656d76;
-            border-left: 4px solid #d0d7de;
-            padding-left: 1rem;
-            font-style: italic;
-        }
-
-        .template-github-style .code-editor .bold {
-            color: #0d1117;
-            font-weight: 700;
-        }
-
-        .template-github-style .code-editor .italic {
-            color: #24292f;
-            font-style: italic;
-        }
-
-        .template-github-style .code-editor .inline-code {
-            background: rgba(175, 184, 193, 0.3);
-            color: #0d1117;
-            padding: 0.1em 0.3em;
-            border-radius: 3px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .template-github-style .code-editor .quote {
-            color: #656d76;
-            border-left: 4px solid #d0d7de;
-            padding-left: 1rem;
-            font-style: italic;
-        }
-
-        .template-minimal .code-editor .bold {
-            color: #0d1117;
-            font-weight: 700;
-        }
-
-        .template-minimal .code-editor .italic {
-            color: #24292f;
-            font-style: italic;
-        }
-
-        .template-minimal .code-editor .inline-code {
-            background: rgba(175, 184, 193, 0.2);
-            color: #0d1117;
-            padding: 0.1em 0.3em;
-            border-radius: 3px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .template-minimal .code-editor .quote {
-            color: #656d76;
-            border-left: 4px solid #d0d7de;
-            padding-left: 1rem;
-            font-style: italic;
-        }
-
-        .template-dark-code .code-editor .code-inline {
-            background: rgba(110, 118, 129, 0.4);
-            color: #f7ba3e;
-        }
-
-        .template-dark-code .code-editor .code-block {
-            background: #2d2d2d;
-            color: #e2e8f0;
-            border-color: #444;
-        }
-
-        .code-editor .blockquote {
-            border-left: 4px solid #dfe2e5;
-            padding-left: 1rem;
-            margin: 1em 0;
-            color: #6a737d;
-            font-style: italic;
-        }
-
-        .template-dark-code .code-editor .blockquote {
-            border-left-color: #58a6ff;
-            color: #8b949e;
-        }
 
         .code-editor .table-separator {
             color: #58a6ff;
@@ -759,7 +646,6 @@
                             <select id="export-format" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500">
                                 <option value="">Export Format</option>
                                 <option value="png" selected>PNG</option>
-                                <option value="svg">SVG</option>
                                 <option value="webp">WEBP</option>
                             </select>
                         </div>
@@ -1001,7 +887,7 @@ console.log('Hello, screenshot!');
                                 <span class="text-2xl font-bold text-indigo-600">4</span>
                             </div>
                             <h3 class="text-lg font-bold mb-2">Export</h3>
-                            <p class="text-gray-600">Choose format (PNG/SVG/WEBP) and scale, then download your screenshot.</p>
+                            <p class="text-gray-600">Choose format (PNG/WEBP) and scale, then download your screenshot.</p>
                         </div>
                     </div>
                 </div>

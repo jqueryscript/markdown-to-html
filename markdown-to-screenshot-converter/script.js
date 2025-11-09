@@ -95,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
+    // HTML escaping function
+    const escapeHTML = (str) => {
+        return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    };
+
     // --- Main Converter Functions ---
     const codeEditor = document.getElementById('code-editor');
     const bgTemplateSelect = document.getElementById('bg-template-select');
@@ -107,6 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const resizeHandle = document.getElementById('resize-handle');
     const screenshotWorkspace = document.getElementById('screenshot-workspace');
     const screenshotContainer = document.getElementById('screenshot-container');
+
+    // Function to auto-resize editor height
+    const autoResizeEditor = () => {
+        if (!codeEditor) return;
+        codeEditor.style.height = 'auto';
+        codeEditor.style.height = (codeEditor.scrollHeight) + 'px';
+    };
 
     // Update preview in real-time (with performance optimization)
     const updatePreview = debounce(() => {
@@ -135,6 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Restore cursor position
             restoreCursorPosition(codeEditor, cursorPos);
+
+            // Adjust height after content update
+            autoResizeEditor();
+
         } catch (error) {
             // Fallback to plain text if highlighting fails
             console.error('Preview update failed:', error);
@@ -142,17 +158,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 150); // Debounce for 150ms
 
-    // Save cursor position
+    // Save cursor position by symmetrically counting characters, mirroring restoreCursorPosition
     const saveCursorPosition = (element) => {
         const selection = window.getSelection();
-        if (selection.rangeCount > 0) {
-            const range = selection.getRangeAt(0);
-            const preCaretRange = range.cloneRange();
-            preCaretRange.selectNodeContents(element);
-            preCaretRange.setEnd(range.endContainer, range.endOffset);
-            return preCaretRange.toString().length;
+        if (selection.rangeCount === 0) return 0;
+
+        const range = selection.getRangeAt(0);
+        const preCaretRange = range.cloneRange();
+        preCaretRange.selectNodeContents(element);
+        preCaretRange.setEnd(range.endContainer, range.endOffset);
+
+        // Clone the content before the cursor and walk it to count characters
+        const fragment = preCaretRange.cloneContents();
+        let charCount = 0;
+        const walker = document.createTreeWalker(fragment, NodeFilter.SHOW_ALL, null, false);
+
+        let node;
+        while (node = walker.nextNode()) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                charCount += node.textContent.length;
+            } else if (node.nodeName === 'BR') {
+                charCount++;
+            }
         }
-        return 0;
+        return charCount;
     };
 
     // Restore cursor position
@@ -162,56 +191,81 @@ document.addEventListener('DOMContentLoaded', () => {
         let charCount = 0;
         let found = false;
 
+        // Use SHOW_ALL to see BR tags, which correspond to \n in innerText
         const walker = document.createTreeWalker(
             element,
-            NodeFilter.SHOW_TEXT,
+            NodeFilter.SHOW_ALL,
             null,
             false
         );
 
         let node;
         while (node = walker.nextNode()) {
-            const nodeText = node.textContent;
-            if (charCount + nodeText.length >= position) {
-                range.setStart(node, position - charCount);
-                range.collapse(true);
-                found = true;
-                break;
+            if (node.nodeType === Node.TEXT_NODE) {
+                const nodeLength = node.textContent.length;
+                if (charCount + nodeLength >= position) {
+                    range.setStart(node, position - charCount);
+                    range.collapse(true);
+                    found = true;
+                    break;
+                }
+                charCount += nodeLength;
+            } else if (node.nodeName === 'BR') {
+                charCount++; // Count <br> as one character, just like \n
+                if (charCount >= position) {
+                    // Place cursor *after* the <br> to be on the new line
+                    range.setStartAfter(node);
+                    range.collapse(true);
+                    found = true;
+                    break;
+                }
             }
-            charCount += nodeText.length;
         }
 
         if (found) {
             selection.removeAllRanges();
             selection.addRange(range);
         } else {
-            // If position is at the end, place cursor after the last text node
-            const lastChild = element.lastChild;
-            if (lastChild) {
-                range.selectNodeContents(lastChild);
-                range.collapse(false);
-                selection.removeAllRanges();
-                selection.addRange(range);
-            }
+            // Fallback for when the position is at the very end
+            range.selectNodeContents(element);
+            range.collapse(false); // 'false' collapses the range to its end point
+            selection.removeAllRanges();
+            selection.addRange(range);
         }
     };
 
     // Syntax highlighting function (preserves Markdown markers)
     const highlightMarkdown = (text) => {
-        let html = text
-            .replace(/^### (.*$)/gim, '<span class="heading heading-3">### $1</span>')
-            .replace(/^## (.*$)/gim, '<span class="heading heading-2">## $1</span>')
-            .replace(/^# (.*$)/gim, '<span class="heading heading-1"># $1</span>')
-            // Bold text - process first to avoid conflicts with italic
-            .replace(/\*\*([^*\r\n]+?)\*\*/g, '<span class="bold">**$1**</span>')
-            // Inline code
-            .replace(/`([^`]+)`/g, '<span class="inline-code">`$1`</span>')
-            // Italic text - avoid already processed bold text
-            .replace(/(?<!\*)\*([^*\r\n]+?)\*(?!\*)/g, '<span class="italic">*$1*</span>')
-            // Blockquotes
-            .replace(/^> (.*$)/gim, '<span class="quote">> $1</span>');
+        // First, escape user's HTML to prevent it from rendering.
+        let html = escapeHTML(text);
 
-        // Preserve newlines with proper spacing
+        // The order of replacement is important.
+        // 1. HTML Tags (since they are escaped, they are safe to wrap)
+        html = html.replace(/(&lt;\/?[\w\s="'./?]+&gt;)/g, '<span class="token html-tag">$1</span>');
+
+        // 2. Headings
+        html = html.replace(/^(#+) (.*$)/gm, (match, hashes, content) => {
+            const level = Math.min(hashes.length, 6);
+            return `<span class="token heading heading-${level}">${hashes} ${content}</span>`;
+        });
+
+        // 3. List Markers (must be at the start of a line)
+        html = html.replace(/^(\s*[-*+])(\s+)/gm, '<span class="token list-marker">$1</span>$2');
+        html = html.replace(/^(\s*\d+\.)(\s+)/gm, '<span class="token list-marker">$1</span>$2');
+
+        // 4. Bold and Italic (process bold first)
+        html = html.replace(/\*\*([^\s*](?:[^*]*[^\s*])?)\*\*/g, '<span class="token bold">**$1**</span>');
+        html = html.replace(/__([^\s_](?:[^_]*[^\s_])?)__/g, '<span class="token bold">__$1__</span>');
+        html = html.replace(/(?<![*\w])\*([^\s*](?:[^*]*[^\s*])?)\*(?![*\w])/g, '<span class="token italic">*![]($1)*</span>');
+        html = html.replace(/(?<![\w_])_([^\s_](?:[^_]*[^\s_])?)_(?![\w_])/g, '<span class="token italic">_$1_</span>');
+
+        // 5. Blockquotes
+        html = html.replace(/^(&gt;+)(\s?)/gm, '<span class="token blockquote">$1</span>$2');
+
+        // 6. Inline Code (has a special background, so keep its unique class)
+        html = html.replace(/`([^`]+)`/g, '<span class="inline-code">`$1`</span>');
+
+        // Finally, convert newlines to <br> tags for rendering.
         return html.replace(/\n/g, '<br>');
     };
 
@@ -224,20 +278,30 @@ document.addEventListener('DOMContentLoaded', () => {
         codeEditor.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                const cursorPos = saveCursorPosition(codeEditor);
-                const text = codeEditor.innerText || codeEditor.textContent || '';
-                const newText = text.slice(0, cursorPos) + '\n' + text.slice(cursorPos);
-                codeEditor.innerText = newText;
+                const selection = window.getSelection();
+                if (!selection.rangeCount) return;
+                const range = selection.getRangeAt(0);
+                const newlineNode = document.createTextNode('\n');
+                range.deleteContents();
+                range.insertNode(newlineNode);
+                range.setStartAfter(newlineNode);
+                range.collapse(true);
+                selection.removeAllRanges();
+                selection.addRange(range);
                 updatePreview();
-                restoreCursorPosition(codeEditor, cursorPos + 1);
             } else if (e.key === 'Tab') {
                 e.preventDefault();
-                const cursorPos = saveCursorPosition(codeEditor);
-                const text = codeEditor.innerText || codeEditor.textContent || '';
-                const newText = text.slice(0, cursorPos) + '    ' + text.slice(cursorPos);
-                codeEditor.innerText = newText;
+                const selection = window.getSelection();
+                if (!selection.rangeCount) return;
+                const range = selection.getRangeAt(0);
+                const tabNode = document.createTextNode('    '); // 4 spaces
+                range.deleteContents();
+                range.insertNode(tabNode);
+                range.setStartAfter(tabNode);
+                range.collapse(true);
+                selection.removeAllRanges();
+                selection.addRange(range);
                 updatePreview();
-                restoreCursorPosition(codeEditor, cursorPos + 4);
             }
         });
     }
@@ -308,31 +372,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 const preset = socialPreset.value;
 
                 if (preset === '') {
-                    // 如果选择了说明选项，不改变尺寸
+                    // If the description option is selected, do not change the size
                     return;
                 }
 
-                // 定义社交媒体平台的标准尺寸 (宽×高) - 2024-2025官方推荐
+                // Define standard dimensions for social media platforms (width only) - 2024-2025 official recommendations
                 const presetDimensions = {
-                    'twitter-x': { width: 1280, height: 720 },  // 16:9 HD标准
-                    'facebook': { width: 1200, height: 630 },   // 1.91:1 链接预览
-                    'instagram': { width: 1080, height: 1080 }, // 1:1 方形帖子
-                    'instagram-story': { width: 1080, height: 1920 }, // 9:16 故事
-                    'linkedin': { width: 1200, height: 627 },   // 1.91:1 文章图片
-                    'reddit': { width: 1200, height: 628 },     // 1.91:1 缩略图
-                    'pinterest': { width: 1000, height: 1500 }, // 2:3 理想比例
-                    'tiktok': { width: 1080, height: 1920 },   // 9:16 竖屏视频
-                    'youtube': { width: 1280, height: 720 }     // 16:9 HD缩略图
+                    'twitter-x': { width: 1280 },
+                    'facebook': { width: 1200 },
+                    'instagram': { width: 1080 },
+                    'instagram-story': { width: 1080 },
+                    'linkedin': { width: 1200 },
+                    'reddit': { width: 1200 },
+                    'pinterest': { width: 1000 },
+                    'tiktok': { width: 1080 },
+                    'youtube': { width: 1280 }
                 };
 
                 const dimensions = presetDimensions[preset];
                 if (dimensions) {
-                    // 设置容器宽度和高度
+                    // Set container width and remove fixed height to allow auto-sizing
                     screenshotContainer.style.width = dimensions.width + 'px';
-                    screenshotContainer.style.height = dimensions.height + 'px';
-                    screenshotContainer.style.minHeight = dimensions.height + 'px'; // 确保最小高度
+                    screenshotContainer.style.height = 'auto'; // Allow height to adjust to content
+                    screenshotContainer.style.minHeight = 'auto'; // Remove min-height restriction
 
-                    // 显示通知
+                    // Display notification
                     const platformNames = {
                         'twitter-x': 'Twitter/X',
                         'facebook': 'Facebook',
@@ -346,8 +410,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
 
                     Toastify({
-                        text: `Size set to ${platformNames[preset]} (${dimensions.width}×${dimensions.height}px)`,
-                        duration: 2000,
+                        text: `Width set for ${platformNames[preset]} (${dimensions.width}px). Height is now auto-adaptive.`,
+                        duration: 2500,
                         gravity: "top",
                         position: "center",
                         style: {
@@ -408,6 +472,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // Store original styles to restore them later
+            const originalOverflow = codeEditor.style.overflow;
+            const originalColor = codeEditor.style.color;
+            const resizeHandle = document.getElementById('resize-handle'); // Get reference to resize handle
+            const originalResizeHandleDisplay = resizeHandle ? resizeHandle.style.display : ''; // Store its original display
+
             try {
                 const format = exportFormat.value;
                 const scale = parseFloat(exportScale.value);
@@ -422,6 +492,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     </svg>
                     Generating...
                 `;
+
+                // --- PRE-CAPTURE FIXES ---
+                // 1. Ensure editor is fully expanded and hide scrollbar for capture
+                autoResizeEditor();
+                codeEditor.style.overflow = 'hidden';
+
+                // 2. Force the computed text color as an inline style to ensure it's captured
+                const computedColor = window.getComputedStyle(codeEditor).color;
+                codeEditor.style.color = computedColor;
+
+                // 3. Hide the resize handle
+                if (resizeHandle) {
+                    resizeHandle.style.display = 'none';
+                }
+                // --- END PRE-CAPTURE FIXES ---
+
 
                 // Use Snapdom to capture the screenshot container
                 await exportWithSnapdom(format, scale);
@@ -444,6 +530,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     style: { background: "#ef4444" }
                 }).showToast();
             } finally {
+                // --- POST-CAPTURE RESTORE ---
+                // Restore original styles to not affect the live editor
+                codeEditor.style.overflow = originalOverflow;
+                codeEditor.style.color = originalColor;
+                if (resizeHandle) {
+                    resizeHandle.style.display = originalResizeHandleDisplay;
+                }
+                // --- END POST-CAPTURE RESTORE ---
+
                 // Re-enable button
                 downloadBtn.disabled = false;
                 downloadBtn.innerHTML = `
@@ -559,10 +654,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 case 'png':
                     imageElement = await snapdom.toPng(element, options);
                     downloadImageElement(imageElement, filename + '.png');
-                    break;
-                case 'svg':
-                    imageElement = await snapdom.toSvg(element, options);
-                    downloadImageElement(imageElement, filename + '.svg');
                     break;
                 case 'webp':
                     imageElement = await snapdom.toWebp(element, options);
