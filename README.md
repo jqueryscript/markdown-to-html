@@ -1,84 +1,171 @@
-# Markdown Toolset by MarkdownHTMLGen
+# MarkdownHTMLGen
 
-**Live Website:** [https://www.markdownhtmlgen.com/](https://www.markdownhtmlgen.com/)
+[![Website](https://img.shields.io/badge/Website-markdownhtmlgen.com-2563eb)](https://www.markdownhtmlgen.com/)
+[![Static Site](https://img.shields.io/badge/Static%20Site-Client%20Side-16a34a)](#privacy-first-by-design)
+[![Markdown Tools](https://img.shields.io/badge/Markdown-Tools-111827)](#free-markdown-tools)
 
-A free, privacy-first suite of online tools for all your Markdown needs. All tools work entirely in your browser, ensuring your data stays private.
+**MarkdownHTMLGen** is a free, browser-based collection of Markdown tools for writers, bloggers, developers, editors, and content publishers.
 
-🎉 **NEW**: Create stunning AI prompt screenshots with our [Markdown to Screenshot Generator](https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/) - perfect for social media sharing!
+Use it to convert Markdown, clean HTML, prepare Medium drafts, create screenshots, build EPUB and Word files, merge documents, and extract Markdown from other formats. The tools run in the browser, so drafts and files stay on the user's device.
 
----
+Live website: [https://www.markdownhtmlgen.com/](https://www.markdownhtmlgen.com/)
 
-## Our Free Tools
+## Free Markdown Tools
 
-*   **[Markdown to HTML Converter](https://www.markdownhtmlgen.com/)**
-    *   Convert your Markdown text or files into clean, semantic HTML. Features a real-time preview and advanced customization options.
+| Tool | What it helps users do |
+| --- | --- |
+| [Markdown to HTML](https://www.markdownhtmlgen.com/) | Convert Markdown into clean HTML with live preview and export options. |
+| [HTML to Markdown](https://www.markdownhtmlgen.com/html-to-markdown-converter/) | Convert HTML content back into readable Markdown. |
+| [Markdown to Medium](https://www.markdownhtmlgen.com/markdown-to-medium-converter/) | Format Markdown drafts for the Medium editor with rich text copy, title extraction, table conversion, source links, and HTML download. |
+| [Gutenberg to Markdown](https://www.markdownhtmlgen.com/gutenberg-to-markdown-converter/) | Convert WordPress Gutenberg block content into clean Markdown. |
+| [WYSIWYG Markdown Editor](https://www.markdownhtmlgen.com/markdown-editor/) | Write and edit Markdown with a live WYSIWYG editing experience. |
+| [Markdown to Screenshot](https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/) | Create polished screenshots of prompts, code, and Markdown snippets for social posts, docs, and presentations. |
+| [Markdown to Plain Text](https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/) | Remove Markdown formatting and keep clean readable text. |
+| [Merge Markdown](https://www.markdownhtmlgen.com/merge-markdown/) | Combine multiple Markdown files into one document. |
+| [Markdown to Word](https://www.markdownhtmlgen.com/markdown-to-word-converter/) | Convert Markdown into downloadable DOCX files. |
+| [Markdown to EPUB](https://www.markdownhtmlgen.com/markdown-to-epub-converter/) | Create EPUB ebooks from Markdown content. |
+| [EPUB to Markdown](https://www.markdownhtmlgen.com/epub-to-markdown-converter/) | Extract ebook content and convert it into Markdown. |
 
-*   **[HTML to Markdown Converter](https://www.markdownhtmlgen.com/html-to-markdown-converter/)**
-    *   Easily convert HTML content back into well-formatted Markdown.
+## Why People Use It
 
-*   **[WYSIWYG Markdown Editor](https://www.markdownhtmlgen.com/markdown-editor/)**
-    *   An intuitive "What You See Is What You Get" editor for writing and formatting Markdown in real-time using OverType.js library.
+- **Private by default:** Most conversions happen directly in the browser.
+- **No account required:** Users can open a tool and start working.
+- **Built for publishing work:** The toolset supports common writing, editing, republishing, and export workflows.
+- **Useful for AI-assisted content workflows:** Writers can move drafts between Markdown, HTML, Medium, WordPress, plain text, screenshots, DOCX, and EPUB.
+- **Simple static deployment:** The project can run as a static site with CDN-based browser libraries.
 
-*   **[🎉 Markdown to Screenshot Generator](https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/)**
-    *   Create beautiful screenshots of AI prompts, code snippets, and Markdown content with syntax highlighting. Perfect for social media sharing with 9 platform presets!
+## Best Pages to Link To
 
-*   **[Merge Markdown](https://www.markdownhtmlgen.com/merge-markdown/)**
-    *   Combine multiple Markdown files into a single document with just a few clicks.
+These pages are useful references for blog posts, resource lists, tutorials, newsletters, and documentation pages.
 
-*   **[Markdown to Word Converter](https://www.markdownhtmlgen.com/markdown-to-word-converter/)**
-    *   Convert your Markdown documents into professional Word (.docx) files with proper formatting and styling.
+| Recommended link target | Suggested anchor text |
+| --- | --- |
+| [https://www.markdownhtmlgen.com/](https://www.markdownhtmlgen.com/) | free Markdown to HTML converter |
+| [https://www.markdownhtmlgen.com/markdown-to-medium-converter/](https://www.markdownhtmlgen.com/markdown-to-medium-converter/) | Markdown to Medium formatter |
+| [https://www.markdownhtmlgen.com/gutenberg-to-markdown-converter/](https://www.markdownhtmlgen.com/gutenberg-to-markdown-converter/) | Gutenberg to Markdown converter |
+| [https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/](https://www.markdownhtmlgen.com/markdown-to-screenshot-converter/) | Markdown screenshot generator |
+| [https://www.markdownhtmlgen.com/html-to-markdown-converter/](https://www.markdownhtmlgen.com/html-to-markdown-converter/) | HTML to Markdown converter |
+| [https://www.markdownhtmlgen.com/epub-to-markdown-converter/](https://www.markdownhtmlgen.com/epub-to-markdown-converter/) | EPUB to Markdown converter |
 
-*   **[Markdown to EPUB Converter](https://www.markdownhtmlgen.com/markdown-to-epub-converter/)**
-    *   Turn your Markdown documents into EPUB eBooks, complete with metadata and an auto-generated table of contents.
+## Copy And Paste Link Snippets
 
-*   **[EPUB to Markdown Converter](https://www.markdownhtmlgen.com/epub-to-markdown-converter/)**
-    *   Extract and convert EPUB eBooks to well-formatted Markdown with chapter preservation and metadata extraction.
+Markdown:
 
-*   **[Markdown to Plain Text Converter](https://www.markdownhtmlgen.com/markdown-to-plain-text-converter/)**
-    *   Remove Markdown formatting while preserving text structure. Perfect for extracting clean text from Markdown documents.
+```md
+[Free Markdown tools by MarkdownHTMLGen](https://www.markdownhtmlgen.com/)
+```
 
----
+HTML:
 
-## Features
+```html
+<a href="https://www.markdownhtmlgen.com/">Free Markdown tools by MarkdownHTMLGen</a>
+```
 
-- **🔒 Privacy-First**: All processing happens in your browser - no data ever leaves your device
-- **⚡ Instant Conversion**: Fast, client-side processing with no server delays
-- **🆓 Free Forever**: No registration, no limitations, completely free
-- **📱 Mobile Responsive**: Works perfectly on all devices and screen sizes
-- **🔍 SEO Optimized**: Structured data and proper meta tags for better search visibility
-- **🧭 Unified Navigation**: Consistent cross-tool navigation for seamless user experience
-- **🎨 Beautiful Screenshots**: Create stunning AI prompt and code screenshots with syntax highlighting
-- **📱 Social Media Ready**: 9 platform presets (Twitter/X, Instagram, TikTok, etc.) with optimal dimensions
-- **♿ Accessibility Focused**: ARIA labels and semantic HTML for screen reader support
-- **🚀 Performance Optimized**: Debounced input processing and smart error handling
+Tool-specific example:
 
-## Recent Updates (November 2025)
+```md
+[Markdown to Medium formatter](https://www.markdownhtmlgen.com/markdown-to-medium-converter/)
+```
 
-- 🎉 **MAJOR LAUNCH**: Added **Markdown to Screenshot Generator** with Snapdom technology
-- 📱 **Social Media Presets**: 9 platform-optimized dimensions (Twitter/X, Instagram, TikTok, etc.)
-- 🎨 **Professional Templates**: 5 gradient backgrounds + 5 card styles with dark/light themes
-- 📏 **Enhanced Resize Handle**: Prominent, always-visible drag-to-resize functionality
-- ⚡ **Typography Controls**: Adjustable font size (14px-24px) and line height (1.4-2.0)
-- ♿ **Accessibility Improvements**: Complete ARIA labels and semantic HTML structure
-- 🚀 **Performance Boost**: Debounced input processing and enhanced error handling
-- 🔄 **Navigation Update**: Added Screenshot Generator to all tool page navigations
+## Common Use Cases
 
-## Previous Updates (October 2025)
+- Convert Markdown articles into HTML before publishing.
+- Clean HTML copied from web pages, CMS editors, or email drafts.
+- Reuse Markdown drafts for Medium without manual formatting.
+- Convert Gutenberg block markup into portable Markdown.
+- Create social media screenshots from AI prompts, code snippets, and notes.
+- Merge multiple Markdown files into a single long-form document.
+- Export Markdown content to Word or EPUB.
+- Extract Markdown from EPUB ebooks for editing, archiving, or republishing workflows.
+- Remove Markdown syntax when plain text is needed.
 
-- ✨ Added **Markdown to Plain Text Converter** for extracting clean text from Markdown
-- 🔧 Enhanced cross-tool navigation with unified linking between all converters
-- 📱 Updated legacy pages to replace "coming soon" placeholders with actual tools
-- 🎯 Improved site-wide navigation consistency and user discovery
-- ✅ Updated sitemap and changelog to reflect new tool additions
+## Privacy First By Design
 
-## Previous Updates (September 2025)
+MarkdownHTMLGen is designed around client-side processing. Files and drafts do not need to be uploaded to a server for normal tool usage. This matters for unpublished articles, client drafts, research notes, book chapters, and private editorial material.
 
-- ✨ Added comprehensive EPUB to Markdown converter
-- 🔧 Standardized navigation and meta tags across all tools
-- 📱 Enhanced mobile responsiveness and accessibility
-- 🎯 Implemented FAQ schema for better SEO
-- ✅ HTML validation compliance for all pages
+External libraries may load from CDNs on some pages, but the conversion work is handled in the user's browser.
 
----
+## Project Structure
 
-© 2025 [markdownhtmlgen.com](https://www.markdownhtmlgen.com/)
+```text
+.
+|-- index.html
+|-- html-to-markdown-converter/
+|-- markdown-to-medium-converter/
+|-- gutenberg-to-markdown-converter/
+|-- markdown-editor/
+|-- markdown-to-screenshot-converter/
+|-- markdown-to-plain-text-converter/
+|-- merge-markdown/
+|-- markdown-to-word-converter/
+|-- markdown-to-epub-converter/
+|-- epub-to-markdown-converter/
+|-- input.css
+|-- style.css
+|-- script.js
+|-- script.min.js
+`-- sitemap.xml
+```
+
+## Tech Stack
+
+- Vanilla JavaScript
+- HTML and CSS
+- Tailwind CSS v4 with PostCSS
+- Marked.js for Markdown parsing
+- Turndown.js for HTML to Markdown conversion
+- OverType for the WYSIWYG Markdown editor
+- JSZip for EPUB-related workflows
+- Static hosting friendly architecture
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Build CSS:
+
+```bash
+npm run build:css
+```
+
+Build JavaScript:
+
+```bash
+npm run build:js
+```
+
+Build CSS and JavaScript:
+
+```bash
+npm run build
+```
+
+The site is static. You can open the HTML files directly in a browser or serve the project with any local static server.
+
+## Changelog Highlights
+
+- **2026:** Added the Markdown to Medium Formatter and updated site-wide links.
+- **2025:** Added Gutenberg to Markdown, Markdown to Screenshot, Markdown to Plain Text, EPUB to Markdown, Markdown to Word, Markdown to EPUB, and WYSIWYG editing tools.
+- **Earlier updates:** Improved the main Markdown to HTML workflow with preview, export, cleaning, and customization options.
+
+## Contributing
+
+Issues and suggestions are welcome. Useful contributions include:
+
+- Bug reports with sample input and expected output.
+- Tool suggestions for common publishing workflows.
+- Accessibility improvements.
+- Browser compatibility fixes.
+- Clear documentation updates.
+
+## License
+
+This project is released under the ISC license.
+
+## Website
+
+Visit the live site: [MarkdownHTMLGen.com](https://www.markdownhtmlgen.com/)
