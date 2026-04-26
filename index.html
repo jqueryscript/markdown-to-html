@@ -176,6 +176,7 @@
                     <a href="markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
                     <a href="epub-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">EPUB to Markdown</a>
                     <a href="markdown-to-plain-text-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Plain Text</a>
+                    <a href="markdown-to-medium-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Medium</a>
                     <a href="gutenberg-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Gutenberg to Markdown</a>
                 </div>
             </div>
@@ -208,6 +209,7 @@
                                 <a href="markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
                                 <a href="epub-to-markdown-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">EPUB to Markdown</a>
                                 <a href="markdown-to-plain-text-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Plain Text</a>
+                                <a href="markdown-to-medium-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Medium</a>
                                 <a href="gutenberg-to-markdown-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Gutenberg to Markdown</a>
                             </div>
                         </div>
@@ -636,126 +638,6 @@
                     </div>
                 </section>
 
-                <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-gray-800" id="changelog">Changelog</h2>
-                        <p class="mt-2 text-lg text-gray-600">Recent updates and improvements.</p>
-                    </div>
-                    <div class="max-w-3xl mx-auto">
-                        <ul class="space-y-6 border-l-2 border-gray-200 pl-6">
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">December 31, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>🎉 <strong>Major Launch:</strong> Added new "Gutenberg to Markdown" converter tool for WordPress Gutenberg block conversion.</li>
-                                    <li>✨ Parse WordPress Gutenberg blocks (paragraphs, headings, lists, quotes, code blocks, tables, images) to clean Markdown format.</li>
-                                    <li>⚙️ Added option to preserve original block comments for debugging or reference.</li>
-                                    <li>🧹 Implemented automatic extra spacing cleanup for cleaner output.</li>
-                                    <li>📥 Added export functionality to download converted content as .md files.</li>
-                                    <li>🔄 Updated navigation across all tool pages to include the new Gutenberg converter.</li>
-                                    <li>✅ Fixed missing navigation links in desktop dropdown menus and footer quick links across all pages.</li>
-                                    <li>🗺️ Updated sitemap.xml to include all tools with proper priorities and lastmod dates.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">November 3, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>🎉 <strong>Major Launch:</strong> Added new "Markdown to Screenshot Generator" tool with Snapdom technology for creating beautiful AI prompt and code screenshots.</li>
-                                    <li>✨ Implemented social media presets for 9 major platforms (Twitter/X, Facebook, Instagram, LinkedIn, Reddit, Pinterest, TikTok, YouTube) with optimal dimensions.</li>
-                                    <li>🎨 Added 5 distinct gradient backgrounds and 5 card templates with proper dark/light theme support.</li>
-                                    <li>📏 Enhanced drag-to-resize functionality with prominent, always-visible resize handle.</li>
-                                    <li>⚡ Added typography controls with adjustable font size (14px-24px) and line height (1.4-2.0).</li>
-                                    <li>🔄 Updated navigation across all tool pages to include the new Screenshot Generator.</li>
-                                    <li>♿ Improved accessibility with ARIA labels and semantic HTML structure.</li>
-                                    <li>🚀 Enhanced performance with debounced input processing and error handling optimizations.</li>
-                                    <li>📱 Fully responsive design optimized for both desktop and mobile devices.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">October 13, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>Added new "Markdown to Plain Text" converter tool for removing Markdown formatting while preserving text structure.</li>
-                                    <li>Updated navigation across all tool pages to include the new Plain Text converter.</li>
-                                    <li>Enhanced cross-linking between all Markdown tools for better user discovery and navigation.</li>
-                                    <li>Updated legacy pages to replace "coming soon" placeholders with actual tool links.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">October 8, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>Improved HTML to Markdown converter to better handle complex HTML structures with arbitrary attributes.</li>
-                                    <li>Integrated GFM plugin for enhanced table conversion.</li>
-                                    <li>Added a pre-conversion step to clean HTML by removing non-essential attributes.</li>
-                                    <li>Expanded the attribute whitelist to preserve more semantic information like table alignment and list start numbers.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">September 23, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>Added comprehensive EPUB to Markdown converter with full eBook extraction capabilities.</li>
-                                    <li>Implemented FAQ schema structured data across all tool pages for better SEO.</li>
-                                    <li>Standardized navigation ordering across all tools: WYSIWYG Editor → Merge Markdown → Markdown to Word → Markdown to EPUB → EPUB to Markdown.</li>
-                                    <li>Fixed HTML validation issues and ensured all pages pass W3C standards.</li>
-                                    <li>Unified meta tags and social media optimization across all converter pages.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">September 22, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>Added new "Markdown to Word" converter tool with full DOCX file generation support.</li>
-                                    <li>Updated navigation across all tool pages to include the new Word converter.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">September 21, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>Restructured navigation to group secondary tools under a "More Free Markdown Tools" dropdown, improving layout and scalability.</li>
-                                    <li>Synced header and footer design across all tool pages for a consistent user experience.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">September 15, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>Added "Custom CSS" input feature for live preview and download.</li>
-                                    <li>Refactored preview panel to use an `iframe` to isolate styles.</li>
-                                    <li>Added "Escape HTML Special Chars" feature to display HTML tags as plain text.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">September 14, 2025</div>
-                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                                    <li>Added "Clean HTML" feature to prevent XSS attacks.</li>
-                                    <li>Redesigned the Features section to a 2-column layout for a cleaner look.</li>
-                                    <li>Added a Changelog section to track updates.</li>
-                                </ul>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">September 11, 2025</div>
-                                <p class="text-gray-600 mt-1">Introduced a new "Markdown to EPUB" converter and unified branding across all tools.</p>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">August 27, 2025</div>
-                                <p class="text-gray-600 mt-1">Implemented various bug fixes and content updates, including switching to absolute URLs for better site consistency.</p>
-                            </li>
-                            <li class="relative">
-                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
-                                <div class="font-semibold text-gray-800">August 26, 2025</div>
-                                <p class="text-gray-600 mt-1">Added a new WYSIWYG Markdown Editor and fixed several styling issues.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
                 <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm"><h2 class="text-2xl font-bold text-gray-800 mb-6" id="markdown">Markdown Cheatsheet</h2><div class="prose max-w-none">
                     <h3>Headers</h3><p>Use hashtags to create headers. More hashtags mean a smaller header.</p><pre><code># Header 1
 ## Header 2
@@ -772,7 +654,8 @@
 ![alt text](path/to/image.jpg)</code></pre>
                     <h3>Quotes and Code</h3><p>Highlight quotes and code snippets.</p><pre><code>> This is a blockquote.
 
-`inline code`<h3>Tables</h3><p>Organize data with tables.</p><pre><code>| Header 1 | Header 2 |
+`inline code`</code></pre>
+                    <h3>Tables</h3><p>Organize data with tables.</p><pre><code>| Header 1 | Header 2 |
 | :--- | :--- |
 | Cell 1 | Cell 2 |
 | Cell 3 | Cell 4 |</code></pre>
@@ -780,6 +663,98 @@
 - [ ] Incomplete task</code></pre>
                     <h3>Horizontal Rule</h3><p>Create a horizontal line.</p><pre><code>---</code></pre>
                 </div></section>
+                <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-800" id="changelog">Changelog</h2>
+                        <p class="mt-2 text-lg text-gray-600">Recent updates and improvements.</p>
+                    </div>
+                    <div class="max-w-3xl mx-auto">
+                        <ul class="space-y-6 border-l-2 border-gray-200 pl-6">
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">April 27, 2026</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added the Markdown to Medium Formatter for preparing Markdown drafts for the Medium editor.</li>
+                                    <li>Added rich text copy, title extraction, table conversion, source link, and HTML download options.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">December 31, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added a Gutenberg to Markdown converter for WordPress block content.</li>
+                                    <li>Added support for paragraphs, headings, lists, quotes, code blocks, tables, and images.</li>
+                                    <li>Added Markdown file download for converted Gutenberg content.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-indigo-600 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">November 3, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added a Markdown to Screenshot Generator for prompts, code, and Markdown snippets.</li>
+                                    <li>Added social media size presets, gradient backgrounds, card templates, and drag-to-resize controls.</li>
+                                    <li>Added font size and line height controls for screenshot exports.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">October 13, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added a Markdown to Plain Text converter.</li>
+                                    <li>Added options for line breaks, URL removal, emoji removal, and whitespace cleanup.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">October 8, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Improved the HTML to Markdown converter for cleaner Markdown output.</li>
+                                    <li>Improved table, list, link, and formatting conversion.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 23, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added an EPUB to Markdown converter for extracting eBook content.</li>
+                                    <li>Added chapter preservation and metadata extraction options.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 22, 2025</div>
+                                <p class="text-gray-600 mt-1">Added a Markdown to Word converter for DOCX downloads.</p>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 15, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added custom CSS support for Markdown to HTML previews.</li>
+                                    <li>Added an option to escape HTML special characters.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 14, 2025</div>
+                                <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                                    <li>Added a Clean HTML option.</li>
+                                    <li>Added this Changelog section.</li>
+                                </ul>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">September 11, 2025</div>
+                                <p class="text-gray-600 mt-1">Added a Markdown to EPUB converter.</p>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-6 -translate-x-1/2 w-3 h-3 bg-gray-400 rounded-full"></span>
+                                <div class="font-semibold text-gray-800">August 26, 2025</div>
+                                <p class="text-gray-600 mt-1">Added a WYSIWYG Markdown Editor.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
             </div>
         </main>
     </div>
@@ -796,7 +771,7 @@
                 <div>
                     <h3 class="text-lg font-bold text-white mb-4">MarkdownHTMLGen</h3>
                     <p class="text-sm">Your free Markdown to HTML converter. Instant, privacy-first, and AI content friendly.</p>
-                    <p class="text-sm mt-4">&copy; 2025 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
+                    <p class="text-sm mt-4">&copy; 2026 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
                 </div>
 
                 <!-- Column 2: Quick Links -->
@@ -812,6 +787,7 @@
                         <li><a href="markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
                         <li><a href="epub-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">EPUB to Markdown</a></li>
                         <li><a href="markdown-to-plain-text-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Plain Text</a></li>
+                        <li><a href="markdown-to-medium-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Medium</a></li>
                         <li><a href="gutenberg-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">Gutenberg to Markdown</a></li>
                                             </ul>
                 </div>

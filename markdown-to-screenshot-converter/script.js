@@ -1,4 +1,4 @@
-// Wait for DOM to be loaded
+﻿// Wait for DOM to be loaded
 document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Element References (moved to top!)
     const menuButton = document.getElementById('menu-button');
@@ -311,12 +311,12 @@ document.addEventListener('DOMContentLoaded', () => {
         bgTemplateSelect.addEventListener('change', () => {
             const screenshotContainer = document.getElementById('screenshot-container');
             if (screenshotContainer) {
-                // 如果选择了说明选项，不应用任何背景
+                // Do not apply a background when the placeholder option is selected
                 if (bgTemplateSelect.value === '') {
-                    // 保持当前背景，只移除bg-*类，保留基础类
+                    // Keep the base classes and remove only bg-* classes
                     screenshotContainer.className = screenshotContainer.className.replace(/bg-\w+/g, '');
                 } else {
-                    // 添加正确的背景CSS类
+                    // Add the selected background CSS class
                     screenshotContainer.className = `screenshot-container bg-${bgTemplateSelect.value}`;
                 }
             }
@@ -327,12 +327,12 @@ document.addEventListener('DOMContentLoaded', () => {
         templateSelect.addEventListener('change', () => {
             const screenshotWorkspace = document.getElementById('screenshot-workspace');
             if (screenshotWorkspace) {
-                // 如果选择了说明选项，不应用任何卡片样式
+                // Do not apply a card style when the placeholder option is selected
                 if (templateSelect.value === '') {
-                    // 保持当前卡片样式，只移除template-*类，保留基础类
+                    // Keep the base classes and remove only template-* classes
                     screenshotWorkspace.className = screenshotWorkspace.className.replace(/template-\w+/g, '');
                 } else {
-                    // 添加正确的卡片CSS类
+                    // Add the selected card CSS class
                     screenshotWorkspace.className = `screenshot-workspace template-${templateSelect.value}`;
                 }
             }
@@ -556,14 +556,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Template and Style Functions ---
     const getBackgroundColors = (template) => {
         const templates = {
-            // 匹配HTML选项值
-            'modern-light': ['#667eea', '#764ba2'],        // 紫色渐变
-            'dark-code': ['#1a1a1a', '#2d2d2d'],          // 暗色渐变
-            'github-style': ['#ffd89b', '#19547b'],        // 温暖日落渐变
-            'gradient': ['#ffecd2', '#fcb69f'],            // 桃色渐变
-            'minimal': ['#e0e0e0', '#f5f5f5'],            // 浅灰渐变
+            // Match HTML option values
+            'modern-light': ['#667eea', '#764ba2'],        // Purple gradient
+            'dark-code': ['#1a1a1a', '#2d2d2d'],          // Dark gradient
+            'github-style': ['#ffd89b', '#19547b'],        // Warm sunset gradient
+            'gradient': ['#ffecd2', '#fcb69f'],            // Peach gradient
+            'minimal': ['#e0e0e0', '#f5f5f5'],            // Light gray gradient
 
-            // 保留现代渐变选项以备将来使用
+            // Keep modern gradient options for future use
             'gradient-sunset': ['#ff6b6b', '#feca57'],
             'gradient-ocean': ['#48dbfb', '#0abde3'],
             'gradient-forest': ['#00d2d3', '#55a3ff'],
@@ -580,39 +580,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const getCardStyles = (template) => {
         const styles = {
-            // 匹配HTML选项值 - 重新设计为真正有区别的样式
+            // Match HTML option values with distinct redesigned styles
             'modern-light': {
                 bg: '#ffffff',
                 color: '#1a1a1a',
                 border: '1px solid #e1e4e8',
                 shadow: '0 8px 32px rgba(0, 0, 0, 0.12)'
-            },     // 真正的浅色现代风格
+            },     // True light modern style
             'dark-code': {
                 bg: '#0d1117',
                 color: '#e6edf3',
                 border: '1px solid #30363d',
                 shadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
-            },        // 经典暗色代码风格
+            },        // Classic dark code style
             'github-style': {
                 bg: '#ffffff',
                 color: '#24292f',
                 border: '1px solid #d0d7de',
                 shadow: '0 8px 24px rgba(0, 0, 0, 0.1)'
-            },     // GitHub的浅色主题
+            },     // GitHub light theme
             'gradient': {
                 bg: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
                 color: '#ffffff',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 shadow: '0 8px 32px rgba(240, 147, 251, 0.3)'
-            },    // 粉色渐变卡片
+            },    // Pink gradient card
             'minimal': {
                 bg: '#fafbfc',
                 color: '#24292f',
                 border: '1px solid #e1e4e8',
                 shadow: '0 2px 8px rgba(0, 0, 0, 0.08)'
-            },          // 极简浅色风格
+            },          // Minimal light style
 
-            // 保留原始卡片样式以备将来使用
+            // Keep original card styles for future use
             'card-dark': { bg: '#1a1a1a', color: '#ffffff' },
             'card-light': { bg: '#ffffff', color: '#1a1a1a' },
             'card-glass': { bg: 'rgba(255, 255, 255, 0.1)', color: '#ffffff' },
@@ -771,20 +771,20 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePreview();
         updatePlaceholder();
 
-        // 初始化模板样式
+        // Peach gradient
         initializeTemplateStyles();
 
-        // 初始化字体大小和行高
+        // Light gray gradient
         initializeTypographyStyles();
 
-        // 初始化宽度调整手柄
+        // Keep modern gradient options for future use
         initializeResizeHandle();
     }
 
-    // 调试函数
-    // 移除调试函数，直接修复原始手柄
+    // Match HTML option values with distinct redesigned styles
+    // True light modern style
 
-    // 初始化模板样式函数
+    // Classic dark code style
     function initializeTemplateStyles() {
         if (bgTemplateSelect) {
             const screenshotContainer = document.getElementById('screenshot-container');
@@ -801,7 +801,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 初始化字体大小和行高样式函数
+    // GitHub light theme
     function initializeTypographyStyles() {
         if (codeEditor) {
             // Set default font size
@@ -844,7 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newWidth = Math.max(600, Math.min(2000, startWidth + deltaX)); // Min 600px, Max 2000px
 
         screenshotContainer.style.width = `${newWidth}px`;
-        // 清除固定高度以允许内容自适应，但保持最小高度
+        // Pink gradient card
         const currentMinHeight = screenshotContainer.style.minHeight;
         if (!currentMinHeight) {
             screenshotContainer.style.minHeight = '400px';
@@ -880,7 +880,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newWidth = Math.max(600, Math.min(2000, startWidth + deltaX)); // Min 600px, Max 2000px
 
         screenshotContainer.style.width = `${newWidth}px`;
-        // 清除固定高度以允许内容自适应，但保持最小高度
+        // Minimal light style
         const currentMinHeight = screenshotContainer.style.minHeight;
         if (!currentMinHeight) {
             screenshotContainer.style.minHeight = '400px';

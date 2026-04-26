@@ -46,6 +46,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://www.markdownhtmlgen.com/markdown-to-medium-converter/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://www.markdownhtmlgen.com/html-to-markdown-converter/</loc>
     <lastmod>2025-12-31</lastmod>
     <priority>0.75</priority>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Markdown to Medium Formatter - Copy Rich Text to Medium</title>
+    <meta name="description" content="Free, privacy-first Markdown to Medium formatter. Convert Markdown into clean rich text you can paste into the Medium editor.">
+    <link rel="canonical" href="https://www.markdownhtmlgen.com/markdown-to-medium-converter/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.markdownhtmlgen.com/markdown-to-medium-converter/">
+    <meta property="og:title" content="Free Markdown to Medium Formatter - Copy Rich Text to Medium">
+    <meta property="og:description" content="Convert Markdown into Medium-ready rich text with clean headings, lists, links, quotes, and code blocks.">
+    <meta property="og:image" content="https://www.markdownhtmlgen.com/images/android-chrome-512x512.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.markdownhtmlgen.com/markdown-to-medium-converter/">
+    <meta property="twitter:title" content="Free Markdown to Medium Formatter - Copy Rich Text to Medium">
+    <meta property="twitter:description" content="Convert Markdown into Medium-ready rich text with clean headings, lists, links, quotes, and code blocks.">
+    <meta property="twitter:site" content="@jqueryscript">
+    <meta property="twitter:image" content="https://www.markdownhtmlgen.com/images/android-chrome-512x512.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../style.css?v9">
+    <style>
+        .medium-preview {
+            color: #242424;
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            font-size: 20px;
+            line-height: 1.75;
+        }
+
+        .medium-preview h1,
+        .medium-preview h2,
+        .medium-preview h3,
+        .medium-preview h4 {
+            color: #242424;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 1.6em 0 0.6em;
+        }
+
+        .medium-preview h1 { font-size: 2.1rem; }
+        .medium-preview h2 { font-size: 1.7rem; }
+        .medium-preview h3 { font-size: 1.35rem; }
+        .medium-preview p { margin: 0 0 1.1em; }
+        .medium-preview a { color: #1a8917; text-decoration: underline; text-underline-offset: 0.18em; }
+        .medium-preview ul,
+        .medium-preview ol { margin: 0 0 1.2em 1.5em; padding: 0; }
+        .medium-preview li { margin: 0.35em 0; }
+        .medium-preview blockquote {
+            border-left: 3px solid #242424;
+            color: #3f3f3f;
+            font-style: italic;
+            margin: 1.4em 0;
+            padding-left: 1em;
+        }
+        .medium-preview pre {
+            background: #f6f6f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.86rem;
+            line-height: 1.6;
+            margin: 1.4em 0;
+            overflow-x: auto;
+            padding: 1rem;
+        }
+        .medium-preview code {
+            background: #f2f2f2;
+            border-radius: 0.25rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.9em;
+            padding: 0.12em 0.28em;
+        }
+        .medium-preview pre code { background: transparent; padding: 0; }
+        .medium-preview img {
+            border-radius: 0.5rem;
+            display: block;
+            height: auto;
+            margin: 1.5em auto;
+            max-width: 100%;
+        }
+        .medium-preview hr {
+            border: 0;
+            border-top: 1px solid #d1d5db;
+            margin: 2em 0;
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F265C83TM1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F265C83TM1');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.markdownhtmlgen.com/markdown-to-medium-converter/#webpage",
+          "url": "https://www.markdownhtmlgen.com/markdown-to-medium-converter/",
+          "name": "Free Markdown to Medium Formatter - Copy Rich Text to Medium",
+          "description": "Free online Markdown to Medium formatter. Convert Markdown into clean rich text for the Medium editor.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "url": "https://www.markdownhtmlgen.com/",
+            "name": "MarkdownHTMLGen"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.markdownhtmlgen.com/markdown-to-medium-converter/#softwareapplication",
+          "name": "Markdown to Medium Formatter",
+          "description": "A free, privacy-first formatter that converts Markdown into Medium-ready rich text.",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Web",
+          "url": "https://www.markdownhtmlgen.com/markdown-to-medium-converter/",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.markdownhtmlgen.com/markdown-to-medium-converter/#faqpage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does Medium support Markdown directly?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Medium uses a rich text editor. This tool converts Markdown into formatted rich text that can be copied and pasted into Medium."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my content uploaded to a server?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Markdown conversion happens in your browser. Your text and files stay on your device."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use this for repurposed blog posts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The formatter is useful for adapting Markdown drafts, blog posts, AI-assisted drafts, and article excerpts for Medium."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden hidden"></div>
+    <aside id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col flex-shrink-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-30 fixed h-full lg:hidden">
+        <div class="h-16 flex items-center justify-center text-2xl font-bold"><span>MarkdownHTMLGen</span></div>
+        <nav class="flex-1 px-2 space-y-1">
+            <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to HTML</a>
+            <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">HTML to Markdown</a>
+            <div>
+                <button type="button" class="w-full flex items-center justify-between px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white" id="mobile-tools-button">
+                    <span>More Tools</span>
+                    <svg class="h-5 w-5 transform transition-transform duration-200" id="mobile-tools-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="mobile-tools-menu" class="pl-4 space-y-1 hidden">
+                    <a href="../markdown-editor/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">WYSIWYG Editor</a>
+                    <a href="../markdown-to-screenshot-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Screenshot</a>
+                    <a href="../merge-markdown/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Merge Markdown</a>
+                    <a href="../markdown-to-word-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Word</a>
+                    <a href="../markdown-to-epub-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to EPUB</a>
+                    <a href="../epub-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">EPUB to Markdown</a>
+                    <a href="../markdown-to-plain-text-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Markdown to Plain Text</a>
+                    <a href="./" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-400 bg-gray-900">Markdown to Medium</a>
+                    <a href="../gutenberg-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">Gutenberg to Markdown</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
+            <div class="flex items-center">
+                <a href="../" class="text-2xl font-bold text-gray-800 hover:text-indigo-600"><span>MarkdownHTMLGen</span></a>
+                <nav class="ml-10 space-x-4 hidden lg:flex items-center">
+                    <a href="../" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">Markdown to HTML</a>
+                    <a href="../html-to-markdown-converter/" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-500 hover:text-indigo-600">HTML to Markdown</a>
+                    <div class="relative" id="tools-dropdown">
+                        <button type="button" class="flex items-center px-2 py-2 text-base font-medium rounded-md text-indigo-600 bg-indigo-100" id="tools-dropdown-button">
+                            <span>More Free Markdown Tools</span>
+                            <svg class="ml-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="tools-dropdown-menu" class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="tools-dropdown-button">
+                                <a href="../markdown-editor/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">WYSIWYG Markdown Editor</a>
+                                <a href="../markdown-to-screenshot-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Screenshot</a>
+                                <a href="../merge-markdown/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Merge Markdown</a>
+                                <a href="../markdown-to-word-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Word</a>
+                                <a href="../markdown-to-epub-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to EPUB</a>
+                                <a href="../epub-to-markdown-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">EPUB to Markdown</a>
+                                <a href="../markdown-to-plain-text-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Markdown to Plain Text</a>
+                                <a href="./" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100 font-semibold" role="menuitem">Markdown to Medium</a>
+                                <a href="../gutenberg-to-markdown-converter/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Gutenberg to Markdown</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <button id="menu-button" class="lg:hidden text-gray-500 hover:text-gray-700" aria-label="Open navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="max-w-screen-lg mx-auto">
+        <main class="p-4 sm:p-6">
+            <section class="text-center mb-10">
+                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl" id="converter">Markdown to Medium Formatter</h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">Convert Markdown into clean rich text that you can paste into the Medium editor without leaving raw Markdown syntax behind.</p>
+            </section>
+
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="flex flex-col">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-4" id="input-tabs">
+                            <button data-tab="markdown" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">Markdown</button>
+                            <button data-tab="upload" type="button" class="tab-btn whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-inactive">Upload File</button>
+                        </nav>
+                    </div>
+                    <div class="mt-4 h-96 relative">
+                        <div id="input-content-markdown" class="tab-content absolute inset-0">
+                            <textarea id="markdown-input" class="w-full h-full p-4 text-base border border-gray-300 rounded-lg shadow-sm resize-none" spellcheck="true" placeholder="Paste your Markdown article here..."></textarea>
+                        </div>
+                        <div id="input-content-upload" class="tab-content absolute inset-0 hidden">
+                            <div id="drop-area" class="flex items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload-cloud w-10 h-10 mb-3 text-gray-400"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m16 16-4-4-4 4"></path></svg>
+                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                    <p class="text-xs text-gray-500">a .md or .txt file</p>
+                                </div>
+                                <input id="file-upload" type="file" class="hidden" accept=".md,.txt,text/markdown,text/plain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-4">
+                            <span class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-base tab-active">Medium Preview</span>
+                        </nav>
+                    </div>
+                    <div class="mt-4 h-96 flex flex-col gap-4">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+                            <label for="medium-title" class="block text-sm font-semibold text-gray-700 mb-2">Medium title</label>
+                            <div class="flex gap-2">
+                                <input id="medium-title" type="text" class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-base" readonly>
+                                <button id="copy-title" type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 active:translate-y-px transition-all duration-200">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4 mr-1.5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2"/></svg>
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden flex-1 flex flex-col">
+                            <div class="flex items-center justify-between gap-3 p-3 border-b border-gray-200 bg-gray-50">
+                                <div class="text-sm text-gray-600">
+                                    <span id="word-count">0 words</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span id="reading-time">0 min read</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button id="copy-plain" type="button" class="inline-flex items-center px-3 py-1.5 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-md hover:bg-indigo-100 active:translate-y-px transition-all duration-200">Copy Text</button>
+                                    <button id="copy-rich" type="button" class="inline-flex items-center px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 active:translate-y-px transition-all duration-200">Copy Rich Text</button>
+                                </div>
+                            </div>
+                            <article id="medium-preview" class="medium-preview flex-1 overflow-auto p-6 sm:p-8"></article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mt-6">
+                <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal h-6 w-6 text-indigo-600 mr-2"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><circle cx="14" cy="20" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="17" cy="4" r="2"/></svg>
+                    Formatting Options
+                </h2>
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                    <label class="flex items-start gap-3 text-sm text-gray-700">
+                        <input id="extract-title" type="checkbox" class="mt-1 h-4 w-4 text-indigo-600 border-gray-300 rounded" checked>
+                        <span><strong class="block text-gray-900">Use first H1 as title</strong>Remove the first H1 from the body and copy it into the Medium title field.</span>
+                    </label>
+                    <label class="flex items-start gap-3 text-sm text-gray-700">
+                        <input id="convert-tables" type="checkbox" class="mt-1 h-4 w-4 text-indigo-600 border-gray-300 rounded" checked>
+                        <span><strong class="block text-gray-900">Convert tables to lists</strong>Turn Markdown tables into readable bullet lists for Medium.</span>
+                    </label>
+                    <label class="flex items-start gap-3 text-sm text-gray-700">
+                        <input id="clean-html" type="checkbox" class="mt-1 h-4 w-4 text-indigo-600 border-gray-300 rounded" checked>
+                        <span><strong class="block text-gray-900">Clean inline HTML</strong>Keep safe article tags and remove layout markup.</span>
+                    </label>
+                    <label class="flex items-start gap-3 text-sm text-gray-700">
+                        <input id="append-source" type="checkbox" class="mt-1 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        <span><strong class="block text-gray-900">Add source link</strong>Append a link back to the full article.</span>
+                    </label>
+                </div>
+                <div class="mt-4 grid gap-3 md:grid-cols-[1fr_auto]">
+                    <input id="source-url" type="url" class="border border-gray-300 rounded-md px-3 py-2 text-sm" placeholder="https://example.com/full-article">
+                    <button id="download-html" type="button" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-gray-900 active:translate-y-px transition-all duration-200">
+                        Download HTML
+                    </button>
+                </div>
+            </section>
+
+            <div class="mt-16 space-y-12">
+                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800" id="features">Features</h2>
+                        <p class="mt-2 text-lg text-gray-600">Built for publishers who draft in Markdown and publish on Medium.</p>
+                    </div>
+                    <div class="mt-8 grid gap-8 md:grid-cols-2">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard h-6 w-6 text-indigo-600"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Rich Text Copy</h3>
+                                <p class="mt-1 text-base text-gray-600">Copy formatted content, then paste it directly into the Medium editor.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heading h-6 w-6 text-indigo-600"><path d="M6 12h12"/><path d="M6 20V4"/><path d="M18 20V4"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Title Extraction</h3>
+                                <p class="mt-1 text-base text-gray-600">Use your first H1 as the Medium title and keep the body clean.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-table h-6 w-6 text-indigo-600"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Medium-Safe Tables</h3>
+                                <p class="mt-1 text-base text-gray-600">Turn tables into list content that survives Medium paste behavior better.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex items-start">
+                            <div class="flex-shrink-0 flex justify-center items-center bg-indigo-100 rounded-md h-12 w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-6 w-6 text-indigo-600"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Private Processing</h3>
+                                <p class="mt-1 text-base text-gray-600">Markdown conversion runs locally in your browser. No upload is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800" id="how-it-works">How It Works</h2>
+                        <p class="mt-2 text-lg text-gray-600">A simple workflow for Medium publishing.</p>
+                    </div>
+                    <div class="mt-8 grid gap-8 md:grid-cols-3">
+                        <div class="text-center">
+                            <div class="flex justify-center items-center w-16 h-16 bg-indigo-100 rounded-full mx-auto"><span class="text-2xl font-bold text-indigo-600">1</span></div>
+                            <h3 class="mt-4 text-lg font-bold text-gray-800">Paste Markdown</h3>
+                            <p class="mt-2 text-gray-600">Add your Markdown draft or upload a local Markdown file.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="flex justify-center items-center w-16 h-16 bg-indigo-100 rounded-full mx-auto"><span class="text-2xl font-bold text-indigo-600">2</span></div>
+                            <h3 class="mt-4 text-lg font-bold text-gray-800">Review Format</h3>
+                            <p class="mt-2 text-gray-600">Check headings, links, quotes, lists, images, and code blocks in the preview.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="flex justify-center items-center w-16 h-16 bg-indigo-100 rounded-full mx-auto"><span class="text-2xl font-bold text-indigo-600">3</span></div>
+                            <h3 class="mt-4 text-lg font-bold text-gray-800">Paste to Medium</h3>
+                            <p class="mt-2 text-gray-600">Copy the title and rich text, then paste them into Medium.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-gray-800" id="use-cases">Use Cases</h2>
+                        <p class="mt-2 text-lg text-gray-600">Useful for republishing and platform-specific drafts.</p>
+                    </div>
+                    <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <h3 class="text-lg font-bold text-gray-800">Repurposed Blog Posts</h3>
+                            <p class="mt-2 text-gray-600">Turn a Markdown article into a Medium-ready version with a clean body and optional source link.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <h3 class="text-lg font-bold text-gray-800">AI-Assisted Drafts</h3>
+                            <p class="mt-2 text-gray-600">Format drafts from AI writing tools before editing and publishing them on Medium.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <h3 class="text-lg font-bold text-gray-800">List Articles</h3>
+                            <p class="mt-2 text-gray-600">Prepare tool lists, comparison posts, and roundup articles with readable headings and bullets.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-sm">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-800" id="faq">Frequently Asked Questions</h2>
+                        <p class="mt-2 text-lg text-gray-600">Common questions about Markdown and Medium formatting.</p>
+                    </div>
+                    <div id="faq-accordion" class="max-w-3xl mx-auto space-y-4">
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Does Medium support Markdown directly?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Medium uses a rich text editor. Paste formatted rich text from this tool instead of raw Markdown syntax.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Will every Markdown feature survive the Medium paste?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Headings, paragraphs, lists, links, blockquotes, and code blocks work best. Tables are converted to lists because Medium table support is limited.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Can I add a link back to my original article?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Yes. Enable the source link option and enter the URL of the full article before copying the rich text.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                            <button class="faq-question flex justify-between items-center w-full text-left p-5 font-semibold text-gray-800 hover:bg-gray-100">
+                                <span>Is my Markdown private?</span>
+                                <span class="faq-icon-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus faq-icon-plus h-5 w-5 text-indigo-600"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus faq-icon-minus h-5 w-5 text-indigo-600 hidden"><path d="M5 12h14"/></svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <p class="p-5 pt-0 text-base text-gray-600">Yes. The tool runs in your browser and does not upload your article text or files to a server.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../marked.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+
+    <footer class="bg-gray-800 text-gray-300 py-12 mt-16">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">MarkdownHTMLGen</h3>
+                    <p class="text-sm">Your complete suite of free Markdown tools. Instant, privacy-first, and content publisher friendly.</p>
+                    <p class="text-sm mt-4">&copy; 2026 markdownhtmlgen.com. Created by <a href="https://www.jqueryscript.net" rel="noopener" class="hover:text-white">jQueryScript</a>. All rights reserved.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../" class="text-sm hover:text-white transition-colors duration-200">Markdown to HTML</a></li>
+                        <li><a href="../html-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">HTML to Markdown</a></li>
+                        <li><a href="../markdown-editor/" class="text-sm hover:text-white transition-colors duration-200">WYSIWYG Markdown Editor</a></li>
+                        <li><a href="../markdown-to-screenshot-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Screenshot</a></li>
+                        <li><a href="../merge-markdown/" class="text-sm hover:text-white transition-colors duration-200">Merge Markdown</a></li>
+                        <li><a href="../markdown-to-word-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Word</a></li>
+                        <li><a href="../markdown-to-epub-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to EPUB</a></li>
+                        <li><a href="../epub-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">EPUB to Markdown</a></li>
+                        <li><a href="../markdown-to-plain-text-converter/" class="text-sm hover:text-white transition-colors duration-200">Markdown to Plain Text</a></li>
+                        <li><a href="./" class="text-sm text-white font-semibold">Markdown to Medium</a></li>
+                        <li><a href="../gutenberg-to-markdown-converter/" class="text-sm hover:text-white transition-colors duration-200">Gutenberg to Markdown</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Legal & Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../privacy.html" class="text-sm hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="text-sm hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Facebook" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="https://x.com/jqueryscript" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="X" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-6 w-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+                        <a href="https://www.youtube.com/@jQueryScriptCSS" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="YouTube" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube h-6 w-6"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2h15a2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+                    </div>
+                    <p class="text-sm mt-4">Stay updated with our latest tools and features.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
